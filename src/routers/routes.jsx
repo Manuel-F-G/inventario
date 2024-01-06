@@ -1,7 +1,21 @@
 import {Routes,Route} from "react-router-dom"
-import {Home, Login, ProtectedRoute, UserAuth} from "../index"
+import {Home, Login, ProtectedRoute, UserAuth, useUsuariosStore, SpinnerLoader, ErrorMolecula, useEmpresaStore} from "../index"
+import { useQuery } from "@tanstack/react-query";
 export function MyRoutes(){
-    const {user} = UserAuth()
+    const {user} = UserAuth();
+    const {mostrarUsuarios, idusuario} = useUsuariosStore();
+    const {mostrarEmpresa} = useEmpresaStore();
+    const { data:datausuarios, isLoading, error } = useQuery({
+        queryKey:["mostrar usuarios"],
+        queryFn: ()=> mostrarUsuarios(),
+    });
+    const {data:dataempresa}=useQuery({queryKey:["mostrar empresa"],queryFn:()=>mostrarEmpresa({idusaurio:idusuario}),enabled:!!datausuarios}) 
+    if (isLoading){
+        return <SpinnerLoader/>
+    }
+    if (error){
+        return <ErrorMolecula mensaje={error.message}/>
+    }
     return (
     <Routes>
         <Route path="/login" element ={<Login/>}/>

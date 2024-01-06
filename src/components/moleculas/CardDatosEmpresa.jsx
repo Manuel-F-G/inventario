@@ -15,6 +15,7 @@ export function CardDatosEmpresa ({titulo,valor,img}) {
     </Container>);
 }
 const Container = styled.div`
+z-index:1;
 .card{
     width: 190px;
     background: #fffefe;

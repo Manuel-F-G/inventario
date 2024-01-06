@@ -82,7 +82,7 @@ export function LoginTemplate() {
               {errors.pass?.type === "required" && <p>Campo requerido</p>}
             </InputText>
             <ContainerBtn>
-              <Btnsave titulo="Iniciar sesión" bgcolor="#fc6b32" />
+              <Btnsave titulo="Iniciar sesión" bgcolor="#fedc2a" />
               <Btnsave
                 funcion={() => setState(!state)}
                 titulo="Crear cuenta"
@@ -131,7 +131,7 @@ const Container = styled.div`
   }
 
   .bannerlateral {
-    background-color: #fc6b32;
+    background-color: #fedc2a;
     height: 100vh;
     display: flex;
     align-items: center;
