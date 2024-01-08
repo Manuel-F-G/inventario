@@ -12,13 +12,10 @@ export function BannerEmpresa(){
                     {dataempresa.empresa?.nombre}
                 </span>
                 <div className="content-text">
-                  {
-                   dataempresa.empresa?.nombre
-                  }nombre de la empresaFixeado
-                     
+                  Texto random
                 </div>
                 <ContentCards>
-                    <CardDatosEmpresa titulo="Moneda" valor="Mxn"/>
+                    <CardDatosEmpresa titulo="Moneda" valor={dataempresa.empresa?.simbolomoneda}/>
                     <CardDatosEmpresa titulo="Usuarios" valor="9999"/>
                 </ContentCards>
             </div>
