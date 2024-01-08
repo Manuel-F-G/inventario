@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Header,Title,BannerEmpresa} from "../../index";
+import {Header,Title,BannerEmpresa, useEmpresaStore} from "../../index";
 import {useState} from "react";
 export function HomeTemplate() {
   const [state, setState] = useState(false);
