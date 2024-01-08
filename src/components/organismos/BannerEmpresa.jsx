@@ -9,10 +9,13 @@ export function BannerEmpresa(){
             <div className="content-wrapper-context">
                 <span className="titulo">
                     {<v.iconoempresa />}
-                    No funca esta cosa
+                    {dataempresa.empresa?.nombre}
                 </span>
                 <div className="content-text">
-                    Aquí va un texto chidote
+                  {
+                   dataempresa.empresa?.nombre
+                  }nombre de la empresaFixeado
+                     
                 </div>
                 <ContentCards>
                     <CardDatosEmpresa titulo="Moneda" valor="Mxn"/>

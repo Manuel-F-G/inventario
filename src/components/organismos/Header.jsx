@@ -20,7 +20,7 @@ export function   Header({ stateConfig }) {
           icono={<v.iconocorona />}
           width="25px"
           height="25px"
-          bgcolor={`linear-gradient(15deg, rgba(255, 88, 58, 0.86) 9%, #f8bf5b 100%);`}
+          bgcolor={`linear-gradient(15deg, #fedc2a, #b1b1b1 100%);`}
           textcolor="#ffffff"
           fontsize="11px"
           translatex="-50px"

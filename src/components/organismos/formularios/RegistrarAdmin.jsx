@@ -88,7 +88,7 @@ export function RegistrarAdmin({ setState }) {
             <Btnsave
               icono={<v.iconoguardar />}
               titulo="Guardar"
-              bgcolor="#ff7556"  
+              bgcolor="#fedc2a"  
             />
           </div>
         </section>

@@ -180,7 +180,7 @@ const Container = styled.div`
       }
     }
     .frase {
-      color: #fc6c32;
+      color: #fedc2a;
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 30px;
@@ -227,5 +227,5 @@ const ContainerBtn = styled.div`
   justify-content: center;
 `;
 const TextoStateInicio = styled.p`
-  color: #fc7575;
+  color: #fedc2a;
 `;
