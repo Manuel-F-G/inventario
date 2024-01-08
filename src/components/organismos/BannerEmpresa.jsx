@@ -12,10 +12,7 @@ export function BannerEmpresa(){
                     {dataempresa.empresa?.nombre}
                 </span>
                 <div className="content-text">
-                  {
-                   dataempresa.empresa?.nombre
-                  }nombre de la empresaFixeado
-                     
+                  Aqui va un texto 
                 </div>
                 <ContentCards>
                     <CardDatosEmpresa titulo="Moneda" valor="Mxn"/>
