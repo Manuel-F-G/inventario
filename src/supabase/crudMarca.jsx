@@ -11,3 +11,11 @@ export async function InsertarMarca (p) {
     }
 }
 
+export async function MostrarMarca (p) {
+    const { data } = await supabase
+    .from("marca")
+    .select()
+    .eq("id_empresa", p.id_empresa)
+    .order("id", { ascending: false });
+    return data;
+}
