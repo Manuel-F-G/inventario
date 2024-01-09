@@ -10,9 +10,7 @@ export function ConfiguracionTemplate() {
       <div id="cards">
         {DataModulosConfiguracion.map((item, index) => {
           return (
-            <Link to={item.state?item.link:""} className={item.state?"card": "card false"} key={index}>
-
-            
+            <Link to={item.link} className={item.state?"card": "card false"} key={index}>
               <div class="card-content">
                 <div class="card-image">
                   <img src={item.icono} />
@@ -71,7 +69,7 @@ const Container = styled.div`
   }
 
   .card {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #fedc2a;
     border-radius: 10px;
     cursor: pointer;
     display: flex;
