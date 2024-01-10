@@ -19,3 +19,13 @@ export async function MostrarMarca (p) {
     .order("id", { ascending: false });
     return data;
 }
+
+export async function EliminarMarca (p) {
+    const { error } = await supabase
+    .from("marca")
+    .delete()
+    .eq("id", p.id);
+    if(error){
+        alert("Error al eliminar", error);
+    }
+}
