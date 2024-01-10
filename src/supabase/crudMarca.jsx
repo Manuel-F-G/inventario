@@ -26,6 +26,16 @@ export async function EliminarMarca (p) {
     .delete()
     .eq("id", p.id);
     if(error){
-        alert("Error al eliminar", error);
+        alert("Error al eliminar marca", error);
+    }
+}
+
+export async function EditarMarca (p) {
+    const  { error } = await supabase
+    .from("marca")
+    .update(p)
+    .eq ("id", p.id);
+    if (error) {
+        alert("Error al editar marca", error);
     }
 }
