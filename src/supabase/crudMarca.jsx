@@ -26,7 +26,7 @@ export async function EliminarMarca (p) {
     .delete()
     .eq("id", p.id);
     if(error){
-        alert("Error al eliminar marca", error);
+        alert("Error al eliminar marca", error.message);
     }
 }
 
@@ -36,6 +36,15 @@ export async function EditarMarca (p) {
     .update(p)
     .eq ("id", p.id);
     if (error) {
-        alert("Error al editar marca", error);
+        alert("Error al editar marca", error.message);
     }
+}
+
+export async function buscarMarca(p){
+    const { data } = await supabase
+    .from("marca")
+    .select()
+    .eq("id_empresa", p.id_empresa)
+    .ilike("descripcion","%"+p.descripcion+"%")
+    return data;
 }
