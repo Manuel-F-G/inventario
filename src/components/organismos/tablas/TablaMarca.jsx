@@ -3,16 +3,14 @@ import {
     getCoreRowModel, 
     getFilteredRowModel, 
     getPaginationRowModel,
-    getSortedRowModel, 
-    
+    getSortedRowModel,     
 } from "@tanstack/react-table";
 import styled from "styled-components";
 export function TablaMarca ({data}){
-    const columns=[
-        {
-
-        }
-    ]
+    const columns=[{
+        accessorKey: "descripcion",
+        header: "Descripción"
+    }];
     const table = useReactTable({
         data,
         columns,
@@ -20,9 +18,37 @@ export function TablaMarca ({data}){
         getFilteredRowModel: getFilteredRowModel(),
         getSortedRowModel: getSortedRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
+
     });
-    return (<Container>
-        <h1>Componente de las tablas</h1>
+    return (
+    <Container>
+        <table>
+            <thead>
+                {
+                    table.getHeaderGroups().map((headerGroup)=>(
+                        <tr key={headerGroup.id}>
+                            {headerGroup.headers.map((header)=>(
+                                <th key={header.id}></th>
+                            ))}
+                        </tr>
+                    ))
+                }
+            
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        $.01
+                    </td>
+                    <td>
+                        10
+                    </td>
+                    <td>
+                        10
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </Container>);
 }
 const Container = styled.div`
