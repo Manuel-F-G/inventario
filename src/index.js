@@ -16,6 +16,7 @@ export * from './components/organismos/formularios/RegistrarAdmin';
 export * from './components/organismos/formularios/inputText';
 export * from './components/organismos/sidebar/Sidebar';
 export * from './components/organismos/sidebar/SidebarCard';
+export * from './components/organismos/tablas/TablaMarca';
 export * from './components/templates/ConfiguracionTemplate';
 export * from './components/templates/HomeTemplate';
 export * from './components/templates/LoginTemplate';
