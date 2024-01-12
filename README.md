@@ -1,1 +1,1 @@
-No se que ando haciendo de mi vida, pero este es un proyecto chidote para la empresa GBE
+El asur es un pobre pendejo
