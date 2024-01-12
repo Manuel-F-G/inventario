@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { AccionTabla } from "../atomos/AccionTabla";
 export function ContentAccionesTabla(){
     return (<Container>
-        <h1>Acciones</h1>
+        <AccionTabla/>
     </Container>);
 }
 const Container = styled.div`

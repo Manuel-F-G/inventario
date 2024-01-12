@@ -1,4 +1,5 @@
 export { default as App } from './App';
+export * from './components/atomos/AccionTabla';
 export * from './components/atomos/Icono';
 export * from './components/atomos/Title';
 export * from './components/moleculas/BtnCircular';
