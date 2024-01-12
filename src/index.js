@@ -7,6 +7,7 @@ export * from './components/moleculas/CardDatosEmpresa';
 export * from './components/moleculas/ErrorMolecula';
 export * from './components/moleculas/SpinnerLoader';
 export * from './components/organismos/BannerEmpresa';
+export * from './components/organismos/ContentAccionesTabla';
 export * from './components/organismos/FooterLogin';
 export * from './components/organismos/Header';
 export * from './components/organismos/ListaMenuDesplegable';

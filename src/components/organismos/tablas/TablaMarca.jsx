@@ -3,14 +3,25 @@ import {
     getCoreRowModel, 
     getFilteredRowModel, 
     getPaginationRowModel,
-    getSortedRowModel,     
+    getSortedRowModel,
+    flexRender,     
 } from "@tanstack/react-table";
 import styled from "styled-components";
+import {ContentAccionesTabla} from "../../../index"
 export function TablaMarca ({data}){
     const columns=[{
         accessorKey: "descripcion",
-        header: "Descripción"
-    }];
+        header: "Descripción",
+        cell:(info)=><span>{info.getValue()}</span>
+    },
+    {
+        accessorKey: "acciones",
+        header: "Acciones",
+        cell:(info)=>(<td>
+            <ContentAccionesTabla/>
+        </td>)
+    }
+];
     const table = useReactTable({
         data,
         columns,
@@ -28,7 +39,9 @@ export function TablaMarca ({data}){
                     table.getHeaderGroups().map((headerGroup)=>(
                         <tr key={headerGroup.id}>
                             {headerGroup.headers.map((header)=>(
-                                <th key={header.id}></th>
+                                <th key={header.id}>
+                                    {header.column.columnDef.header}
+                                </th>
                             ))}
                         </tr>
                     ))
@@ -36,17 +49,19 @@ export function TablaMarca ({data}){
             
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        $.01
-                    </td>
-                    <td>
-                        10
-                    </td>
-                    <td>
-                        10
-                    </td>
-                </tr>
+                {table.getRowModel().rows.map((item)=>(
+                    <tr key={item.id}>
+                        {
+                            item.getVisibleCells().map((cell)=>(
+                                <td key={cell.id}>
+                                    {
+                                        flexRender(cell.column.columnDef.cell,cell.getContext())
+                                    }
+                                </td>
+                            ))
+                        }
+                    </tr>
+                ))}
             </tbody>
         </table>
     </Container>);
