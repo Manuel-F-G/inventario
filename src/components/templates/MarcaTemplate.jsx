@@ -16,7 +16,9 @@ export function MarcaTemplate({data}) {
         stateConfig={{state: state, setState: () => setState (!state)}}
         />
       </header>
-      <section className="area1"></section>
+      <section className="area1">
+        
+      </section>
       <section className="area2"></section>
       <section className="main">
         <TablaMarca data={data}/>
