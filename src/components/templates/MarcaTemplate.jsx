@@ -51,7 +51,5 @@ const Container = styled.div`
     .main{
       grid-area: main;
       background-color: hsl(120, 60%, 70%);
-      display: flex;
-      align-items: center;
     }
 `;
