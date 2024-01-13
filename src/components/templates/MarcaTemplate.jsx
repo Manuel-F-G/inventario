@@ -1,10 +1,16 @@
 import styled from "styled-components";
-import {Header, TablaMarca} from "../../index";
+import {Header, TablaMarca, RegistrarMarca} from "../../index";
 import {useState} from "react";
 export function MarcaTemplate({data}) {
   const [state, setState] = useState(false);
+  const [dataSelect, setdataSelect] = useState([]);
+  const [accion, setAccion] = useState("");
+  const [openRegistro, SetopenRegistro] = useState(false);
   return (
     <Container>
+      {
+        openRegistro && <RegistrarMarca dataSelect={dataSelect} accion={accion} onClose={()=>SetopenRegistro(!openRegistro)}/> 
+      }
       <header className="header">
         <Header
         stateConfig={{state: state, setState: () => setState (!state)}}
