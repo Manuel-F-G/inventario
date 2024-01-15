@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Header, TablaMarca, RegistrarMarca} from "../../index";
+import {Header, TablaMarca, RegistrarMarca, Btnfiltro, ContentFiltro, Title, v } from "../../index";
 import {useState} from "react";
 export function MarcaTemplate({data}) {
   const [state, setState] = useState(false);
@@ -17,7 +17,14 @@ export function MarcaTemplate({data}) {
         />
       </header>
       <section className="area1">
-        
+        <ContentFiltro>
+          <Title>
+            Marcas
+          </Title>
+        <Btnfiltro bgcolor="#f6f3f3"
+        textcolor="#353535"
+        icono={<v.agregar/>}/>
+        </ContentFiltro>
       </section>
       <section className="area2"></section>
       <section className="main">

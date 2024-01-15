@@ -20,6 +20,16 @@ font-size: 20px;
 position: relative;
 cursor: pointer;
 .contentIcon{
-    
+    position: absolute;
+    top: 25%;
+    bottom: 25%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    transition: 0.2s;
+    &:hover{
+        transform: scale(1.3);
+    }
 }
 `
