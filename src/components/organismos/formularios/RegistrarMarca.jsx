@@ -16,13 +16,13 @@ export function RegistrarMarca({ onClose, dataSelect, accion }) {
     if (accion === "Editar") {
       const p = {
         id: dataSelect.id,
-        descripcion: data.nombre,
+        descripcion:data.nombre,
       };
       await editarMarca(p);
       onClose();
     } else {
       const p = {
-        _descripcion: data.nombre,
+        _descripcion:data.nombre,
         _idempresa: dataempresa.id,
       };
       await insertarMarca(p);
@@ -61,7 +61,7 @@ export function RegistrarMarca({ onClose, dataSelect, accion }) {
                     required: true,
                   })}
                 />
-                <label className="form__label">Marca</label>
+                <label className="form__label">marca</label>
                 {errors.nombre?.type === "required" && <p>Campo requerido</p>}
               </InputText>
             </article>

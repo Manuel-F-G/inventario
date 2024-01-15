@@ -6,6 +6,11 @@ export function MarcaTemplate({data}) {
   const [dataSelect, setdataSelect] = useState([]);
   const [accion, setAccion] = useState("");
   const [openRegistro, SetopenRegistro] = useState(false);
+  const nuevoRegistro=()=>{
+    SetopenRegistro(!openRegistro);
+    setAccion("Nuevo")
+    setdataSelect([])
+  }
   return (
     <Container>
       {
@@ -21,7 +26,9 @@ export function MarcaTemplate({data}) {
           <Title>
             Marcas
           </Title>
-        <Btnfiltro bgcolor="#f6f3f3"
+        <Btnfiltro 
+        funcion={nuevoRegistro}
+        bgcolor="#f6f3f3"
         textcolor="#353535"
         icono={<v.agregar/>}/>
         </ContentFiltro>
