@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { InsertarMarca, MostrarMarca } from "../index"
+import { InsertarMarca, MostrarMarca, EliminarMarca } from "../index"
 export const useMarcaStore = create ((set,get)=>({
     buscador:"",
     setBuscador:(p)=>{

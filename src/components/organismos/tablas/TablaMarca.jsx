@@ -15,10 +15,10 @@ export function TablaMarca ({data}){
 
     }
     const eliminar = (p) => {
-        if(p.descripcion==="Generica"){
+        if(p.descripcion ==="Generica"){
             Swal.fire({
                 icon: "error",
-                title: "Chin...",
+                title: "Ops...",
                 text: "No puedes eliminar este registro ya que es un valor por defecto",
             });
             return;

@@ -9,13 +9,13 @@ export function BannerEmpresa(){
             <div className="content-wrapper-context">
                 <span className="titulo">
                     {<v.iconoempresa />}
-                    {dataempresa.empresa?.nombre}
+                    {dataempresa?.nombre}
                 </span>
                 <div className="content-text">
                   Texto random
                 </div>
                 <ContentCards>
-                    <CardDatosEmpresa titulo="Moneda" valor={dataempresa.empresa?.simbolomoneda}/>
+                    <CardDatosEmpresa titulo="Moneda" valor={dataempresa?.simbolomoneda}/>
                     <CardDatosEmpresa titulo="Usuarios" valor={contadorusuarios}/>
                 </ContentCards>
             </div>

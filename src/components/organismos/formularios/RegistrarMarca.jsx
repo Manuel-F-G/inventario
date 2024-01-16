@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import { v } from "../../../styles/variables";
-import { InputText, Btnsave, useMarcaStore } from "../../../index";
+import { InputText, Btnsave, useMarcaStore, useEmpresaStore } from "../../../index";
 import { useForm } from "react-hook-form";
-import { useEmpresaStore } from "../../../store/EmpresaStore";
 export function RegistrarMarca({ onClose, dataSelect, accion }) {
   const { insertarMarca, editarMarca } = useMarcaStore();
   const { dataempresa } = useEmpresaStore();
@@ -15,8 +14,8 @@ export function RegistrarMarca({ onClose, dataSelect, accion }) {
   async function insertar(data) {
     if (accion === "Editar") {
       const p = {
-        id: dataSelect.id,
-        descripcion:data.nombre,
+      id: dataSelect.id,
+      descripcion:data.nombre,
       };
       await editarMarca(p);
       onClose();
@@ -25,6 +24,7 @@ export function RegistrarMarca({ onClose, dataSelect, accion }) {
         _descripcion:data.nombre,
         _idempresa: dataempresa.id,
       };
+      console.log(p);
       await insertarMarca(p);
       onClose();
     }
@@ -38,6 +38,7 @@ export function RegistrarMarca({ onClose, dataSelect, accion }) {
       <div className="sub-contenedor">
         <div className="headers">
           <section>
+
             <h1>
               {accion == "Editar" ? "Editar marca" : "Registrar nueva marca"}
             </h1>

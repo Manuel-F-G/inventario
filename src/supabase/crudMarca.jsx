@@ -23,7 +23,6 @@ export async function MostrarMarca(p) {
   
 }
 export async function EliminarMarca(p) {
- 
     const { error } = await supabase
       .from("marca")
       .delete()

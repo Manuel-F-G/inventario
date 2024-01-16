@@ -6,8 +6,8 @@ export const useEmpresaStore = create((set,get)=>({
     dataempresa:[],
     mostrarEmpresa: async (p) => {
         const response = await MostrarEmpresa(p);
-        set({ dataempresa: response });  
-        return response; 
+        set({ dataempresa: response.empresa }); //aqui le pase el objeto empresa para que ahora el acceso sea directo 
+        return response.empresa; 
     },
     contarusuariosXempresa: async (p)=>{
         const response = await ContarUsuariosXempresa(p);
