@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import { v } from "../../../styles/variables";
-import { InputText, Btnsave, useMarcaStore, useEmpresaStore } from "../../../index";
+import { InputText, Btnsave, useMarcaStore,ConvertirCapitalize } from "../../../index";
 import { useForm } from "react-hook-form";
-export function RegistrarMarca({ onClose, dataSelect, accion }) {
+import { useEmpresaStore } from "../../../store/EmpresaStore";
+export function RegistrarCategorias({ onClose, dataSelect, accion }) {
   const { insertarMarca, editarMarca } = useMarcaStore();
   const { dataempresa } = useEmpresaStore();
   const {
@@ -14,17 +15,16 @@ export function RegistrarMarca({ onClose, dataSelect, accion }) {
   async function insertar(data) {
     if (accion === "Editar") {
       const p = {
-      id: dataSelect.id,
-      descripcion:data.nombre,
+        id: dataSelect.id,
+        descripcion:ConvertirCapitalize( data.nombre),
       };
       await editarMarca(p);
       onClose();
     } else {
       const p = {
-        _descripcion:data.nombre,
+        _descripcion:ConvertirCapitalize( data.nombre),
         _idempresa: dataempresa.id,
       };
-      console.log(p);
       await insertarMarca(p);
       onClose();
     }
@@ -38,9 +38,8 @@ export function RegistrarMarca({ onClose, dataSelect, accion }) {
       <div className="sub-contenedor">
         <div className="headers">
           <section>
-
             <h1>
-              {accion == "Editar" ? "Editar marca" : "Registrar nueva marca"}
+              {accion == "Editar" ? "Editar categoria" : "Registrar nueva categoria"}
             </h1>
           </section>
 
@@ -62,7 +61,7 @@ export function RegistrarMarca({ onClose, dataSelect, accion }) {
                     required: true,
                   })}
                 />
-                <label className="form__label">marca</label>
+                <label className="form__label">Categoria</label>
                 {errors.nombre?.type === "required" && <p>Campo requerido</p>}
               </InputText>
             </article>
