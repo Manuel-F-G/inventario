@@ -223,7 +223,7 @@ const Container = styled.div`
         }
         &:nth-of-type(even) {
           @media (min-width: ${v.bpbart}) {
-            background-color: rgba(78, 78, 78, 0.12);
+            background-color: #fedb2a41;
           }
         }
       }

@@ -15,7 +15,7 @@ const Container = styled.div`
   align-items: center;
   gap: 10px;
   p {
-    color: #f46943;
+    color: #fedc2a;
   }
   .form__group {
     position: relative;
@@ -86,7 +86,7 @@ const Container = styled.div`
     display: block;
     transition: 0.2s;
     font-size: 17px;
-    color: #f9632c;
+    color: #fedc2a;
     font-weight: 700;
   }
 

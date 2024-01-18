@@ -49,7 +49,7 @@ export function LoginTemplate() {
        }
           <Titulo>Grupo base </Titulo>
           {stateInicio && (
-            <TextoStateInicio>datos incorrectos</TextoStateInicio>
+            <TextoStateInicio>Datos incorrectos</TextoStateInicio>
           )}
           <span className="ayuda">
             {" "}
@@ -66,7 +66,7 @@ export function LoginTemplate() {
                   required: true,
                 })}
               />
-              <label className="form__label">email</label>
+              <label className="form__label">Correo</label>
               {errors.correo?.type === "required" && <p>Campo requerido</p>}
             </InputText>
             <InputText icono={<v.iconopass />}>
@@ -78,11 +78,11 @@ export function LoginTemplate() {
                   required: true,
                 })}
               />
-              <label className="form__label">pass</label>
+              <label className="form__label">Contraseña</label>
               {errors.pass?.type === "required" && <p>Campo requerido</p>}
             </InputText>
             <ContainerBtn>
-              <Btnsave titulo="Iniciar" bgcolor="#eefc32" />
+              <Btnsave titulo="Iniciar sesión" bgcolor="#fedc2a" />
               <Btnsave
                 funcion={() => setState(!state)}
                 titulo="Crear cuenta"
@@ -131,7 +131,7 @@ const Container = styled.div`
   }
 
   .bannerlateral {
-    background-color: #fc6b32;
+    background-color: #fedc2a;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -180,7 +180,7 @@ const Container = styled.div`
       }
     }
     .frase {
-      color: #fc6c32;
+      color: #fedc2a;
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 30px;
@@ -227,5 +227,5 @@ const ContainerBtn = styled.div`
   justify-content: center;
 `;
 const TextoStateInicio = styled.p`
-  color: #fc7575;
+  color: #ff0000;
 `;
