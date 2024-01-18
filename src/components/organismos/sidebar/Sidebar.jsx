@@ -8,7 +8,6 @@ import {
 } from "../../../index";
 import {v} from "../../../styles/variables"
 import { NavLink } from "react-router-dom";
-
 export function Sidebar({ state, setState }) {
 
   return (
@@ -21,7 +20,7 @@ export function Sidebar({ state, setState }) {
           <div className="imgcontent">
             <img src={v.logo} />
           </div>
-          <h2>GBE</h2>
+          <h2>Grupo base energeticos</h2>
         </div>
         {LinksArray.map(({ icon, label, to }) => (
           <div

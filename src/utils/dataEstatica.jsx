@@ -11,7 +11,7 @@ export const DesplegableUser = [
     tipo: "miperfil",
   },
   {
-    text: "Configuración",
+    text: "Configuracion",
     icono: <v.iconoSettings/>,
     tipo: "configuracion",
   },
@@ -69,14 +69,14 @@ export const TemasData = [
 export const DataModulosConfiguracion =[
   {
     title:"Productos",
-    subtitle:"Registra tus productos/articulos",
+    subtitle:"registra tus productos",
     icono:"https://i.ibb.co/85zJ6yG/caja-del-paquete.png",
     link:"/configurar/productos",
    
   },
   {
     title:"Personal",
-    subtitle:"Ten el control de tu personal",
+    subtitle:"ten el control de tu personal",
     icono:"https://i.ibb.co/5vgZ0fX/hombre.png",
     link:"/configurar/usuarios",
    
@@ -84,21 +84,21 @@ export const DataModulosConfiguracion =[
 
   {
     title:"Tu empresa",
-    subtitle:"Configura tus opciones básicas",
+    subtitle:"configura tus opciones básicas",
     icono:"https://i.ibb.co/x7mHPgm/administracion-de-empresas.png",
     link:"/configurar/empresa",
     
   },
   {
-    title:"Categoría de productos",
-    subtitle:"Asigna categorías a tus productos",
+    title:"Categoria de productos",
+    subtitle:"asigna categorias a tus productos",
     icono:"https://i.ibb.co/VYbMRLZ/categoria.png",
     link:"/configurar/categorias",
     
   },
   {
     title:"Marca de productos",
-    subtitle:"Gestiona tus marcas",
+    subtitle:"gestiona tus marcas",
     icono:"https://i.ibb.co/1qsbCRb/piensa-fuera-de-la-caja.png",
     link:"/configurar/marca",
    

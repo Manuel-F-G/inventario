@@ -4,7 +4,7 @@ import { Device } from "../../styles/breackpoints";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import l0g0 from "../../assets/mapache.png";
+import mapache from "../../assets/mapache.png";
 import logo from "../../assets/inventarioslogo.png";
 import { MdOutlineInfo } from "react-icons/md";
 import { ThemeContext } from "../../App";
@@ -33,27 +33,27 @@ export function LoginTemplate() {
   }
 
   return (
-    <Container>
+    <Container >
       <div className="contentLogo">
         <img src={logo}></img>
-        <span>GBE</span>
+        <span>Grupo base energeticos</span>
       </div>
       <div className="bannerlateral">
-        <img src={l0g0}></img>
+        <img src={mapache}></img>
       </div>
 
       <div className="contentCard">
         <div className="card">
-          {
-            state && <RegistrarAdmin setState={()=>setState(!state)}/>
-          }
-          <Titulo>Iventario</Titulo>
+       {
+        state && <RegistrarAdmin setState={()=>setState(!state)}/>
+       }
+          <Titulo>Grupo base </Titulo>
           {stateInicio && (
-            <TextoStateInicio>Verifica los datos ingresados</TextoStateInicio>
+            <TextoStateInicio>datos incorrectos</TextoStateInicio>
           )}
           <span className="ayuda">
             {" "}
-            Pide al administrador una cuenta
+            
           </span>
           <p className="frase">Controla tu inventario.</p>
           <form onSubmit={handleSubmit(iniciar)}>
@@ -66,7 +66,7 @@ export function LoginTemplate() {
                   required: true,
                 })}
               />
-              <label className="form__label">Correo electronico</label>
+              <label className="form__label">email</label>
               {errors.correo?.type === "required" && <p>Campo requerido</p>}
             </InputText>
             <InputText icono={<v.iconopass />}>
@@ -78,11 +78,11 @@ export function LoginTemplate() {
                   required: true,
                 })}
               />
-              <label className="form__label">Contraseña</label>
+              <label className="form__label">pass</label>
               {errors.pass?.type === "required" && <p>Campo requerido</p>}
             </InputText>
             <ContainerBtn>
-              <Btnsave titulo="Iniciar sesión" bgcolor="#fedc2a" />
+              <Btnsave titulo="Iniciar" bgcolor="#eefc32" />
               <Btnsave
                 funcion={() => setState(!state)}
                 titulo="Crear cuenta"
@@ -131,7 +131,7 @@ const Container = styled.div`
   }
 
   .bannerlateral {
-    background-color: #fedc2a;
+    background-color: #fc6b32;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -180,7 +180,7 @@ const Container = styled.div`
       }
     }
     .frase {
-      color: #fedc2a;
+      color: #fc6c32;
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 30px;
@@ -227,5 +227,5 @@ const ContainerBtn = styled.div`
   justify-content: center;
 `;
 const TextoStateInicio = styled.p`
-  color: #fedc2a;
+  color: #fc7575;
 `;

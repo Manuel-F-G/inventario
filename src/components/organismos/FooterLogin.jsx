@@ -4,19 +4,16 @@ export function FooterLogin() {
   return (
     <Container>
       <section className="lock">
-        <GiPadlock />
+
         <span>
-          Solo pido que esto ya funcione, no pido mas por favor. 
+          Aqui va info de la empresa
+          <br /> quizas poner numero de telefono y redes
         </span>
       </section>
       <section className="derechos">
-        <span>Grupo Base Eergeticos - RFC: xxxxxxxxxxxxx</span>
+        <span>Grupo Base Energeticos - RFC: xxxxxxxxxxx</span>
         <div className="separador"></div>
-        <span>Todos los derechos reservados</span>
-        <div className="separador"></div>
-        <span>
-        <a href="https://gpobase.com.mx/">Pagina oficial</a>.
-        </span>
+        <span>Link de la pagina principal</span>
       </section>
     </Container>
   );

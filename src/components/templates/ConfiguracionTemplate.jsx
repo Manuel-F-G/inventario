@@ -3,10 +3,8 @@ import fondocuadros from "../../assets/fondocuadros.svg";
 import {  Link } from "react-router-dom";
 import { DataModulosConfiguracion } from "../../utils/dataEstatica";
 export function ConfiguracionTemplate() {
-  
   return (
-    <Container>
-     
+    <Container>    
       <div id="cards">
         {DataModulosConfiguracion.map((item, index) => {
           return (
@@ -15,8 +13,6 @@ export function ConfiguracionTemplate() {
                 <div class="card-image">
                   <img src={item.icono} />
                 </div>
-       
-
                 <div class="card-info-wrapper">
                   <div class="card-info">
                     <i class="fa-duotone fa-unicorn"></i>
@@ -69,7 +65,7 @@ const Container = styled.div`
   }
 
   .card {
-    background-color: #fedc2a;
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     cursor: pointer;
     display: flex;
@@ -255,3 +251,4 @@ const Container = styled.div`
     bottom: 10px;
   }
 `;
+

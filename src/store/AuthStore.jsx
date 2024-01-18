@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { create } from "zustand";
-import { supabase } from "../index";
+import { supabase } from "../supabase/supabase.config";
 export const useAuthStore=create((set,get)=>({
     signInWithEmail: async (p)=>{
         const { data, error } = await supabase.auth.signInWithPassword({
@@ -11,9 +12,9 @@ export const useAuthStore=create((set,get)=>({
           }
           return data.user;
     },
-    signOut: async ()=>{
+    signOut:async ()=>{
         const { error } = await supabase.auth.signOut()
-        if(error)
-        throw new Error("Ha ocurrido un error al cerrar la sesión."+error)
+        if (error) 
+        throw new Error("A ocurrido un error durante el cierre de sesión "+error)
     }
 }))

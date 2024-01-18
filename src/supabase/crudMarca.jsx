@@ -7,7 +7,7 @@ export async function InsertarMarca(p) {
             icon: "error",
             title: "Oops...",
             text: error.message,
-            footer: '<a href="">Agregue una nueva descripcion</a>',
+            footer: '<a href="">Agregue una nueva descripción</a>',
           });
     }
 }
@@ -23,6 +23,7 @@ export async function MostrarMarca(p) {
   
 }
 export async function EliminarMarca(p) {
+ 
     const { error } = await supabase
       .from("marca")
       .delete()
