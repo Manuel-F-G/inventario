@@ -74,11 +74,10 @@ export function RegistrarCategorias({ onClose, dataSelect, accion }) {
               </InputText>
             </article>
             <article className="colorContainer">
+               <center>
               <CirclePicker onChange={elegirColor} color={currentColor}/>
+              </center>
             </article>
-            {
-            currentColor
-            }
             <div className="btnguardarContent">
               <Btnsave
                 icono={<v.iconoguardar />}
