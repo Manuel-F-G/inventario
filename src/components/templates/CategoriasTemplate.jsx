@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Btnfiltro, Buscador, ContentFiltro, Header, RegistrarCategorias, TablaMarca, Title,useMarcaStore,v } from "../../index";
+import { Btnfiltro, Buscador, ContentFiltro, Header, RegistrarCategorias, TablaCategorias, TablaMarca, Title,useMarcaStore,v } from "../../index";
 import { useState } from "react";
 export function CategoriasTemplate({data}) {
   const [state, setState] = useState(false);
@@ -26,7 +26,7 @@ export function CategoriasTemplate({data}) {
       <section className="area1">
         <ContentFiltro>
           <Title>
-            Categorias
+            Categorías
           </Title>
            <Btnfiltro funcion={nuevoRegistro} bgcolor="#f6f3f3"
             textcolor="#353535"
@@ -38,7 +38,7 @@ export function CategoriasTemplate({data}) {
         <Buscador setBuscador={setBuscador}/>
       </section>
       <section className="main">
-        <TablaMarca data={data} SetopenRegistro={SetopenRegistro}
+        <TablaCategorias data={data} SetopenRegistro={SetopenRegistro}
         setdataSelect={setdataSelect} setAccion={setAccion}/>
       </section>
     </Container>
