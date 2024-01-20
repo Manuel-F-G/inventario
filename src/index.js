@@ -1,6 +1,7 @@
 export { default as App } from './App';
 export * from './components/atomos/AccionTabla';
 export * from './components/atomos/Colorcontent';
+export * from './components/atomos/ContainerSelector';
 export * from './components/atomos/ContentFiltro';
 export * from './components/atomos/Icono';
 export * from './components/atomos/Title';
@@ -18,6 +19,7 @@ export * from './components/organismos/FooterLogin';
 export * from './components/organismos/Header';
 export * from './components/organismos/ListaMenuDesplegable';
 export * from './components/organismos/MenuHambur';
+export * from './components/organismos/Selector';
 export * from './components/organismos/ToggleTema';
 export * from './components/organismos/fomularios/InputText';
 export * from './components/organismos/fomularios/RegistrarAdmin';
