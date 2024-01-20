@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Btnfiltro, Buscador, ContentFiltro, Header, RegistrarMarca, TablaMarca, Title,useMarcaStore,v } from "../../index";
+import { Btnfiltro, Buscador, ContentFiltro, Header, RegistrarProductos, TablaProductos, Title,useMarcaStore,v } from "../../index";
 import { useState } from "react";
 export function ProductosTemplate({data}) {
   const [state, setState] = useState(false);
@@ -15,7 +15,7 @@ export function ProductosTemplate({data}) {
   return (
     <Container>
       {
-        openRegistro &&  <RegistrarMarca dataSelect={dataSelect} accion={accion} onClose={()=>SetopenRegistro(!openRegistro)}/>
+        openRegistro &&  <RegistrarProductos dataSelect={dataSelect} accion={accion} onClose={()=>SetopenRegistro(!openRegistro)}/>
       }
      
       <header className="header">
@@ -38,7 +38,7 @@ export function ProductosTemplate({data}) {
         <Buscador setBuscador={setBuscador}/>
       </section>
       <section className="main">
-        <TablaMarca data={data} SetopenRegistro={SetopenRegistro}
+        <TablaProductos data={data} SetopenRegistro={SetopenRegistro}
         setdataSelect={setdataSelect} setAccion={setAccion}/>
       </section>
     </Container>

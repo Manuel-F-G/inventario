@@ -3,24 +3,24 @@ import {
   ProductosTemplate,
   SpinnerLoader,
   useEmpresaStore,
-  useMarcaStore,
+  useProductosStore,
 } from "../index";
 
 export function Productos() {
-  const { mostrarMarca, datamarca, buscarMarca, buscador } = useMarcaStore();
+  const { mostrarproductos, dataproductos, buscarproductos, buscador } = useProductosStore();
   const { dataempresa } = useEmpresaStore();
   const { isLoading, error } = useQuery({
-    queryKey: ["mostrar marca", { id_empresa: dataempresa?.id }],
-    queryFn: () => mostrarMarca({ id_empresa: dataempresa?.id }),
+    queryKey: ["mostrar productos", { id_empresa: dataempresa?.id }],
+    queryFn: () => mostrarproductos({ id_empresa: dataempresa?.id }),
     enabled: dataempresa?.id != null,
   });
   const { data: buscardata } = useQuery({
     queryKey: [
-      "buscar marca",
+      "buscar productos",
       { id_empresa: dataempresa.id, descripcion: buscador },
     ],
     queryFn: () =>
-      buscarMarca({ id_empresa: dataempresa.id, descripcion: buscador }),
+       buscarproductos({ id_empresa: dataempresa.id, descripcion: buscador }),
     enabled: dataempresa.id != null,
   });
   if (isLoading) {
@@ -30,5 +30,5 @@ export function Productos() {
     return <span>Error...</span>;
   }
 
-  return <ProductosTemplate data={datamarca}/>;
+  return <ProductosTemplate data={dataproductos}/>;
 }
