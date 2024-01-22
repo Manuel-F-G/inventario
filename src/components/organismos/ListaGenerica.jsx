@@ -8,7 +8,7 @@ export function ListaGenerica({data, setState, funcion, scroll, bottom}){
     }
     return (<Container  $scroll={scroll} $bottom={bottom}>
         <section className="contentClose">
-            <BtnCerrar/>
+            <BtnCerrar funcion={setState}/>
         </section>
         <section className="contentItems">
             {data.map((item, index)=>{

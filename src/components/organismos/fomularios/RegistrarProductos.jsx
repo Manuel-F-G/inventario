@@ -19,7 +19,7 @@ import { useState } from "react";
 export function RegistrarProductos({ onClose, dataSelect, accion }) {
   const { insertarproductos, editarproductos } = useProductosStore();
   const { dataempresa } = useEmpresaStore();
-  const {marcaItemSelect, datamarca} = useMarcaStore();  
+  const {marcaItemSelect, datamarca, selectMarca} = useMarcaStore();  
   const [stateMarca, setStateMarca] = useState (false);
   const [openRegistroMarca, SetopenRegistroMarca] = useState(false);
   const [subaccion, setAccion] = useState("");
@@ -91,7 +91,12 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
               texto1="🛠" 
               texto2={marcaItemSelect?.descripcion}/>
               {
-                stateMarca && (<ListaGenerica scroll="scroll" data={datamarca}/>)
+                stateMarca && (<ListaGenerica 
+                  setState={()=>setStateMarca(!stateMarca)}
+                  bottom="-260px"
+                  scroll="scroll" 
+                  data={datamarca}
+                  funcion={selectMarca}/>)
               }
               <Btnfiltro 
               funcion={nuevoRegistroMarca}
