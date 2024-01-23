@@ -61,7 +61,7 @@ export function RegistrarMarca({ onClose, dataSelect, accion }) {
                     required: true,
                   })}
                 />
-                <label className="form__label">marca</label>
+                <label className="form__label">Marca</label>
                 {errors.nombre?.type === "required" && <p>Campo requerido</p>}
               </InputText>
             </article>
@@ -70,7 +70,7 @@ export function RegistrarMarca({ onClose, dataSelect, accion }) {
               <Btnsave
                 icono={<v.iconoguardar />}
                 titulo="Guardar"
-                bgcolor="#ef552b"
+                bgcolor="#fedc2a"
               />
             </div>
           </section>
