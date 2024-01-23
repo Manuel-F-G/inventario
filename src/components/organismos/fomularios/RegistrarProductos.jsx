@@ -169,7 +169,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
             </ContainerSelector>
           </section>
           <section className="seccion2">
-          <article>
+            <article>
               <InputText icono={<v.iconocodigobarras />}>
                 <input
                   className="form__field"
@@ -197,6 +197,41 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                 />
                 <label className="form__label">Código interno</label>
                 {errors.codigointerno?.type === "required" && <p>Campo requerido</p>}
+              </InputText>
+            </article>
+            <article>
+              <InputText icono={<v.iconoprecioventa />}>
+                <input 
+                step="0.1"
+                className="form__field"
+                defaultValue={dataSelect.precioventa}
+                type="number"
+                placeholder=""
+                {...register("precioventa", { 
+                  required: true,
+                })}
+                />
+                <label className="form__label">Precio mercado</label>
+                {errors.precioventa?.type === "required" && <p>Campo requerido</p>}
+              </InputText>
+            </article>
+            <article>
+              <InputText icono={<v.iconopreciocompra/>}>
+                <input
+                  step="0.1"
+                  className="form__field"
+                  defaultValue={dataSelect.preciocompra}
+                  type="number"
+                  placeholder=""
+                  {...register("preciocompra", { 
+                    required: true, 
+                    })}
+                  />
+                  <label className="form__label">Precio compra</label>
+
+                  {errors.preciocompra?.type === "required" && (
+                  <p>Campo requerido</p>
+                  )}
               </InputText>
             </article>
           </section>
