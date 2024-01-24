@@ -15,13 +15,9 @@ export async function InsertarProductos(p) {
 
 export async function MostrarProductos(p) {
  
-    const { data } = await supabase
-      .from("productos")
-      .select()
-      .eq("id_empresa", p.id_empresa)
-      .order("id", { ascending: true });
-    return data;
-  
+  const { data } = await supabase.rpc("mostrarproductos",p)
+  return data;
+
 }
 export async function EliminarProductos(p) {
  
