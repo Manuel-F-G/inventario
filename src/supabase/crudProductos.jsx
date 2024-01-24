@@ -1,6 +1,7 @@
 import {supabase} from "../index"
 import Swal from "sweetalert2"
 export async function InsertarProductos(p) {
+  console.log("parametros",p)
     const {error} = await supabase.rpc("insertarproductos",p)
     if(error) {
         Swal.fire({

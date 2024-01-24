@@ -45,15 +45,32 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
   async function insertar(data) {
     if (accion === "Editar") {
       const p = {
-        id: dataSelect.id,
-        descripcion:ConvertirCapitalize( data.nombre),
+        id:dataSelect.id,
+        descripcion:ConvertirCapitalize( data.descripcion),
+        idmarca:marcaItemSelect.id,
+        stock:parseFloat(data.stock),
+        stock_minimo:parseFloat(data.stock_minimo),
+        codigobarras:data.codigobarras,
+        codigointerno:data.codigointerno,
+        precioventa:parseFloat(data.precioventa),
+        preciocompra:parseFloat(data.preciocompra),
+        id_categoria:categoriasItemSelect.id,
+        id_empresa:dataempresa.id,
       };
       await editarproductos(p);
       onClose();
     } else {
       const p = {
-        _descripcion:ConvertirCapitalize( data.nombre),
-        _idempresa: dataempresa.id,
+        _descripcion:ConvertirCapitalize( data.descripcion),
+        _idmarca:marcaItemSelect.id,
+        _stock:parseFloat(data.stock),
+        _stock_minimo:parseFloat(data.stock_minimo),
+        _codigobarras:data.codigobarras,
+        _codigointerno:data.codigointerno,
+        _precioventa:parseFloat(data.precioventa),
+        _preciocompra:parseFloat(data.preciocompra),
+        _id_categoria:categoriasItemSelect.id,
+        _id_empresa:dataempresa.id,
       };
       await insertarproductos(p);
       onClose();
@@ -87,7 +104,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                   defaultValue={dataSelect.descripcion}
                   type="text"
                   placeholder=""
-                  {...register("nombre", {
+                  {...register("descripcion", {
                     required: true,
                   })}
                 />
@@ -137,12 +154,12 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                   defaultValue={dataSelect.stock_minimo}
                   type="number"
                   placeholder=""
-                  {...register("stockminimo", {
+                  {...register("stock_minimo", {
                     required: true,
                   })}
                 />
                 <label className="form__label">Stock minimo</label>
-                {errors.stockminimo?.type === "required" && <p>Campo requerido</p>}
+                {errors.stock_minimo?.type === "required" && <p>Campo requerido</p>}
               </InputText>
             </article>
             <ContainerSelector>
