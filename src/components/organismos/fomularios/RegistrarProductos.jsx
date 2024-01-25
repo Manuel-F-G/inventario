@@ -78,6 +78,8 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
   }
   useEffect(() => {
     if (accion === "Editar") {
+      selectMarca({id:dataSelect.idmarca,descripcion:dataSelect.marca});
+      selectcategorias({id:dataSelect.id_categoria,descripcion:dataSelect.categoria}); 
     }
   }, []);
   return (
