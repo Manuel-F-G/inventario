@@ -1,23 +1,22 @@
 import {supabase} from "../index"
 import Swal from "sweetalert2"
 export async function InsertarProductos(p) {
-  console.log("parametros",p)
     const {error} = await supabase.rpc("insertarproductos",p)
     if(error) {
         Swal.fire({
             icon: "error",
             title: "Oops...",
             text: error.message,
-            footer: '<a href="">Agregue una nueva descripción</a>',
+            footer: '<a href="">Agregue una nueva descripcion</a>',
           });
     }
 }
 
 export async function MostrarProductos(p) {
  
-  const { data } = await supabase.rpc("mostrarproductos",p)
-  return data;
-
+    const { data } = await supabase.rpc("mostrarproductos",p)
+    return data;
+  
 }
 export async function EliminarProductos(p) {
  
@@ -41,10 +40,6 @@ export async function EditarProductos(p) {
 
 }
 export async function BuscarProductos(p) {
-    const { data} = await supabase
-    .from("productos")
-    .select()
-    .eq("id_empresa", p.id_empresa)
-    .ilike("descripcion","%"+p.descripcion+"%")
+    const { data} = await supabase.rpc("buscarproductos",p)
     return data;
 }
