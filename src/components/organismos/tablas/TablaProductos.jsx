@@ -7,7 +7,7 @@ import {
   flexRender,
 } from "@tanstack/react-table";
 import styled from "styled-components";
-import { ContentAccionesTabla, Paginacion, useProductosStore, v } from "../../../index";
+import { Colorcontent, ColorcontentTable, ContentAccionesTabla, Paginacion, useProductosStore, v } from "../../../index";
 import Swal from "sweetalert2";
 import { FaArrowsAltV } from "react-icons/fa";
 import { useState } from "react";
@@ -77,6 +77,35 @@ export function TablaProductos({
       header: "Precio anterior",
       enableSorting:false,
       cell: (info) =><td data-title="Precio anterior" className="ContentCell">
+        <span >{info.getValue()}</span>
+      </td> 
+    },
+    {
+      accessorKey: "preciocompra",
+      header: "Precio compra",
+      enableSorting:false,
+      cell: (info) =><td data-title="Precio compra" className="ContentCell">
+        <span >{info.getValue()}</span>
+      </td> 
+    },
+    {
+      accessorKey: "categoria",
+      header: "Categoria",
+      enableSorting:false,
+      cell: (info) =>
+      <td data-title="Categoria" className="ContentCell">
+        <ColorcontentTable
+        $color={info.row.original.color}
+        className="contentCategoria">
+          {info.getValue()}
+        </ColorcontentTable>
+      </td> 
+    },
+    {
+      accessorKey: "marca",
+      header: "Marca",
+      enableSorting:false,
+      cell: (info) =><td data-title="Marca" className="ContentCell">
         <span >{info.getValue()}</span>
       </td> 
     },

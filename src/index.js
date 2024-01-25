@@ -2,6 +2,7 @@ export { default as App } from './App';
 export * from './components/atomos/AccionTabla';
 export * from './components/atomos/BtnCerrar';
 export * from './components/atomos/Colorcontent';
+export * from './components/atomos/ColorcontentTable';
 export * from './components/atomos/ContainerSelector';
 export * from './components/atomos/ContentFiltro';
 export * from './components/atomos/Icono';
