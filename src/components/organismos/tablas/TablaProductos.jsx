@@ -65,6 +65,27 @@ export function TablaProductos({
       </td> 
     },
     {
+      accessorKey: "marca",
+      header: "Marca",
+      enableSorting:false,
+      cell: (info) =><td data-title="Marca" className="ContentCell">
+        <span >{info.getValue()}</span>
+      </td> 
+    },
+    {
+      accessorKey: "categoria",
+      header: "Categoria",
+      enableSorting:false,
+      cell: (info) =>
+      <td data-title="Categoria" className="ContentCell">
+        <ColorcontentTable
+        $color={info.row.original.color}
+        className="contentCategoria">
+          {info.getValue()}
+        </ColorcontentTable>
+      </td> 
+    },
+    {
       accessorKey: "stock",
       header: "Stock",
       enableSorting:false,
@@ -85,27 +106,6 @@ export function TablaProductos({
       header: "Precio compra",
       enableSorting:false,
       cell: (info) =><td data-title="Precio compra" className="ContentCell">
-        <span >{info.getValue()}</span>
-      </td> 
-    },
-    {
-      accessorKey: "categoria",
-      header: "Categoria",
-      enableSorting:false,
-      cell: (info) =>
-      <td data-title="Categoria" className="ContentCell">
-        <ColorcontentTable
-        $color={info.row.original.color}
-        className="contentCategoria">
-          {info.getValue()}
-        </ColorcontentTable>
-      </td> 
-    },
-    {
-      accessorKey: "marca",
-      header: "Marca",
-      enableSorting:false,
-      cell: (info) =><td data-title="Marca" className="ContentCell">
         <span >{info.getValue()}</span>
       </td> 
     },
