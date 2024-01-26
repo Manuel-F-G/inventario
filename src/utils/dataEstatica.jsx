@@ -54,7 +54,7 @@ export const SecondarylinksArray = [
 //temas
 export const TemasData = [
   {
-    icono: "🌞",
+    icono: "",
     descripcion: "light",
    
   },
@@ -78,7 +78,7 @@ export const DataModulosConfiguracion =[
     title:"Personal",
     subtitle:"Control de tu personal",
     icono:"https://i.ibb.co/5vgZ0fX/hombre.png",
-    link:"/configurar/usuarios",
+    link:"/configurar/personal",
    
   },
 
