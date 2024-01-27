@@ -22,7 +22,5 @@ export const useUsuariosStore = create((set, get) => ({
     const response = await MostrarUsuarios();
     set({ idusuario: response.id });
     return response;
-    
   },
- 
 }));

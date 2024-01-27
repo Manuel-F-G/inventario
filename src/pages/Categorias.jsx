@@ -7,7 +7,8 @@ import {
 } from "../index";
 
 export function Categorias() {
-  const { mostrarcategorias, datacategorias, buscarcategorias, buscador } = useCategoriasStore();
+  const { mostrarcategorias, datacategorias, buscarcategorias, buscador } =
+    useCategoriasStore();
   const { dataempresa } = useEmpresaStore();
   const { isLoading, error } = useQuery({
     queryKey: ["mostrar categorias", { id_empresa: dataempresa?.id }],
@@ -30,5 +31,5 @@ export function Categorias() {
     return <span>Error...</span>;
   }
 
-  return <CategoriasTemplate data={datacategorias}/>;
+  return <CategoriasTemplate data={datacategorias} />;
 }

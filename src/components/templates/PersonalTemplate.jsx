@@ -1,23 +1,37 @@
 import styled from "styled-components";
-import { Btnfiltro, Buscador, ContentFiltro, Header, RegistrarMarca, TablaMarca, Title,useMarcaStore,v } from "../../index";
+import {
+  Btnfiltro,
+  Buscador,
+  ContentFiltro,
+  Header,
+  RegistrarMarca,
+  TablaMarca,
+  Title,
+  useMarcaStore,
+  v,
+} from "../../index";
 import { useState } from "react";
-export function PersonalTemplate({data}) {
+export function PersonalTemplate({ data }) {
   const [state, setState] = useState(false);
   const [dataSelect, setdataSelect] = useState([]);
   const [accion, setAccion] = useState("");
   const [openRegistro, SetopenRegistro] = useState(false);
-  const nuevoRegistro=()=>{
+  const nuevoRegistro = () => {
     SetopenRegistro(!openRegistro);
-    setAccion("Nuevo")
-    setdataSelect([])
-  }
-  const {setBuscador} = useMarcaStore()
+    setAccion("Nuevo");
+    setdataSelect([]);
+  };
+  const { setBuscador } = useMarcaStore();
   return (
     <Container>
-      {
-        openRegistro &&  <RegistrarMarca dataSelect={dataSelect} accion={accion} onClose={()=>SetopenRegistro(!openRegistro)}/>
-      }
-     
+      {openRegistro && (
+        <RegistrarMarca
+          dataSelect={dataSelect}
+          accion={accion}
+          onClose={() => SetopenRegistro(!openRegistro)}
+        />
+      )}
+
       <header className="header">
         <Header
           stateConfig={{ state: state, setState: () => setState(!state) }}
@@ -25,21 +39,25 @@ export function PersonalTemplate({data}) {
       </header>
       <section className="area1">
         <ContentFiltro>
-          <Title>
-            Personal
-          </Title>
-           <Btnfiltro funcion={nuevoRegistro} bgcolor="#f6f3f3"
+          <Title>Personal</Title>
+          <Btnfiltro
+            funcion={nuevoRegistro}
+            bgcolor="#f6f3f3"
             textcolor="#353535"
-            icono={<v.agregar/>}/>
+            icono={<v.agregar />}
+          />
         </ContentFiltro>
-       
       </section>
       <section className="area2">
-        <Buscador setBuscador={setBuscador}/>
+        <Buscador setBuscador={setBuscador} />
       </section>
       <section className="main">
-        <TablaMarca data={data} SetopenRegistro={SetopenRegistro}
-        setdataSelect={setdataSelect} setAccion={setAccion}/>
+        <TablaMarca
+          data={data}
+          SetopenRegistro={SetopenRegistro}
+          setdataSelect={setdataSelect}
+          setAccion={setAccion}
+        />
       </section>
     </Container>
   );
@@ -73,7 +91,7 @@ const Container = styled.div`
     /* background-color: rgba(77, 237, 106, 0.14); */
     display: flex;
     align-items: center;
-    justify-content:end;
+    justify-content: end;
   }
   .main {
     grid-area: main;

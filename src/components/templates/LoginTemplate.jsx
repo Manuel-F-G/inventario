@@ -1,5 +1,12 @@
 import styled from "styled-components";
-import { Btnsave, v, useAuthStore, InputText, FooterLogin, RegistrarAdmin } from "../../index";
+import {
+  Btnsave,
+  v,
+  useAuthStore,
+  InputText,
+  FooterLogin,
+  RegistrarAdmin,
+} from "../../index";
 import { Device } from "../../styles/breackpoints";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -33,7 +40,7 @@ export function LoginTemplate() {
   }
 
   return (
-    <Container >
+    <Container>
       <div className="contentLogo">
         <img src={logo}></img>
         <span>Grupo base energeticos</span>
@@ -44,17 +51,12 @@ export function LoginTemplate() {
 
       <div className="contentCard">
         <div className="card">
-       {
-        state && <RegistrarAdmin setState={()=>setState(!state)}/>
-       }
+          {state && <RegistrarAdmin setState={() => setState(!state)} />}
           <Titulo>Grupo base </Titulo>
           {stateInicio && (
             <TextoStateInicio>Datos incorrectos</TextoStateInicio>
           )}
-          <span className="ayuda">
-            {" "}
-            
-          </span>
+          <span className="ayuda"> </span>
           <p className="frase">Controla tu inventario.</p>
           <form onSubmit={handleSubmit(iniciar)}>
             <InputText icono={<v.iconoemail />}>

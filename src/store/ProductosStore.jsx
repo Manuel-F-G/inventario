@@ -1,5 +1,11 @@
 import { create } from "zustand";
-import { BuscarProductos, EditarProductos, EliminarProductos, InsertarProductos, MostrarProductos } from "../index";
+import {
+  BuscarProductos,
+  EditarProductos,
+  EliminarProductos,
+  InsertarProductos,
+  MostrarProductos,
+} from "../index";
 export const useProductosStore = create((set, get) => ({
   buscador: "",
   setBuscador: (p) => {

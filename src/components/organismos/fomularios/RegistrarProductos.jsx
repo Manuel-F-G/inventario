@@ -1,20 +1,20 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import { v } from "../../../styles/variables";
-import { Device } from "../../../styles/breackpoints"
-import { 
-  InputText, 
+import { Device } from "../../../styles/breackpoints";
+import {
+  InputText,
   Btnsave,
-  ConvertirCapitalize, 
-  useProductosStore, 
-  useMarcaStore, 
-  ContainerSelector, 
-  Selector, 
+  ConvertirCapitalize,
+  useProductosStore,
+  useMarcaStore,
+  ContainerSelector,
+  Selector,
   Btnfiltro,
   RegistrarMarca,
   ListaGenerica,
   useCategoriasStore,
-  RegistrarCategorias
+  RegistrarCategorias,
 } from "../../../index";
 import { useForm } from "react-hook-form";
 import { useEmpresaStore } from "../../../store/EmpresaStore";
@@ -22,22 +22,23 @@ import { useState } from "react";
 export function RegistrarProductos({ onClose, dataSelect, accion }) {
   const { insertarproductos, editarproductos } = useProductosStore();
   const { dataempresa } = useEmpresaStore();
-  const {marcaItemSelect, datamarca, selectMarca} = useMarcaStore();  
-  const {categoriasItemSelect, datacategorias, selectcategorias} = useCategoriasStore();  
-  const [stateMarca, setStateMarca] = useState (false);
-  const [stateCategoria, setStateCategoria] = useState (false); 
+  const { marcaItemSelect, datamarca, selectMarca } = useMarcaStore();
+  const { categoriasItemSelect, datacategorias, selectcategorias } =
+    useCategoriasStore();
+  const [stateMarca, setStateMarca] = useState(false);
+  const [stateCategoria, setStateCategoria] = useState(false);
   const [openRegistroMarca, SetopenRegistroMarca] = useState(false);
   const [openRegistroCategoria, SetopenRegistroCategoria] = useState(false);
   const [subaccion, setAccion] = useState("");
-  const nuevoRegistroMarca =()=>{
+  const nuevoRegistroMarca = () => {
     SetopenRegistroMarca(!openRegistroMarca);
     setAccion("Nuevo");
   };
-  const nuevoRegistroCategoria =()=>{
+  const nuevoRegistroCategoria = () => {
     SetopenRegistroCategoria(!openRegistroCategoria);
     setAccion("Nuevo");
-  }
-  const { 
+  };
+  const {
     register,
     formState: { errors },
     handleSubmit,
@@ -45,32 +46,32 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
   async function insertar(data) {
     if (accion === "Editar") {
       const p = {
-        id:dataSelect.id,
-        descripcion:ConvertirCapitalize( data.descripcion),
-        idmarca:marcaItemSelect.id,
-        stock:parseFloat(data.stock),
-        stock_minimo:parseFloat(data.stock_minimo),
-        codigobarras:data.codigobarras,
-        codigointerno:data.codigointerno,
-        precioventa:parseFloat(data.precioventa),
-        preciocompra:parseFloat(data.preciocompra),
-        id_categoria:categoriasItemSelect.id,
-        id_empresa:dataempresa.id,
+        id: dataSelect.id,
+        descripcion: ConvertirCapitalize(data.descripcion),
+        idmarca: marcaItemSelect.id,
+        stock: parseFloat(data.stock),
+        stock_minimo: parseFloat(data.stock_minimo),
+        codigobarras: data.codigobarras,
+        codigointerno: data.codigointerno,
+        precioventa: parseFloat(data.precioventa),
+        preciocompra: parseFloat(data.preciocompra),
+        id_categoria: categoriasItemSelect.id,
+        id_empresa: dataempresa.id,
       };
       await editarproductos(p);
       onClose();
     } else {
       const p = {
-        _descripcion:ConvertirCapitalize( data.descripcion),
-        _idmarca:marcaItemSelect.id,
-        _stock:parseFloat(data.stock),
-        _stock_minimo:parseFloat(data.stock_minimo),
-        _codigobarras:data.codigobarras,
-        _codigointerno:data.codigointerno,
-        _precioventa:parseFloat(data.precioventa),
-        _preciocompra:parseFloat(data.preciocompra),
-        _id_categoria:categoriasItemSelect.id,
-        _id_empresa:dataempresa.id,
+        _descripcion: ConvertirCapitalize(data.descripcion),
+        _idmarca: marcaItemSelect.id,
+        _stock: parseFloat(data.stock),
+        _stock_minimo: parseFloat(data.stock_minimo),
+        _codigobarras: data.codigobarras,
+        _codigointerno: data.codigointerno,
+        _precioventa: parseFloat(data.precioventa),
+        _preciocompra: parseFloat(data.preciocompra),
+        _id_categoria: categoriasItemSelect.id,
+        _id_empresa: dataempresa.id,
       };
       await insertarproductos(p);
       onClose();
@@ -78,8 +79,11 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
   }
   useEffect(() => {
     if (accion === "Editar") {
-      selectMarca({id:dataSelect.idmarca,descripcion:dataSelect.marca});
-      selectcategorias({id:dataSelect.id_categoria,descripcion:dataSelect.categoria}); 
+      selectMarca({ id: dataSelect.idmarca, descripcion: dataSelect.marca });
+      selectcategorias({
+        id: dataSelect.id_categoria,
+        descripcion: dataSelect.categoria,
+      });
     }
   }, []);
   return (
@@ -88,7 +92,9 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
         <div className="headers">
           <section>
             <h1>
-              {accion == "Editar" ? "Editar productos" : "Registrar nuevo producto"}
+              {accion == "Editar"
+                ? "Editar productos"
+                : "Registrar nuevo producto"}
             </h1>
           </section>
 
@@ -116,25 +122,31 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
             </article>
             <ContainerSelector>
               <label>Marca:</label>
-              <Selector funcion={()=>setStateMarca(!stateMarca)}state={stateMarca} color="#fedc2a" 
-              texto1="🛠" 
-              texto2={marcaItemSelect?.descripcion}/>
-              {
-                stateMarca && (<ListaGenerica 
-                  setState={()=>setStateMarca(!stateMarca)}
+              <Selector
+                funcion={() => setStateMarca(!stateMarca)}
+                state={stateMarca}
+                color="#fedc2a"
+                texto1="🛠"
+                texto2={marcaItemSelect?.descripcion}
+              />
+              {stateMarca && (
+                <ListaGenerica
+                  setState={() => setStateMarca(!stateMarca)}
                   bottom="-260px"
-                  scroll="scroll" 
+                  scroll="scroll"
                   data={datamarca}
-                  funcion={selectMarca}/>)
-              }
-              <Btnfiltro 
-              funcion={nuevoRegistroMarca}
-              bgcolor="#f6f3f3"
-              textcolor="#353535"
-              icono={<v.agregar/>}/>
+                  funcion={selectMarca}
+                />
+              )}
+              <Btnfiltro
+                funcion={nuevoRegistroMarca}
+                bgcolor="#f6f3f3"
+                textcolor="#353535"
+                icono={<v.agregar />}
+              />
             </ContainerSelector>
             <article>
-            <InputText icono={<v.iconostock />}>
+              <InputText icono={<v.iconostock />}>
                 <input
                   className="form__field"
                   type="number"
@@ -150,7 +162,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
               </InputText>
             </article>
             <article>
-            <InputText icono={<v.iconostockminimo />}>
+              <InputText icono={<v.iconostockminimo />}>
                 <input
                   className="form__field"
                   defaultValue={dataSelect.stock_minimo}
@@ -161,30 +173,35 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                   })}
                 />
                 <label className="form__label">Stock minimo</label>
-                {errors.stock_minimo?.type === "required" && <p>Campo requerido</p>}
+                {errors.stock_minimo?.type === "required" && (
+                  <p>Campo requerido</p>
+                )}
               </InputText>
             </article>
             <ContainerSelector>
               <label>Categoría:</label>
-              <Selector funcion={()=>setStateCategoria(!stateCategoria)}
-              state={stateCategoria} 
-              color="#fedc2a" 
-              texto1="🛠" 
-              texto2={categoriasItemSelect?.descripcion}
+              <Selector
+                funcion={() => setStateCategoria(!stateCategoria)}
+                state={stateCategoria}
+                color="#fedc2a"
+                texto1="🛠"
+                texto2={categoriasItemSelect?.descripcion}
               />
-              <Btnfiltro 
-              funcion={nuevoRegistroCategoria}
-              bgcolor="#f6f3f3"
-              textcolor="#353535"
-              icono={<v.agregar/>}/>
-              {
-                stateCategoria && (<ListaGenerica 
-                  setState={()=>setStateCategoria(!stateCategoria)}
+              <Btnfiltro
+                funcion={nuevoRegistroCategoria}
+                bgcolor="#f6f3f3"
+                textcolor="#353535"
+                icono={<v.agregar />}
+              />
+              {stateCategoria && (
+                <ListaGenerica
+                  setState={() => setStateCategoria(!stateCategoria)}
                   bottom="-260px"
-                  scroll="scroll" 
+                  scroll="scroll"
                   data={datacategorias}
-                  funcion={selectcategorias}/>)
-              }
+                  funcion={selectcategorias}
+                />
+              )}
             </ContainerSelector>
           </section>
           <section className="seccion2">
@@ -200,7 +217,9 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                   })}
                 />
                 <label className="form__label">Código</label>
-                {errors.codigobarras?.type === "required" && <p>Campo requerido</p>}
+                {errors.codigobarras?.type === "required" && (
+                  <p>Campo requerido</p>
+                )}
               </InputText>
             </article>
             <article>
@@ -215,72 +234,73 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                   })}
                 />
                 <label className="form__label">Código interno</label>
-                {errors.codigointerno?.type === "required" && <p>Campo requerido</p>}
+                {errors.codigointerno?.type === "required" && (
+                  <p>Campo requerido</p>
+                )}
               </InputText>
             </article>
             <article>
               <InputText icono={<v.iconoprecioventa />}>
-                <input 
-                step="0.1"
-                className="form__field"
-                defaultValue={dataSelect.precioventa}
-                type="number"
-                placeholder=""
-                {...register("precioventa", { 
-                  required: true,
-                })}
+                <input
+                  step="0.1"
+                  className="form__field"
+                  defaultValue={dataSelect.precioventa}
+                  type="number"
+                  placeholder=""
+                  {...register("precioventa", {
+                    required: true,
+                  })}
                 />
                 <label className="form__label">Precio anterior.</label>
-                {errors.precioventa?.type === "required" && <p>Campo requerido</p>}
+                {errors.precioventa?.type === "required" && (
+                  <p>Campo requerido</p>
+                )}
               </InputText>
             </article>
             <article>
-              <InputText icono={<v.iconopreciocompra/>}>
+              <InputText icono={<v.iconopreciocompra />}>
                 <input
                   step="0.1"
                   className="form__field"
                   defaultValue={dataSelect.preciocompra}
                   type="number"
                   placeholder=""
-                  {...register("preciocompra", { 
-                    required: true, 
-                    })}
-                  />
-                  <label className="form__label">Precio compra</label>
+                  {...register("preciocompra", {
+                    required: true,
+                  })}
+                />
+                <label className="form__label">Precio compra</label>
 
-                  {errors.preciocompra?.type === "required" && (
+                {errors.preciocompra?.type === "required" && (
                   <p>Campo requerido</p>
-                  )}
+                )}
               </InputText>
             </article>
           </section>
           <div className="btnguardarContent">
-              <Btnsave
-                funcion={()=>setStateMarca(!stateMarca)} 
-                state={stateMarca}
-                icono={<v.iconoguardar />}
-                titulo="Guardar"
-                bgcolor="#fedc2a"
-              />              
-            </div>
-        </form>
-        {
-          openRegistroMarca && (
-          <RegistrarMarca 
-          accion={subaccion} 
-          onClose={()=>SetopenRegistroMarca(!openRegistroMarca)}
-          dataSelect={dataSelect}
-          />
-          )}
-         {
-          openRegistroCategoria && (
-            <RegistrarCategorias
-            accion={subaccion}
-            onClose={()=>SetopenRegistroCategoria(!openRegistroCategoria)}
-            dataSelect={dataSelect}
+            <Btnsave
+              funcion={() => setStateMarca(!stateMarca)}
+              state={stateMarca}
+              icono={<v.iconoguardar />}
+              titulo="Guardar"
+              bgcolor="#fedc2a"
             />
-          )
-         } 
+          </div>
+        </form>
+        {openRegistroMarca && (
+          <RegistrarMarca
+            accion={subaccion}
+            onClose={() => SetopenRegistroMarca(!openRegistroMarca)}
+            dataSelect={dataSelect}
+          />
+        )}
+        {openRegistroCategoria && (
+          <RegistrarCategorias
+            accion={subaccion}
+            onClose={() => SetopenRegistroCategoria(!openRegistroCategoria)}
+            dataSelect={dataSelect}
+          />
+        )}
       </div>
     </Container>
   );
@@ -334,18 +354,18 @@ const Container = styled.div`
       }
     }
     .formulario {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    @media ${Device.tablet} {
-      grid-template-columns: repeat(2, 1fr);
-    }
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      @media ${Device.tablet} {
+        grid-template-columns: repeat(2, 1fr);
+      }
       section {
         gap: 20px;
         display: flex;
         flex-direction: column;
       }
-      .btnguardarContent{
+      .btnguardarContent {
         display: flex;
         justify-content: end;
         grid-column: 1;

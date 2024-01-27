@@ -1,7 +1,14 @@
 import styled from "styled-components";
-import { BtnCircular, UserAuth, v,ListaMenuDesplegable,DesplegableUser, useAuthStore } from "../../index";
+import {
+  BtnCircular,
+  UserAuth,
+  v,
+  ListaMenuDesplegable,
+  DesplegableUser,
+  useAuthStore,
+} from "../../index";
 export function Header({ stateConfig }) {
-  const {signOut} = useAuthStore()
+  const { signOut } = useAuthStore();
   const { user } = UserAuth();
   const funcionXtipo = async (p) => {
     if (p.tipo === "cerrarsesion") {
@@ -10,7 +17,6 @@ export function Header({ stateConfig }) {
   };
   return (
     <Container>
-      
       <Datauser onClick={stateConfig.setState}>
         <div className="imgContainer">
           <img src="https://i.ibb.co/kGYgRZ8/programador.png" />
@@ -27,12 +33,12 @@ export function Header({ stateConfig }) {
         />
         <span className="nombre">{user.email}</span>
         {stateConfig.state && (
-        <ListaMenuDesplegable
-          data={DesplegableUser}
-          top="62px"
-          funcion={(p) => funcionXtipo(p)}
-        />
-      )}
+          <ListaMenuDesplegable
+            data={DesplegableUser}
+            top="62px"
+            funcion={(p) => funcionXtipo(p)}
+          />
+        )}
       </Datauser>
     </Container>
   );

@@ -1,23 +1,39 @@
 import styled from "styled-components";
-import { Btnfiltro, Buscador, ContentFiltro, Header, RegistrarCategorias, TablaCategorias, TablaMarca, Title,useCategoriasStore,useMarcaStore,v } from "../../index";
+import {
+  Btnfiltro,
+  Buscador,
+  ContentFiltro,
+  Header,
+  RegistrarCategorias,
+  TablaCategorias,
+  TablaMarca,
+  Title,
+  useCategoriasStore,
+  useMarcaStore,
+  v,
+} from "../../index";
 import { useState } from "react";
-export function CategoriasTemplate({data}) {
+export function CategoriasTemplate({ data }) {
   const [state, setState] = useState(false);
   const [dataSelect, setdataSelect] = useState([]);
   const [accion, setAccion] = useState("");
   const [openRegistro, SetopenRegistro] = useState(false);
-  const nuevoRegistro=()=>{
+  const nuevoRegistro = () => {
     SetopenRegistro(!openRegistro);
-    setAccion("Nuevo")
-    setdataSelect([])
-  }
-  const {setBuscador} = useCategoriasStore()
+    setAccion("Nuevo");
+    setdataSelect([]);
+  };
+  const { setBuscador } = useCategoriasStore();
   return (
     <Container>
-      {
-        openRegistro &&  <RegistrarCategorias dataSelect={dataSelect} accion={accion} onClose={()=>SetopenRegistro(!openRegistro)}/>
-      }
-     
+      {openRegistro && (
+        <RegistrarCategorias
+          dataSelect={dataSelect}
+          accion={accion}
+          onClose={() => SetopenRegistro(!openRegistro)}
+        />
+      )}
+
       <header className="header">
         <Header
           stateConfig={{ state: state, setState: () => setState(!state) }}
@@ -25,21 +41,25 @@ export function CategoriasTemplate({data}) {
       </header>
       <section className="area1">
         <ContentFiltro>
-          <Title>
-            Categorías
-          </Title>
-           <Btnfiltro funcion={nuevoRegistro} bgcolor="#f6f3f3"
+          <Title>Categorías</Title>
+          <Btnfiltro
+            funcion={nuevoRegistro}
+            bgcolor="#f6f3f3"
             textcolor="#353535"
-            icono={<v.agregar/>}/>
+            icono={<v.agregar />}
+          />
         </ContentFiltro>
-       
       </section>
       <section className="area2">
-        <Buscador setBuscador={setBuscador}/>
+        <Buscador setBuscador={setBuscador} />
       </section>
       <section className="main">
-        <TablaCategorias data={data} SetopenRegistro={SetopenRegistro}
-        setdataSelect={setdataSelect} setAccion={setAccion}/>
+        <TablaCategorias
+          data={data}
+          SetopenRegistro={SetopenRegistro}
+          setdataSelect={setdataSelect}
+          setAccion={setAccion}
+        />
       </section>
     </Container>
   );
@@ -73,7 +93,7 @@ const Container = styled.div`
     /* background-color: rgba(77, 237, 106, 0.14); */
     display: flex;
     align-items: center;
-    justify-content:end;
+    justify-content: end;
   }
   .main {
     grid-area: main;

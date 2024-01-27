@@ -1,5 +1,11 @@
 import { create } from "zustand";
-import { BuscarPersonal, EditarPersonal, EliminarPersonal, InsertarPersonal, MostrarPersonal } from "../index";
+import {
+  BuscarPersonal,
+  EditarPersonal,
+  EliminarPersonal,
+  InsertarPersonal,
+  MostrarPersonal,
+} from "../index";
 export const usePersonalStore = create((set, get) => ({
   buscador: "",
   setBuscador: (p) => {

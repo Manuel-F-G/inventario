@@ -1,12 +1,9 @@
 import styled from "styled-components";
 import { v } from "../../../index";
-export function Paginacion({ table, pagina, maximo,irinicio }) {
+export function Paginacion({ table, pagina, maximo, irinicio }) {
   return (
     <Container>
-      <button
-        onClick={() => irinicio()}
-        disabled={!table.getCanPreviousPage()}
-      >
+      <button onClick={() => irinicio()} disabled={!table.getCanPreviousPage()}>
         <span className="iconos">{<v.iconotodos />}</span>
       </button>
       <button
@@ -17,7 +14,10 @@ export function Paginacion({ table, pagina, maximo,irinicio }) {
       </button>
       <span>{pagina}</span>
       <p> de {maximo}</p>
-      <button disabled={!table.getCanNextPage()} onClick={()=>table.nextPage()}>
+      <button
+        disabled={!table.getCanNextPage()}
+        onClick={() => table.nextPage()}
+      >
         <span className="iconos">{<v.iconoflechaderecha />}</span>
       </button>
     </Container>
@@ -51,7 +51,7 @@ const Container = styled.div`
       }
     }
   }
-  button[disabled]{
+  button[disabled] {
     background-color: #646464;
     cursor: no-drop;
     box-shadow: none;

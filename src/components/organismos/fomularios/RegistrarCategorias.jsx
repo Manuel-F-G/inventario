@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { v } from "../../../styles/variables";
-import { InputText, Btnsave,ConvertirCapitalize, useCategoriasStore } from "../../../index";
+import {
+  InputText,
+  Btnsave,
+  ConvertirCapitalize,
+  useCategoriasStore,
+} from "../../../index";
 import { useForm } from "react-hook-form";
 import { useEmpresaStore } from "../../../store/EmpresaStore";
-import {CirclePicker} from "react-color";
+import { CirclePicker } from "react-color";
 export function RegistrarCategorias({ onClose, dataSelect, accion }) {
   const [currentColor, setColor] = useState("#fedc2a");
   const { insertarcategorias, editarcategorias } = useCategoriasStore();
@@ -14,23 +19,23 @@ export function RegistrarCategorias({ onClose, dataSelect, accion }) {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const elegirColor = (color) =>{
+  const elegirColor = (color) => {
     setColor(color.hex);
-  }
+  };
   async function insertar(data) {
     if (accion === "Editar") {
       const p = {
         id: dataSelect.id,
-        descripcion:ConvertirCapitalize( data.nombre),
-        color:currentColor
+        descripcion: ConvertirCapitalize(data.nombre),
+        color: currentColor,
       };
       await editarcategorias(p);
       onClose();
     } else {
       const p = {
-        _descripcion:ConvertirCapitalize( data.nombre),
+        _descripcion: ConvertirCapitalize(data.nombre),
         _idempresa: dataempresa.id,
-        _color:currentColor
+        _color: currentColor,
       };
       await insertarcategorias(p);
       onClose();
@@ -38,7 +43,7 @@ export function RegistrarCategorias({ onClose, dataSelect, accion }) {
   }
   useEffect(() => {
     if (accion === "Editar") {
-      setColor(dataSelect.color)
+      setColor(dataSelect.color);
     }
   }, []);
   return (
@@ -47,7 +52,9 @@ export function RegistrarCategorias({ onClose, dataSelect, accion }) {
         <div className="headers">
           <section>
             <h1>
-              {accion == "Editar" ? "Editar categoría" : "Registrar nueva categoría"}
+              {accion == "Editar"
+                ? "Editar categoría"
+                : "Registrar nueva categoría"}
             </h1>
           </section>
 
@@ -74,8 +81,8 @@ export function RegistrarCategorias({ onClose, dataSelect, accion }) {
               </InputText>
             </article>
             <article className="colorContainer">
-               <center>
-              <CirclePicker onChange={elegirColor} color={currentColor}/>
+              <center>
+                <CirclePicker onChange={elegirColor} color={currentColor} />
               </center>
             </article>
             <div className="btnguardarContent">
