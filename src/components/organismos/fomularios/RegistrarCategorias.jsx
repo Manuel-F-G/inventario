@@ -178,4 +178,3 @@ const ContainerEmojiPicker = styled.div`
   bottom: 0;
   right: 0;
 `;
-
