@@ -21,6 +21,7 @@ export function HomeTemplate() {
     </Container>
   );
 }
+
 const Container = styled.div`
   position: relative;
   overflow: hidden;
