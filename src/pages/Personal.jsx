@@ -4,7 +4,7 @@ import {
   SpinnerLoader,
   useEmpresaStore,
   useMarcaStore,
-} from "../index";
+} from "../index"; 
 
 export function Personal() {
   const { mostrarMarca, datamarca, buscarMarca, buscador } = useMarcaStore();
