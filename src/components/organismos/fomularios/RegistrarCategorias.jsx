@@ -40,7 +40,7 @@ export function RegistrarCategorias({ onClose, dataSelect, accion }) {
       await insertarcategorias(p);
       onClose();
     }
-  }
+  } 
   useEffect(() => {
     if (accion === "Editar") {
       setColor(dataSelect.color);
