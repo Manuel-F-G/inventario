@@ -13,7 +13,7 @@ export const usePersonalStore = create((set, get) => ({
   },
   datapersonal: [],
   personalItemSelect: [],
-  parametros: {},
+  parametros: {}, 
   mostrarpersonal: async (p) => {
     const response = await MostrarPersonal(p);
     set({ parametros: p });
