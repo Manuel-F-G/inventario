@@ -29,6 +29,5 @@ export function Personal() {
   if (error) {
     return <span>Error...</span>;
   }
-
   return <PersonalTemplate data={datamarca}/>;
 }
