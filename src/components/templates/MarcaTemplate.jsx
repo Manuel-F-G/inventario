@@ -31,7 +31,6 @@ export function MarcaTemplate({ data }) {
           onClose={() => SetopenRegistro(!openRegistro)}
         />
       )}
-
       <header className="header">
         <Header
           stateConfig={{ state: state, setState: () => setState(!state) }}
