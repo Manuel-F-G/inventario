@@ -29,6 +29,5 @@ export function Marca() {
   if (error) {
     return <span>Error...</span>;
   }
-
   return <MarcaTemplate data={datamarca} />;
 }
