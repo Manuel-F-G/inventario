@@ -66,7 +66,7 @@ export function TablaProductos({
   const columns = [
     {
       accessorKey: "descripcion",
-      header: "Descripcion",
+      header: "Descripción",
       cell: (info) => (
         <td data-title="Descripcion" className="ContentCell">
           <span>{info.getValue()}</span>
