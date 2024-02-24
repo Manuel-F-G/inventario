@@ -60,7 +60,6 @@ export const v = {
   xlSpacing: `32px`,
   xxlSpacing: `48px`,
   borderRadius: `6px`,
-
   paletacolores: CiPalette,
   emoji: BsEmojiLaughing,
   iconeditarTabla: RiEditLine,
