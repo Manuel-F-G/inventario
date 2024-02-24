@@ -12,9 +12,8 @@ export function HomeTemplate() {
         />
       </header>
       <section className="area1">
-        <Title>Tu empresa</Title>
+        <Title>Grupo base</Title>
       </section>
-
       <section className="main">
         <BannerEmpresa />
       </section>
@@ -48,7 +47,6 @@ const Container = styled.div`
     align-items: center;
     justify-content: end;
   }
-
   .main {
     grid-area: main;
     /* background-color: rgba(179, 46, 241, 0.14); */
