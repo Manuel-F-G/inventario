@@ -55,7 +55,6 @@ export const TemasData = [
     descripcion: "dark",
   },
 ];
-
 //data configuracion
 export const DataModulosConfiguracion = [
   {
