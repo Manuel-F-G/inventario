@@ -30,6 +30,5 @@ export function Categorias() {
   if (error) {
     return <span>Error...</span>;
   }
-
   return <CategoriasTemplate data={datacategorias} />;
 }
