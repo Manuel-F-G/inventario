@@ -44,6 +44,5 @@ export function Productos() {
   if (error) {
     return <span>Error...</span>;
   }
-
   return <ProductosTemplate data={dataproductos} />;
 }
