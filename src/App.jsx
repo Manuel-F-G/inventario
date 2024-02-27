@@ -82,5 +82,4 @@ const Container = styled.main`
     }
   }
 `;
-
 export default App;
