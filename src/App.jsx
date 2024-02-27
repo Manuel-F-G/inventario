@@ -43,7 +43,6 @@ function App() {
                 </section>
               </Container>
             )}
-
             <ReactQueryDevtools initialIsOpen={false} />
           </AuthContextProvider>
         </ThemeProvider>
