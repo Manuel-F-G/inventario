@@ -3,7 +3,7 @@ import { HashLoader } from "react-spinners";
 export function SpinnerLoader() {
   return (
     <Container>
-      <HashLoader color="#FFF140" size={200} />
+      <HashLoader color="#fedc2a" size={200} />
     </Container>
   );
 }
