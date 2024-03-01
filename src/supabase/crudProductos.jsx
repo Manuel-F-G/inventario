@@ -11,7 +11,6 @@ export async function InsertarProductos(p) {
     });
   }
 }
-
 export async function MostrarProductos(p) {
   const { data } = await supabase.rpc("mostrarproductos", p);
   return data;
