@@ -32,7 +32,6 @@ export function MyRoutes() {
     queryFn: () => mostrarEmpresa({ idusaurio: idusuario }),
     enabled: !!datausuarios,
   });
-
   if (isLoading) {
     return <SpinnerLoader />;
   }
