@@ -15,7 +15,6 @@ import {
   Personal,
 } from "../index";
 import { useQuery } from "@tanstack/react-query";
-
 export function MyRoutes() {
   const { user } = UserAuth();
   const { mostrarUsuarios, idusuario } = useUsuariosStore();
