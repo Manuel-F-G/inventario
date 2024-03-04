@@ -41,7 +41,7 @@ export function CategoriasTemplate({ data }) {
       </header>
       <section className="area1">
         <ContentFiltro>
-          <Title>Categorías</Title>
+          <Title>Área</Title>
           <Btnfiltro
             funcion={nuevoRegistro}
             bgcolor="#f6f3f3"
