@@ -53,3 +53,48 @@ export async function BuscarUsuarios(p) {
     .ilike("descripcion", "%" + p.descripcion + "%");
   return data;
 }
+
+// TABLA DE ASIGNACIONES
+export const InsertarAsignaciones = async (p) => {
+  const { error } = await supabase
+    .from("asignarempresa")
+    .insert(p)
+  if (error) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Error al insertar usuario " + error.message,
+    });
+  }
+};
+//TABLA DE PERSMISOS
+export async function InsertarPermisos (p) {
+  const { error } = await supabase
+    .from("permisos")
+    .insert(p)
+  if (error) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Error al insertar permisos " + error.message,
+    });
+  }
+};
+
+export async function MostrarPermisos (p) {
+  const { error } = await supabase
+    .from("permisos")
+    .select(`id,id_usuario, id_modulo, modulos(nombre)`)
+    .eq("id_usuario", p.id_usuario)
+    return data;  
+};
+
+export async function EliminarPermisos(p) {
+  const { error } = await supabase
+  .from("permisos")
+  .delete()
+  .eq("id_usuario", p.id_usuario);
+  if (error) {
+    alert("Error al eliminar", error);
+  }
+}

@@ -40,8 +40,30 @@ export const useUsuariosStore = create((set, get) => ({
   selectusuarios: (p) => {
     set({ usuariosItemSelect: p });
   },
-  insertarusuarios: async (p) => {
-    await Insertarusuarios(p);
+  insertarusuarios: async (parametrosAuth,p) => {
+    const{data,error} = await supabase.auth.signUp({
+      email: parametrosAuth.correo,
+      password: parametrosAuth.passs
+    })
+    if(error){
+      return null
+    }
+    const dataUserNew = await InsertarUsuarios({
+      nombres: p.nombres,
+      nro_doc: p.nrodoc,
+      telefono: p.telefono,
+      direccion: p.direccion,
+      fecharegistro: new Date(),
+      estado: "activo",
+      idauth: data.user.id,
+      tipouser: p.tipouser,
+    })
+
+    await InsertarAsignaciones({
+      id_empresa: p.id_empresa,
+      id_usuario: dataUserNew.id
+    })
+
     const { mostrarusuarios } = get();
     const { parametros } = get();
     set(mostrarusuarios(parametros));
