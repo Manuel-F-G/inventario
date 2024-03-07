@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { InsertarUsuarios, MostrarUsuarios, supabase } from "../index";
+import { InsertarUsuarios, MostrarUsuarios, MostrarUsuariosTodos, supabase } from "../index";
 
 export const useUsuariosStore = create((set, get) => ({
   insertarUsuarioAdmin: async (p) => {
@@ -27,39 +27,39 @@ export const useUsuariosStore = create((set, get) => ({
   setBuscador: (p) => {
     set({ buscador: p });
   },
-  datapersonal: [],
-  personalItemSelect: [],
+  datausuarios: [],
+  usuariosItemSelect: [],
   parametros: {}, 
-  mostrarpersonal: async (p) => {
-    const response = await MostrarPersonal(p);
+  mostrarusuariosTodos: async (p) => {
+    const response = await MostrarUsuariosTodos(p);
     set({ parametros: p });
-    set({ datapersonal: response });
-    set({ personalItemSelect: response[0] });
+    set({ datausuarios: response });
+    set({ usuariosItemSelect: response[0] });
     return response;
   },
-  selectpersonal: (p) => {
-    set({ personalItemSelect: p });
+  selectusuarios: (p) => {
+    set({ usuariosItemSelect: p });
   },
-  insertarpersonal: async (p) => {
-    await InsertarPersonal(p);
-    const { mostrarpersonal } = get();
+  insertarusuarios: async (p) => {
+    await Insertarusuarios(p);
+    const { mostrarusuarios } = get();
     const { parametros } = get();
-    set(mostrarpersonal(parametros));
+    set(mostrarusuarios(parametros));
   },
-  eliminarpersonal: async (p) => {
-    await EliminarPersonal(p);
-    const { mostrarpersonal } = get();
+  eliminarusuarios: async (p) => {
+    await Eliminarusuarios(p);
+    const { mostrarusuarios } = get();
     const { parametros } = get();
-    set(mostrarpersonal(parametros));
+    set(mostrarusuarios(parametros));
   },
-  editarpersonal: async (p) => {
-    await EditarPersonal(p);
-    const { mostrarpersonal } = get();
+  editarusuarios: async (p) => {
+    await Editarusuarios(p);
+    const { mostrarusuarios } = get();
     const { parametros } = get();
-    set(mostrarpersonal(parametros));
+    set(mostrarusuarios(parametros));
   },
-  buscarpersonal: async (p) => {
-    const response = await BuscarPersonal(p);
-    set({ datapersonal: response });
+  buscarusuarios: async (p) => {
+    const response = await Buscarusuarios(p);
+    set({ datausuarios: response });
   },
 }));
