@@ -337,7 +337,6 @@ const Container = styled.div`
       background-color: #484848;
       border-radius: 10px;
     }
-
     .headers {
       display: flex;
       justify-content: space-between;
