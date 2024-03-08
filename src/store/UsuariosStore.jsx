@@ -40,7 +40,7 @@ export const useUsuariosStore = create((set, get) => ({
   selectusuarios: (p) => {
     set({ usuariosItemSelect: p });
   },
-  insertarusuarios: async (parametrosAuth,p) => {
+  insertarusuarios: async (parametrosAuth,p,datacheckpermisos) => {
     const{data,error} = await supabase.auth.signUp({
       email: parametrosAuth.correo,
       password: parametrosAuth.passs
@@ -64,9 +64,17 @@ export const useUsuariosStore = create((set, get) => ({
       id_usuario: dataUserNew.id
     })
 
-    const { mostrarusuarios } = get();
-    const { parametros } = get();
-    set(mostrarusuarios(parametros));
+    datacheckpermisos.forEach(async(item)=>{
+      if(item.check){
+        let parametrospermisos={
+          id_usuario:dataUserNew.id,
+          idmodulo:item.id
+        }
+        await InsertarPermisos(parametrospermisos);
+      }
+    });
+    await supabase.auth.signOut();
+    return data.user;
   },
   eliminarusuarios: async (p) => {
     await Eliminarusuarios(p);
