@@ -57,7 +57,7 @@ export const useUsuariosStore = create((set, get) => ({
       estado: "activo",
       idauth: data.user.id,
       tipouser: p.tipouser,
-    })
+    }) 
     await InsertarAsignaciones({
       id_empresa: p.id_empresa,
       id_usuario: dataUserNew.id
