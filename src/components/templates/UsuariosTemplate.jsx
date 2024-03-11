@@ -11,7 +11,7 @@ import {
   v,
 } from "../../index";
 import { useState } from "react";
-export function PersonalTemplate({ data }) {
+export function UsuariosTemplate({ data }) {
   const [state, setState] = useState(false);
   const [dataSelect, setdataSelect] = useState([]);
   const [accion, setAccion] = useState("");
