@@ -91,4 +91,4 @@ export const useUsuariosStore = create((set, get) => ({
     const response = await Buscarusuarios(p);
     set({ datausuarios: response });
   },
-})); 
+}));
