@@ -47,4 +47,4 @@ export const useProductosStore = create((set, get) => ({
     set({ dataproductos: response });
     return response;
   },
-})); 
+}));
