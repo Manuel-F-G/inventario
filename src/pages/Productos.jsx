@@ -45,4 +45,4 @@ export function Productos() {
     return <span>Error...</span>;
   }
   return <ProductosTemplate data={dataproductos} />;
-}
+} 
