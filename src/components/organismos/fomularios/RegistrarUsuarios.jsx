@@ -93,8 +93,8 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
           <section>
             <h1>
               {accion == "Editar"
-                ? "Editar productos"
-                : "Registrar nuevo producto"}
+                ? "Editar usuarios"
+                : "Registrar nuevo usuario"}
             </h1>
           </section>
 
@@ -109,99 +109,50 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
               <InputText icono={<v.icononombre />}>
                 <input
                   className="form__field"
-                  defaultValue={dataSelect.descripcion}
+                  defaultValue={dataSelect.correo}
                   type="text"
                   placeholder=""
-                  {...register("descripcion", {
+                  {...register("correo", {
                     required: true,
                   })}
                 />
-                <label className="form__label">Descripción</label>
-                {errors.nombre?.type === "required" && <p>Campo requerido</p>}
-              </InputText>
-            </article>
-            <ContainerSelector>
-              <label>Marca:</label>
-              <Selector
-                funcion={() => setStateMarca(!stateMarca)}
-                state={stateMarca}
-                color="#fedc2a"
-                texto1="🛠"
-                texto2={marcaItemSelect?.descripcion}
-              />
-              {stateMarca && (
-                <ListaGenerica
-                  setState={() => setStateMarca(!stateMarca)}
-                  bottom="-260px"
-                  scroll="scroll"
-                  data={datamarca}
-                  funcion={selectMarca}
-                />
-              )}
-              <Btnfiltro
-                funcion={nuevoRegistroMarca}
-                bgcolor="#f6f3f3"
-                textcolor="#353535"
-                icono={<v.agregar />}
-              />
-            </ContainerSelector>
-            <article>
-              <InputText icono={<v.iconostock />}>
-                <input
-                  className="form__field"
-                  type="number"
-                  step="1"
-                  placeholder=""
-                  defaultValue={dataSelect.stock}
-                  {...register("stock", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Stock</label>
-                {errors.stock?.type === "required" && <p>Campo requerido</p>}
+                <label className="form__label">Correo</label>
+                {errors.correo?.type === "required" && <p>Campo requerido</p>}
               </InputText>
             </article>
             <article>
-              <InputText icono={<v.iconostockminimo />}>
+              <InputText icono={<v.icononombre />}>
                 <input
                   className="form__field"
-                  defaultValue={dataSelect.stock_minimo}
-                  type="number"
+                  defaultValue={dataSelect.pass}
+                  type="text"
                   placeholder=""
-                  {...register("stock_minimo", {
+                  {...register("pass", {
                     required: true,
                   })}
                 />
-                <label className="form__label">Stock minimo</label>
-                {errors.stock_minimo?.type === "required" && (
-                  <p>Campo requerido</p>
-                )}
+                <label className="form__label">Contraseña</label>
+                {errors.pass?.type === "required" && <p>Campo requerido</p>}
               </InputText>
             </article>
-            <ContainerSelector>
-              <label>Categoría:</label>
-              <Selector
-                funcion={() => setStateCategoria(!stateCategoria)}
-                state={stateCategoria}
-                color="#fedc2a"
-                texto1="🛠"
-                texto2={categoriasItemSelect?.descripcion}
-              />
-              <Btnfiltro
-                funcion={nuevoRegistroCategoria}
-                bgcolor="#f6f3f3"
-                textcolor="#353535"
-                icono={<v.agregar />}
-              />
-              {stateCategoria && (
-                <ListaGenerica
-                  setState={() => setStateCategoria(!stateCategoria)}
-                  bottom="-260px"
-                  scroll="scroll"
-                  data={datacategorias}
-                  funcion={selectcategorias}
+            <article>
+              <InputText icono={<v.icononombre />}>
+                <input
+                  className="form__field"
+                  defaultValue={dataSelect.nombres}
+                  type="text"
+                  placeholder=""
+                  {...register("nombres", {
+                    required: true,
+                  })}
                 />
-              )}
+                <label className="form__label">Nombre</label>
+                {errors.nombres?.type === "required" && <p>Campo requerido</p>}
+              </InputText>
+            </article>
+            //TIPO DOCUMENTO
+            <ContainerSelector>
+              <label>Tipo doc:</label>
             </ContainerSelector>
           </section>
           <section className="seccion2">

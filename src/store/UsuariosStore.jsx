@@ -43,7 +43,7 @@ export const useUsuariosStore = create((set, get) => ({
   insertarusuarios: async (parametrosAuth,p,datacheckpermisos) => {
     const{data,error} = await supabase.auth.signUp({
       email: parametrosAuth.correo,
-      password: parametrosAuth.passs
+      password: parametrosAuth.pass
     })
     if(error){
       return null

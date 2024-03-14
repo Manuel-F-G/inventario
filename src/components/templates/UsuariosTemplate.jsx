@@ -5,6 +5,7 @@ import {
   ContentFiltro,
   Header,
   RegistrarMarca,
+  RegistrarUsuarios,
   TablaMarca,
   Title,
   useMarcaStore,
@@ -25,7 +26,7 @@ export function UsuariosTemplate({ data }) {
   return (
     <Container>
       {openRegistro && (
-        <RegistrarMarca
+        <RegistrarUsuarios
           dataSelect={dataSelect}
           accion={accion}
           onClose={() => SetopenRegistro(!openRegistro)}
