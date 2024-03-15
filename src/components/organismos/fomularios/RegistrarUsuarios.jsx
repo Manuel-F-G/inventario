@@ -136,7 +136,7 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
                       required: true,
                     })}
                   />
-                  <label className="form__label">correo</label>
+                  <label className="form__label">Correo</label>
                   {errors.correo?.type === "required" && <p>Campo requerido</p>}
                 </InputText>
               </article>
@@ -157,7 +157,7 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
                       minLength: 6,
                     })}
                   />
-                  <label className="form__label">pass</label>
+                  <label className="form__label">Contraseña</label>
                   {errors.pass?.type === "required" && <p>Campo requerido</p>}
                   {errors.pass?.type === "minLength" && (
                     <p>Debe tener al menos 6 caracteres</p>
@@ -182,10 +182,12 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
                 {errors.nombres?.type === "required" && <p>Campo requerido</p>}
               </InputText>
             </article>
+
+            {/*  QUIZAS QUITO ESTO*/}
             <ContainerSelector>
               <label>Tipo doc: </label>
               <Selector
-                color="#fc6027"
+                color="#fedc2a"
                 texto1="🎴"
                 texto2={tipodoc.descripcion}
                 funcion={() => setStateTipodoc(!stateTipodoc)}
@@ -251,12 +253,13 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
                 )}
               </InputText>
             </article>
+            {/*  HASTA AQUI*/}
           </section>
           <section className="seccion2">
             <ContainerSelector>
               <label>Tipo: </label>
               <Selector
-                color="#fc6027"
+                color="#fedc2a"
                 texto1="👷‍♂️"
                 texto2={tipouser.descripcion}
                 funcion={() => setStateTipouser(!stateTipouser)}
@@ -271,7 +274,7 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
                 />
               )}
             </ContainerSelector>
-            PERMISOS:🔑
+            PERMISOS:
             <ListaModulos
               accion={accion}
               checkboxs={checkboxs}
@@ -282,7 +285,7 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
             <Btnsave
               icono={<v.iconoguardar />}
               titulo="Guardar"
-              bgcolor="#ef552b"
+              bgcolor="#fedc2a"
             />
           </div>
         </form>
@@ -315,7 +318,7 @@ const Container = styled.div`
     transition: border-color 0.2s;
     &.disabled {
       color: #696969;
-      background: #2d2d2d;
+      background: #fedb2a99;
       border-radius: 8px;
       margin-top: 8px;
       border-bottom: 1px dashed #656565;

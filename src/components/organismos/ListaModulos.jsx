@@ -74,7 +74,7 @@ const Container = styled.div`
     min-width: 30px;
     aspect-ratio: 1/1;
     border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
-    border: 2px solid rgb(255, 102, 0);
+    border: 2px solid #ffffff;
     position: relative;
     transition: all 0.2s ease-in-out;
     &::before {
@@ -89,15 +89,15 @@ const Container = styled.div`
       background: linear-gradient(
         135deg,
         rgb(255, 212, 59) 0%,
-        rgb(255, 102, 0) 100%
+        #fedc2a 100%
       );
       box-shadow: -5px -5px 30px rgba(255, 212, 59, 1),
-        5px 5px 30px rgba(255, 102, 0, 1);
+        5px 5px 30px #fedc2a;
       &::before {
         background: linear-gradient(
           135deg,
           rgb(255, 212, 59) 0%,
-          rgb(255, 102, 0) 100%
+          #fedc2a 100%
         );
       }
     }

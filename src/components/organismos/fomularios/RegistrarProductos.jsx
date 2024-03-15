@@ -121,8 +121,8 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
               <Selector
                 funcion={() => setStateMarca(!stateMarca)}
                 state={stateMarca}
-                color="#fc6027"
-                texto1="🍿"
+                color="#fedc2a"
+                texto1=""
                 texto2={marcaItemSelect?.descripcion}
               />
               {stateMarca && (
@@ -181,8 +181,8 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
               <Selector
                 funcion={() => setStateCategoria(!stateCategoria)}
                 state={stateCategoria}
-                color="#fc6027"
-                texto1="🍿"
+                color="#fedc2a"
+                texto1=""
                 texto2={categoriasItemSelect?.descripcion}
               />
               <Btnfiltro
@@ -281,7 +281,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
             <Btnsave
               icono={<v.iconoguardar />}
               titulo="Guardar"
-              bgcolor="#ef552b"
+              bgcolor="#fedc2a"
             />
           </div>
         </form>

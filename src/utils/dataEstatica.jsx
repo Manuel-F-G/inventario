@@ -69,14 +69,14 @@ export const TemasData = [
 export const DataModulosConfiguracion =[
   {
     title:"Productos",
-    subtitle:"registra tus productos",
+    subtitle:"Registra productos",
     icono:"https://i.ibb.co/85zJ6yG/caja-del-paquete.png",
     link:"/configurar/productos",
    
   },
   {
     title:"Personal",
-    subtitle:"ten el control de tu personal",
+    subtitle:"Control de personal",
     icono:"https://i.ibb.co/5vgZ0fX/hombre.png",
     link:"/configurar/personal",
    
@@ -84,21 +84,21 @@ export const DataModulosConfiguracion =[
 
   {
     title:"Tu empresa",
-    subtitle:"configura tus opciones básicas",
+    subtitle:"Configura opciones básicas",
     icono:"https://i.ibb.co/x7mHPgm/administracion-de-empresas.png",
     link:"/configurar/empresa",
     
   },
   {
     title:"Categoria de productos",
-    subtitle:"asigna categorias a tus productos",
+    subtitle:"Asigna area a los productos",
     icono:"https://i.ibb.co/VYbMRLZ/categoria.png",
     link:"/configurar/categorias",
     
   },
   {
     title:"Marca de productos",
-    subtitle:"gestiona tus marcas",
+    subtitle:"Añade marcas",
     icono:"https://i.ibb.co/1qsbCRb/piensa-fuera-de-la-caja.png",
     link:"/configurar/marca",
    

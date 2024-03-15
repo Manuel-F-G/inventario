@@ -76,7 +76,6 @@ export function TablaProductos({
     {
       accessorKey: "stock",
       header: "Stock",
-      enableSorting: false,
       cell: (info) => (
         <td data-title="Stock" className="ContentCell">
           <span>{info.getValue()}</span>

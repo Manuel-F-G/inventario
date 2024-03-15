@@ -90,7 +90,7 @@ setColor(color.hex)
               <Btnsave
                 icono={<v.iconoguardar />}
                 titulo="Guardar"
-                bgcolor="#ef552b"
+                bgcolor="#fedc2a"
               />
             </div>
           </section>

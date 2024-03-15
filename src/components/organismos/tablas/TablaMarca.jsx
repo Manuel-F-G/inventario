@@ -59,8 +59,8 @@ export function TablaMarca({
   const columns = [
     {
       accessorKey: "descripcion",
-      header: "Descripcion",
-      cell: (info) =><td data-title="Descripcion" className="ContentCell">
+      header: "Descripción",
+      cell: (info) =><td data-title="Descripción" className="ContentCell">
         <span >{info.getValue()}</span>
       </td> 
     },

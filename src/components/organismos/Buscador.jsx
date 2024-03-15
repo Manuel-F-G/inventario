@@ -9,7 +9,7 @@ export function Buscador({setBuscador}) {
     <Container>
       <article className="content">
         <FaSearch className="icono" />
-        <input onChange={buscar} placeholder="...buscar"></input>
+        <input onChange={buscar} placeholder="Buscar"></input>
       </article>
     </Container>
   );
