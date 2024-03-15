@@ -12,7 +12,7 @@ export function HomeTemplate() {
         />
       </header>
       <section className="area1">
-        <Title>Tu empresa</Title>
+        <Title>Inicio</Title>
       </section>
      
       <section className="main">

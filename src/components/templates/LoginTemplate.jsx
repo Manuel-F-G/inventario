@@ -36,7 +36,7 @@ export function LoginTemplate() {
     <Container >
       <div className="contentLogo">
         <img src={logo}></img>
-        <span>StockPRO</span>
+        <span>Inventario</span>
       </div>
       <div className="bannerlateral">
         <img src={carrito}></img>
@@ -47,16 +47,10 @@ export function LoginTemplate() {
        {
         state && <RegistrarAdmin setState={()=>setState(!state)}/>
        }
-          <Titulo>StockPRO</Titulo>
+          <Titulo>Grupo Base</Titulo>
           {stateInicio && (
             <TextoStateInicio>datos incorrectos</TextoStateInicio>
           )}
-          <span className="ayuda">
-            {" "}
-            Puedes crear una cuenta nueva ó <br></br>solicitar a tu empleador
-            una. <MdOutlineInfo />
-          </span>
-          <p className="frase">Controla tu inventario.</p>
           <form onSubmit={handleSubmit(iniciar)}>
             <InputText icono={<v.iconoemail />}>
               <input
@@ -67,7 +61,7 @@ export function LoginTemplate() {
                   required: true,
                 })}
               />
-              <label className="form__label">email</label>
+              <label className="form__label">Correo</label>
               {errors.correo?.type === "required" && <p>Campo requerido</p>}
             </InputText>
             <InputText icono={<v.iconopass />}>
@@ -79,11 +73,11 @@ export function LoginTemplate() {
                   required: true,
                 })}
               />
-              <label className="form__label">pass</label>
+              <label className="form__label">Contraseña</label>
               {errors.pass?.type === "required" && <p>Campo requerido</p>}
             </InputText>
             <ContainerBtn>
-              <Btnsave titulo="Iniciar" bgcolor="#fc6b32" />
+              <Btnsave titulo="Iniciar" bgcolor="#fedc2a" />
               <Btnsave
                 funcion={() => setState(!state)}
                 titulo="Crear cuenta"
@@ -132,7 +126,7 @@ const Container = styled.div`
   }
 
   .bannerlateral {
-    background-color: #fc6b32;
+    background-color: #fedc2a;
     height: 100vh;
     display: flex;
     align-items: center;
