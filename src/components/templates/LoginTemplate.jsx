@@ -1,17 +1,10 @@
 import styled from "styled-components";
-import {
-  Btnsave,
-  v,
-  useAuthStore,
-  InputText,
-  FooterLogin,
-  RegistrarAdmin,
-} from "../../index";
+import { Btnsave, v, useAuthStore, InputText, FooterLogin, RegistrarAdmin } from "../../index";
 import { Device } from "../../styles/breackpoints";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import mapache from "../../assets/mapache.png";
+import carrito from "../../assets/carrito.svg";
 import logo from "../../assets/inventarioslogo.png";
 import { MdOutlineInfo } from "react-icons/md";
 import { ThemeContext } from "../../App";
@@ -40,23 +33,29 @@ export function LoginTemplate() {
   }
 
   return (
-    <Container>
+    <Container >
       <div className="contentLogo">
         <img src={logo}></img>
-        <span>Grupo base energeticos</span>
+        <span>StockPRO</span>
       </div>
       <div className="bannerlateral">
-        <img src={mapache}></img>
+        <img src={carrito}></img>
       </div>
 
       <div className="contentCard">
         <div className="card">
-          {state && <RegistrarAdmin setState={() => setState(!state)} />}
-          <Titulo>Grupo base </Titulo>
+       {
+        state && <RegistrarAdmin setState={()=>setState(!state)}/>
+       }
+          <Titulo>StockPRO</Titulo>
           {stateInicio && (
-            <TextoStateInicio>Datos incorrectos</TextoStateInicio>
+            <TextoStateInicio>datos incorrectos</TextoStateInicio>
           )}
-          <span className="ayuda"> </span>
+          <span className="ayuda">
+            {" "}
+            Puedes crear una cuenta nueva ó <br></br>solicitar a tu empleador
+            una. <MdOutlineInfo />
+          </span>
           <p className="frase">Controla tu inventario.</p>
           <form onSubmit={handleSubmit(iniciar)}>
             <InputText icono={<v.iconoemail />}>
@@ -68,7 +67,7 @@ export function LoginTemplate() {
                   required: true,
                 })}
               />
-              <label className="form__label">Correo</label>
+              <label className="form__label">email</label>
               {errors.correo?.type === "required" && <p>Campo requerido</p>}
             </InputText>
             <InputText icono={<v.iconopass />}>
@@ -80,11 +79,11 @@ export function LoginTemplate() {
                   required: true,
                 })}
               />
-              <label className="form__label">Contraseña</label>
+              <label className="form__label">pass</label>
               {errors.pass?.type === "required" && <p>Campo requerido</p>}
             </InputText>
             <ContainerBtn>
-              <Btnsave titulo="Iniciar sesión" bgcolor="#fedc2a" />
+              <Btnsave titulo="Iniciar" bgcolor="#fc6b32" />
               <Btnsave
                 funcion={() => setState(!state)}
                 titulo="Crear cuenta"
@@ -133,7 +132,7 @@ const Container = styled.div`
   }
 
   .bannerlateral {
-    background-color: #fedc2a;
+    background-color: #fc6b32;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -182,7 +181,7 @@ const Container = styled.div`
       }
     }
     .frase {
-      color: #fedc2a;
+      color: #fc6c32;
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 30px;
@@ -229,5 +228,5 @@ const ContainerBtn = styled.div`
   justify-content: center;
 `;
 const TextoStateInicio = styled.p`
-  color: #ff0000;
+  color: #fc7575;
 `;

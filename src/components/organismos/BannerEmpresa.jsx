@@ -3,7 +3,7 @@ import { v } from "../../styles/variables";
 import { CardDatosEmpresa } from "../moleculas/CardDatosEmpresa";
 import { useEmpresaStore } from "../../store/EmpresaStore";
 export function BannerEmpresa() {
-  const { dataempresa, contadorusuarios } = useEmpresaStore();
+  const {dataempresa,contadorusuarios} = useEmpresaStore();
   return (
     <Container>
       <div className="content-wrapper-context">
@@ -11,13 +11,14 @@ export function BannerEmpresa() {
           {<v.iconoempresa />}
           {dataempresa?.nombre}
         </span>
-        <div className="content-text">Texto random</div>
+        <div className="content-text">
+          StockPRO te mantiene siempre informado.
+        </div>
         <ContentCards>
-          <CardDatosEmpresa
-            titulo="Moneda"
-            valor={dataempresa?.simbolomoneda}
-          />
+          <CardDatosEmpresa titulo="Moneda" valor={dataempresa?.simbolomoneda} />
+          
           <CardDatosEmpresa titulo="Usuarios" valor={contadorusuarios} />
+          
         </ContentCards>
       </div>
       <div className="contentsvg">
@@ -30,7 +31,7 @@ export function BannerEmpresa() {
           <g filter="url(#filter0_f_934_1718)">
             <path
               d="M436.631 215.884C513.562 314.19 490.786 459.853 385.76 541.232C280.733 622.611 133.227 608.889 56.2961 510.583C-20.6352 412.277 2.14047 266.613 107.167 185.234C212.193 103.855 359.699 117.578 436.631 215.884Z"
-              fill="#FFFF00"
+              fill="#C300E2"
             ></path>
             <path
               d="M436.631 285.2C513.562 383.506 490.786 529.169 385.76 610.548C280.733 691.927 133.227 678.205 56.2961 579.899C-20.6352 481.593 2.14047 335.93 107.167 254.551C212.193 173.172 359.699 186.894 436.631 285.2Z"
@@ -94,6 +95,7 @@ export function BannerEmpresa() {
 const Container = styled.div`
   width: 100%;
   height: 100%;
+ 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,33 +110,35 @@ const Container = styled.div`
     position: absolute;
     height: 100%;
     width: 100%;
-    bottom: 0;
-    transition: 0.6s;
-  }
-  .contentsvg {
-    transition: cubic-bezier(0.4, 0, 0.2, 1) 0.6s;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    bottom: -500px;
-    opacity: 0;
     svg {
       width: 100%;
       height: 100%;
     }
   }
-  &:hover {
-    .contentsvg {
-      bottom: -100px;
-      opacity: 1;
+  .contentsvg{
+    transition: cubic-bezier(0.4, 0, 0.2, 1) 0.6s;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: -500px;
+    opacity:0;
+    svg {
+      width: 100%;
+      height: 100%;
     }
+
+  }
+  &:hover {
     .cuadros {
       transform: rotate(37deg) rotateX(5deg) rotateY(12deg) rotate(3deg)
         skew(2deg) skewY(1deg) scaleX(1.2) scaleY(1.2);
-      color: red;
+    }
+    .contentsvg{
+        bottom: -100px;
+        opacity:1;
     }
   }
-  .content-wrapper-context {
+  .content-wrapper-context{
     padding: 20px;
     gap: 10px;
     display: flex;
@@ -156,6 +160,7 @@ const Container = styled.div`
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
   }
 `;
 const ContentCards = styled.div`

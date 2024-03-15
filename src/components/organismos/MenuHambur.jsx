@@ -10,7 +10,10 @@ export function MenuHambur() {
       <NavBar>
         <section>
           <HamburgerMenu onClick={() => setClick(!click)}>
-            <label className={click ? "toggle active" : "toggle"}>
+            <label
+              className={click ? "toggle active" : "toggle"}
+             
+            >
               <div className="bars" id="bar1"></div>
               <div className="bars" id="bar2"></div>
               <div className="bars" id="bar3"></div>
@@ -82,6 +85,7 @@ const HamburgerMenu = styled.span`
       transition-duration: 0.5s;
       transform: rotate(180deg);
       .bars {
+        
         position: absolute;
         transition-duration: 0.5s;
       }
@@ -105,7 +109,7 @@ const HamburgerMenu = styled.span`
   .bars {
     width: 100%;
     height: 4px;
-    background-color: ${({ theme }) => theme.text};
+    background-color:${({theme})=>theme.text};
     border-radius: 4px;
   }
 
@@ -140,7 +144,7 @@ const Menu = styled.div`
     &:hover {
       background: ${(props) => props.theme.bgAlpha};
     }
-
+    
     .Links {
       width: 100vw;
       display: flex;
@@ -154,7 +158,9 @@ const Menu = styled.div`
         svg {
           font-size: 25px;
         }
+        
       }
+
     }
   }
 `;

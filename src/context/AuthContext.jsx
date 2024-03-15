@@ -11,7 +11,7 @@ export const AuthContextProvider = ({ children }) => {
         if (session?.user == null) {
           setUser(null);
         } else {
-          console.log("data del usuario", session?.user);
+          console.log("data del usuario",session?.user)
           setUser(session?.user);
         }
       }
@@ -26,4 +26,4 @@ export const AuthContextProvider = ({ children }) => {
 };
 export const UserAuth = () => {
   return useContext(AuthContext);
-}; 
+};

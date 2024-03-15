@@ -66,7 +66,7 @@ export function TablaProductos({
   const columns = [
     {
       accessorKey: "descripcion",
-      header: "Descripción",
+      header: "Descripcion",
       cell: (info) => (
         <td data-title="Descripcion" className="ContentCell">
           <span>{info.getValue()}</span>
@@ -74,11 +74,31 @@ export function TablaProductos({
       ),
     },
     {
-      accessorKey: "marca",
-      header: "Marca",
+      accessorKey: "stock",
+      header: "Stock",
       enableSorting: false,
       cell: (info) => (
-        <td data-title="Marca" className="ContentCell">
+        <td data-title="Stock" className="ContentCell">
+          <span>{info.getValue()}</span>
+        </td>
+      ),
+    },
+    {
+      accessorKey: "precioventa",
+      header: "P.venta",
+      enableSorting: false,
+      cell: (info) => (
+        <td data-title="P.venta" className="ContentCell">
+          <span>{info.getValue()}</span>
+        </td>
+      ),
+    },
+    {
+      accessorKey: "preciocompra",
+      header: "P.compra",
+      enableSorting: false,
+      cell: (info) => (
+        <td data-title="P.compra" className="ContentCell">
           <span>{info.getValue()}</span>
         </td>
       ),
@@ -99,30 +119,11 @@ export function TablaProductos({
       ),
     },
     {
-      accessorKey: "stock",
-      header: "Stock",
-      cell: (info) => (
-        <td data-title="Stock" className="ContentCell">
-          <span>{info.getValue()}</span>
-        </td>
-      ),
-    },
-    {
-      accessorKey: "precioventa",
-      header: "Precio anterior",
+      accessorKey: "marca",
+      header: "Marca",
       enableSorting: false,
       cell: (info) => (
-        <td data-title="Precio anterior" className="ContentCell">
-          <span>{info.getValue()}</span>
-        </td>
-      ),
-    },
-    {
-      accessorKey: "preciocompra",
-      header: "Precio compra",
-      enableSorting: false,
-      cell: (info) => (
-        <td data-title="Precio compra" className="ContentCell">
+        <td data-title="Marca" className="ContentCell">
           <span>{info.getValue()}</span>
         </td>
       ),
@@ -235,7 +236,7 @@ const Container = styled.div`
         overflow: auto;
       }
       th {
-        border-bottom: 2px solid rgb(115, 115, 115);
+        border-bottom: 2px solid rgba(115, 115, 115, 0.32);
         font-weight: normal;
         text-align: center;
         color: ${({ theme }) => theme.text};
@@ -292,7 +293,7 @@ const Container = styled.div`
         }
         &:nth-of-type(even) {
           @media (min-width: ${v.bpbart}) {
-            background-color: #fedb2a41;
+            background-color: rgba(78, 78, 78, 0.12);
           }
         }
       }

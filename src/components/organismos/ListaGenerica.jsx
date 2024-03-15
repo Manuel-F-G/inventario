@@ -9,12 +9,13 @@ export function ListaGenerica({ data, setState, funcion, scroll, bottom }) {
   return (
     <Container $scroll={scroll} $bottom={bottom}>
       <section className="contentClose">
-        <BtnCerrar funcion={setState} />
+        <BtnCerrar funcion={setState}/>
       </section>
       <section className="contentItems">
         {data.map((item, index) => {
           return (
             <ItemContainer key={index} onClick={() => seleccionar(item)}>
+              <span>💎</span>
               <span>{item.descripcion}</span>
             </ItemContainer>
           );

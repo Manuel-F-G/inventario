@@ -7,13 +7,7 @@ import {
   flexRender,
 } from "@tanstack/react-table";
 import styled from "styled-components";
-import {
-  Colorcontent,
-  ContentAccionesTabla,
-  Paginacion,
-  useCategoriasStore,
-  v,
-} from "../../../index";
+import { Colorcontent, ContentAccionesTabla, Paginacion, useCategoriasStore, useMarcaStore, v } from "../../../index";
 import Swal from "sweetalert2";
 import { FaArrowsAltV } from "react-icons/fa";
 import { useState } from "react";
@@ -65,26 +59,23 @@ export function TablaCategorias({
   const columns = [
     {
       accessorKey: "descripcion",
-      header: "Descripción",
-      cell: (info) => (
-        <td data-title="Descripcion" className="ContentCell">
-          <span>{info.getValue()}</span>
-        </td>
-      ),
+      header: "Descripcion",
+      cell: (info) =><td data-title="Descripcion" className="ContentCell">
+        <span >{info.getValue()}</span>
+      </td> 
     },
     {
       accessorKey: "color",
       header: "Color",
-      cell: (info) => (
-        <td data-title="Color" className="ContentCell">
-          <Colorcontent $color={info.getValue()} $alto="25px" $ancho="25px" />
-        </td>
-      ),
+      cell: (info) =><td data-title="Color" className="ContentCell">
+        <Colorcontent $color={info.getValue()} $alto="25px" $ancho="25px"/>
+        
+      </td> 
     },
     {
       accessorKey: "acciones",
       header: "",
-      enableSorting: false,
+      enableSorting:false,
       cell: (info) => (
         <td className="ContentCell">
           <ContentAccionesTabla
@@ -113,17 +104,14 @@ export function TablaCategorias({
                 <th key={header.id}>
                   {header.column.columnDef.header}
                   {header.column.getCanSort() && (
-                    <span
-                      style={{ cursor: "pointer" }}
-                      onClick={header.column.getToggleSortingHandler()}
-                    >
+                    <span style={{cursor:"pointer"}} onClick={header.column.getToggleSortingHandler()}>
                       <FaArrowsAltV />
                     </span>
                   )}
                   {
                     {
-                      asc: " 🔼",
-                      desc: " 🔽",
+                      asc:" 🔼",
+                      desc:" 🔽"
                     }[header.column.getIsSorted()]
                   }
                 </th>
@@ -143,13 +131,10 @@ export function TablaCategorias({
           ))}
         </tbody>
       </table>
-      <Paginacion
-        table={table}
-        irinicio={() => table.setPageIndex(0)}
-        pagina={table.getState().pagination.pageIndex + 1}
-        setPagina={setPagina}
-        maximo={table.getPageCount()}
-      />
+      <Paginacion table={table} irinicio = {()=>table.setPageIndex(0)}
+      pagina = {table.getState().pagination.pageIndex+1}
+      setPagina={setPagina}
+      maximo={table.getPageCount()}/>
     </Container>
   );
 }
@@ -176,6 +161,7 @@ const Container = styled.div`
     }
     thead {
       position: absolute;
+
       padding: 0;
       border: 0;
       height: 1px;
@@ -188,7 +174,7 @@ const Container = styled.div`
         overflow: auto;
       }
       th {
-        border-bottom: 2px solid rgb(115, 115, 115);
+        border-bottom: 2px solid rgba(115, 115, 115, 0.32);
         font-weight: normal;
         text-align: center;
         color: ${({ theme }) => theme.text};
@@ -245,7 +231,7 @@ const Container = styled.div`
         }
         &:nth-of-type(even) {
           @media (min-width: ${v.bpbart}) {
-            background-color: #fedb2a41;
+            background-color: rgba(78, 78, 78, 0.12);
           }
         }
       }

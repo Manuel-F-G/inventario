@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { v } from "../../../styles/variables";
 import { Device } from "../../../styles/breackpoints";
@@ -7,26 +7,42 @@ import {
   Btnsave,
   ConvertirCapitalize,
   useProductosStore,
-  useMarcaStore,
   ContainerSelector,
   Selector,
+  useMarcaStore,
   Btnfiltro,
   RegistrarMarca,
   ListaGenerica,
   useCategoriasStore,
   RegistrarCategorias,
+  TipoDocData,
+  TipouserData,
+  ListaModulos,
+  useUsuariosStore,
 } from "../../../index";
 import { useForm } from "react-hook-form";
 import { useEmpresaStore } from "../../../store/EmpresaStore";
-import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
-  const { insertarproductos, editarproductos } = useProductosStore();
+  const { isLoading } = useQuery({
+    queryKey: ["mostrar permisos Edit", { id_usuario: dataSelect.id }],
+    queryFn: () => mostrarpermisosEdit({ id_usuario: dataSelect.id }),
+  });
+
+  const [checkboxs, setCheckboxs] = useState([]);
+  const [tipodoc, setTipodoc] = useState({ icono: "", descripcion: "otros" });
+  const [tipouser, setTipouser] = useState({
+    icono: "",
+    descripcion: "empleado",
+  });
+  const { insertarusuarios, mostrarpermisosEdit, editarusuarios } =
+    useUsuariosStore();
   const { dataempresa } = useEmpresaStore();
   const { marcaItemSelect, datamarca, selectMarca } = useMarcaStore();
   const { categoriasItemSelect, datacategorias, selectcategorias } =
     useCategoriasStore();
-  const [stateMarca, setStateMarca] = useState(false);
-  const [stateCategoria, setStateCategoria] = useState(false);
+  const [stateTipodoc, setStateTipodoc] = useState(false);
+  const [stateTipouser, setStateTipouser] = useState(false);
   const [openRegistroMarca, SetopenRegistroMarca] = useState(false);
   const [openRegistroCategoria, SetopenRegistroCategoria] = useState(false);
   const [subaccion, setAccion] = useState("");
@@ -47,45 +63,43 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
     if (accion === "Editar") {
       const p = {
         id: dataSelect.id,
-        descripcion: ConvertirCapitalize(data.descripcion),
-        idmarca: marcaItemSelect.id,
-        stock: parseFloat(data.stock),
-        stock_minimo: parseFloat(data.stock_minimo),
-        codigobarras: data.codigobarras,
-        codigointerno: data.codigointerno,
-        precioventa: parseFloat(data.precioventa),
-        preciocompra: parseFloat(data.preciocompra),
-        id_categoria: categoriasItemSelect.id,
-        id_empresa: dataempresa.id,
+        nombres: data.nombres,
+        nro_doc: data.nrodoc,
+        telefono: data.telefono,
+        direccion: data.direccion,
+        tipouser: tipouser.descripcion,
+        tipodoc: tipodoc.descripcion,
       };
-      await editarproductos(p);
+      await editarusuarios(p, checkboxs, dataempresa.id);
       onClose();
     } else {
       const p = {
-        _descripcion: ConvertirCapitalize(data.descripcion),
-        _idmarca: marcaItemSelect.id,
-        _stock: parseFloat(data.stock),
-        _stock_minimo: parseFloat(data.stock_minimo),
-        _codigobarras: data.codigobarras,
-        _codigointerno: data.codigointerno,
-        _precioventa: parseFloat(data.precioventa),
-        _preciocompra: parseFloat(data.preciocompra),
-        _id_categoria: categoriasItemSelect.id,
-        _id_empresa: dataempresa.id,
+        nombres: data.nombres,
+        correo: data.correo,
+        nrodoc: data.nrodoc,
+        telefono: data.telefono,
+        direccion: data.direccion,
+        tipouser: tipouser.descripcion,
+        tipodoc: tipodoc.descripcion,
+        id_empresa: dataempresa.id,
       };
-      await insertarproductos(p);
+      const parametrosAuth = {
+        correo: data.correo,
+        pass: data.pass,
+      };
+      await insertarusuarios(parametrosAuth, p, checkboxs);
       onClose();
     }
   }
   useEffect(() => {
     if (accion === "Editar") {
-      selectMarca({ id: dataSelect.idmarca, descripcion: dataSelect.marca });
-      selectcategorias({
-        id: dataSelect.id_categoria,
-        descripcion: dataSelect.categoria,
-      });
+     setTipodoc({icono:"",descripcion:dataSelect.tipodoc})
+     setTipouser({icono:"",descripcion:dataSelect.tipouser})
     }
   }, []);
+  if (isLoading) {
+    return <span>cargando...</span>;
+  }
   return (
     <Container>
       <div className="sub-contenedor">
@@ -105,36 +119,53 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
 
         <form className="formulario" onSubmit={handleSubmit(insertar)}>
           <section className="seccion1">
-            <article>
-              <InputText icono={<v.icononombre />}>
-                <input
-                  className="form__field"
-                  defaultValue={dataSelect.correo}
-                  type="text"
-                  placeholder=""
-                  {...register("correo", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Correo</label>
-                {errors.correo?.type === "required" && <p>Campo requerido</p>}
-              </InputText>
-            </article>
-            <article>
-              <InputText icono={<v.icononombre />}>
-                <input
-                  className="form__field"
-                  defaultValue={dataSelect.pass}
-                  type="text"
-                  placeholder=""
-                  {...register("pass", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Contraseña</label>
-                {errors.pass?.type === "required" && <p>Campo requerido</p>}
-              </InputText>
-            </article>
+            {accion != "Editar" ? (
+              <article>
+                <InputText icono={<v.icononombre />}>
+                  <input
+                    
+                    className={
+                      accion === "Editar"
+                        ? "form__field disabled"
+                        : "form__field"
+                    }
+                    defaultValue={dataSelect.correo}
+                    type="text"
+                    placeholder=""
+                    {...register("correo", {
+                      required: true,
+                    })}
+                  />
+                  <label className="form__label">correo</label>
+                  {errors.correo?.type === "required" && <p>Campo requerido</p>}
+                </InputText>
+              </article>
+            ) : (
+              <span className="form__field disabled">{dataSelect.correo}</span>
+            )}
+
+            {accion != "Editar" ? (
+              <article>
+                <InputText icono={<v.icononombre />}>
+                  <input
+                    className="form__field"
+                    defaultValue={dataSelect.pass}
+                    type="text"
+                    placeholder=""
+                    {...register("pass", {
+                      required: true,
+                      minLength: 6,
+                    })}
+                  />
+                  <label className="form__label">pass</label>
+                  {errors.pass?.type === "required" && <p>Campo requerido</p>}
+                  {errors.pass?.type === "minLength" && (
+                    <p>Debe tener al menos 6 caracteres</p>
+                  )}
+                </InputText>
+              </article>
+            ) : null}
+
             <article>
               <InputText icono={<v.icononombre />}>
                 <input
@@ -146,112 +177,115 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
                     required: true,
                   })}
                 />
-                <label className="form__label">Nombre</label>
+                <label className="form__label">Nombres</label>
+
                 {errors.nombres?.type === "required" && <p>Campo requerido</p>}
               </InputText>
             </article>
-            //TIPO DOCUMENTO
             <ContainerSelector>
-              <label>Tipo doc:</label>
+              <label>Tipo doc: </label>
+              <Selector
+                color="#fc6027"
+                texto1="🎴"
+                texto2={tipodoc.descripcion}
+                funcion={() => setStateTipodoc(!stateTipodoc)}
+              />
+              {stateTipodoc && (
+                <ListaGenerica
+                  data={TipoDocData}
+                  bottom="-260px"
+                  scroll="scroll"
+                  setState={() => setStateTipodoc(!stateTipodoc)}
+                  funcion={(p) => setTipodoc(p)}
+                />
+              )}
             </ContainerSelector>
-          </section>
-          <section className="seccion2">
+            <article>
+              <InputText icono={<v.iconostock />}>
+                <input
+                  className="form__field"
+                  defaultValue={dataSelect.nro_doc}
+                  type="number"
+                  placeholder=""
+                  {...register("nrodoc", {
+                    required: true,
+                  })}
+                />
+                <label className="form__label">Nro. doc</label>
+
+                {errors.nrodoc?.type === "required" && <p>Campo requerido</p>}
+              </InputText>
+            </article>
+            <article>
+              <InputText icono={<v.iconostockminimo />}>
+                <input
+                  step="0.01"
+                  className="form__field"
+                  defaultValue={dataSelect.telefono}
+                  type="text"
+                  placeholder=""
+                  {...register("telefono", {
+                    required: true,
+                  })}
+                />
+                <label className="form__label">Telefono</label>
+
+                {errors.telefono?.type === "required" && <p>Campo requerido</p>}
+              </InputText>
+            </article>
             <article>
               <InputText icono={<v.iconocodigobarras />}>
                 <input
                   className="form__field"
-                  defaultValue={dataSelect.codigobarras}
-                  type="number"
-                  placeholder=""
-                  {...register("codigobarras", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Código</label>
-                {errors.codigobarras?.type === "required" && (
-                  <p>Campo requerido</p>
-                )}
-              </InputText>
-            </article>
-            <article>
-              <InputText icono={<v.iconocodigointerno />}>
-                <input
-                  className="form__field"
-                  defaultValue={dataSelect.codigointerno}
+                  defaultValue={dataSelect.direccion}
                   type="text"
                   placeholder=""
-                  {...register("codigointerno", {
+                  {...register("direccion", {
                     required: true,
                   })}
                 />
-                <label className="form__label">Código interno</label>
-                {errors.codigointerno?.type === "required" && (
-                  <p>Campo requerido</p>
-                )}
-              </InputText>
-            </article>
-            <article>
-              <InputText icono={<v.iconoprecioventa />}>
-                <input
-                  step="0.1"
-                  className="form__field"
-                  defaultValue={dataSelect.precioventa}
-                  type="number"
-                  placeholder=""
-                  {...register("precioventa", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Precio anterior.</label>
-                {errors.precioventa?.type === "required" && (
-                  <p>Campo requerido</p>
-                )}
-              </InputText>
-            </article>
-            <article>
-              <InputText icono={<v.iconopreciocompra />}>
-                <input
-                  step="0.1"
-                  className="form__field"
-                  defaultValue={dataSelect.preciocompra}
-                  type="number"
-                  placeholder=""
-                  {...register("preciocompra", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Precio compra</label>
+                <label className="form__label">Direccion</label>
 
-                {errors.preciocompra?.type === "required" && (
+                {errors.direccion?.type === "required" && (
                   <p>Campo requerido</p>
                 )}
               </InputText>
             </article>
           </section>
+          <section className="seccion2">
+            <ContainerSelector>
+              <label>Tipo: </label>
+              <Selector
+                color="#fc6027"
+                texto1="👷‍♂️"
+                texto2={tipouser.descripcion}
+                funcion={() => setStateTipouser(!stateTipouser)}
+              />
+              {stateTipouser && (
+                <ListaGenerica
+                  data={TipouserData}
+                  funcion={(p) => setTipouser(p)}
+                  bottom="-150px"
+                  scroll="scroll"
+                  setState={() => setStateTipouser(!stateTipouser)}
+                />
+              )}
+            </ContainerSelector>
+            PERMISOS:🔑
+            <ListaModulos
+              accion={accion}
+              checkboxs={checkboxs}
+              setCheckboxs={setCheckboxs}
+            />
+          </section>
           <div className="btnguardarContent">
             <Btnsave
-              funcion={() => setStateMarca(!stateMarca)}
-              state={stateMarca}
               icono={<v.iconoguardar />}
               titulo="Guardar"
-              bgcolor="#fedc2a"
+              bgcolor="#ef552b"
             />
           </div>
         </form>
-        {openRegistroMarca && (
-          <RegistrarMarca
-            accion={subaccion}
-            onClose={() => SetopenRegistroMarca(!openRegistroMarca)}
-            dataSelect={dataSelect}
-          />
-        )}
-        {openRegistroCategoria && (
-          <RegistrarCategorias
-            accion={subaccion}
-            onClose={() => SetopenRegistroCategoria(!openRegistroCategoria)}
-            dataSelect={dataSelect}
-          />
-        )}
       </div>
     </Container>
   );
@@ -268,7 +302,26 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 1000;
-
+  .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 17px;
+    color: ${(props) => props.theme.text};
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    &.disabled {
+      color: #696969;
+      background: #2d2d2d;
+      border-radius: 8px;
+      margin-top: 8px;
+      border-bottom: 1px dashed #656565;
+      padding: 8px;
+    }
+  }
   .sub-contenedor {
     width: 100%;
     max-width: 90%;
@@ -288,6 +341,7 @@ const Container = styled.div`
       background-color: #484848;
       border-radius: 10px;
     }
+
     .headers {
       display: flex;
       justify-content: space-between;

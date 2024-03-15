@@ -3,7 +3,7 @@ import { BannerEmpresa, Header, Title, useEmpresaStore } from "../../index";
 import { useState } from "react";
 export function HomeTemplate() {
   const [state, setState] = useState(false);
-
+ 
   return (
     <Container>
       <header className="header">
@@ -12,18 +12,18 @@ export function HomeTemplate() {
         />
       </header>
       <section className="area1">
-        <Title>Grupo base</Title>
+        <Title>Tu empresa</Title>
       </section>
+     
       <section className="main">
-        <BannerEmpresa />
+        <BannerEmpresa/>
       </section>
     </Container>
   );
 }
-
 const Container = styled.div`
-  position: relative;
-  overflow: hidden;
+ position: relative;
+ overflow:hidden;
   height: 100vh;
   width: 100%;
   background-color: ${(props) => props.theme.bgtotal};
@@ -47,6 +47,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: end;
   }
+  
   .main {
     grid-area: main;
     /* background-color: rgba(179, 46, 241, 0.14); */

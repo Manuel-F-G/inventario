@@ -7,21 +7,21 @@ import {
   flexRender,
 } from "@tanstack/react-table";
 import styled from "styled-components";
-import { ContentAccionesTabla, Paginacion, useMarcaStore, v } from "../../../index";
+import { ContentAccionesTabla, Paginacion, useMarcaStore, useUsuariosStore, v } from "../../../index";
 import Swal from "sweetalert2";
 import { FaArrowsAltV } from "react-icons/fa";
 import { useState } from "react";
-export function TablaMarca({
+export function TablaUsuarios({
   data,
   SetopenRegistro,
   setdataSelect,
   setAccion,
 }) {
   const [pagina, setPagina] = useState(1);
-  const { eliminarMarca } = useMarcaStore();
+  const { eliminarusuarios } = useUsuariosStore();
 
   const editar = (data) => {
-    if (data.descripcion === "Generica") {
+    if (data.tipouser === "superadmin") {
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -34,7 +34,7 @@ export function TablaMarca({
     setAccion("Editar");
   };
   const eliminar = (p) => {
-    if (p.descripcion === "Generica") {
+    if (p.tipouser === "superadmin") {
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -52,15 +52,30 @@ export function TablaMarca({
       confirmButtonText: "Si, eliminar",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await eliminarMarca({ id: p.id });
+        await eliminarusuarios({ id: p.id });
       }
     });
   };
   const columns = [
     {
-      accessorKey: "descripcion",
-      header: "Descripcion",
-      cell: (info) =><td data-title="Descripcion" className="ContentCell">
+      accessorKey: "nombres",
+      header: "Nombres",
+      cell: (info) =><td data-title="Nombres" className="ContentCell">
+        <span >{info.getValue()}</span>
+      </td> 
+    },
+    {
+      accessorKey: "tipouser",
+      header: "T.User",
+      cell: (info) =><td data-title="T.User" className="ContentCell">
+        <span >{info.getValue()}</span>
+      </td> 
+    },
+    {
+      accessorKey: "estado",
+      header: "Estado",
+      enableSorting:false,
+      cell: (info) =><td data-title="Estado" className="ContentCell">
         <span >{info.getValue()}</span>
       </td> 
     },

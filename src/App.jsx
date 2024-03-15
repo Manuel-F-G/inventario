@@ -1,4 +1,5 @@
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
 import styled, { ThemeProvider } from "styled-components";
 import {
   AuthContextProvider,
@@ -9,6 +10,7 @@ import {
   MenuHambur,
   Login,
 } from "./index";
+
 import { createContext, useState } from "react";
 import { Device } from "./styles/breackpoints";
 import { useLocation } from "react-router-dom";
@@ -43,6 +45,7 @@ function App() {
                 </section>
               </Container>
             )}
+
             <ReactQueryDevtools initialIsOpen={false} />
           </AuthContextProvider>
         </ThemeProvider>
@@ -82,4 +85,5 @@ const Container = styled.main`
     }
   }
 `;
+
 export default App;

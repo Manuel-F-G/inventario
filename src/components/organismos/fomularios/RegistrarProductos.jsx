@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { v } from "../../../styles/variables";
 import { Device } from "../../../styles/breackpoints";
@@ -7,9 +7,9 @@ import {
   Btnsave,
   ConvertirCapitalize,
   useProductosStore,
-  useMarcaStore,
   ContainerSelector,
   Selector,
+  useMarcaStore,
   Btnfiltro,
   RegistrarMarca,
   ListaGenerica,
@@ -18,7 +18,6 @@ import {
 } from "../../../index";
 import { useForm } from "react-hook-form";
 import { useEmpresaStore } from "../../../store/EmpresaStore";
-import { useState } from "react";
 export function RegistrarProductos({ onClose, dataSelect, accion }) {
   const { insertarproductos, editarproductos } = useProductosStore();
   const { dataempresa } = useEmpresaStore();
@@ -50,8 +49,8 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
         descripcion: ConvertirCapitalize(data.descripcion),
         idmarca: marcaItemSelect.id,
         stock: parseFloat(data.stock),
-        stock_minimo: parseFloat(data.stock_minimo),
-        codigobarras: data.codigobarras,
+        stock_minimo: parseFloat(data.codigointerno),
+        codigobarras: parseFloat(data.codigobarras),
         codigointerno: data.codigointerno,
         precioventa: parseFloat(data.precioventa),
         preciocompra: parseFloat(data.preciocompra),
@@ -65,8 +64,8 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
         _descripcion: ConvertirCapitalize(data.descripcion),
         _idmarca: marcaItemSelect.id,
         _stock: parseFloat(data.stock),
-        _stock_minimo: parseFloat(data.stock_minimo),
-        _codigobarras: data.codigobarras,
+        _stock_minimo: parseFloat(data.codigointerno),
+        _codigobarras: parseFloat(data.codigobarras),
         _codigointerno: data.codigointerno,
         _precioventa: parseFloat(data.precioventa),
         _preciocompra: parseFloat(data.preciocompra),
@@ -79,11 +78,8 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
   }
   useEffect(() => {
     if (accion === "Editar") {
-      selectMarca({ id: dataSelect.idmarca, descripcion: dataSelect.marca });
-      selectcategorias({
-        id: dataSelect.id_categoria,
-        descripcion: dataSelect.categoria,
-      });
+      selectMarca({id:dataSelect.idmarca,descripcion:dataSelect.marca})
+      selectcategorias({id:dataSelect.id_categoria,descripcion:dataSelect.categoria})
     }
   }, []);
   return (
@@ -116,17 +112,17 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                     required: true,
                   })}
                 />
-                <label className="form__label">Descripción</label>
+                <label className="form__label">descripcion</label>
                 {errors.nombre?.type === "required" && <p>Campo requerido</p>}
               </InputText>
             </article>
             <ContainerSelector>
-              <label>Marca:</label>
+              <label>Marca: </label>
               <Selector
                 funcion={() => setStateMarca(!stateMarca)}
                 state={stateMarca}
-                color="#fedc2a"
-                texto1="🛠"
+                color="#fc6027"
+                texto1="🍿"
                 texto2={marcaItemSelect?.descripcion}
               />
               {stateMarca && (
@@ -139,8 +135,8 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                 />
               )}
               <Btnfiltro
-                funcion={nuevoRegistroMarca}
                 bgcolor="#f6f3f3"
+                funcion={nuevoRegistroMarca}
                 textcolor="#353535"
                 icono={<v.agregar />}
               />
@@ -150,7 +146,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                 <input
                   className="form__field"
                   type="number"
-                  step="1"
+                  step="0.01"
                   placeholder=""
                   defaultValue={dataSelect.stock}
                   {...register("stock", {
@@ -164,32 +160,34 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
             <article>
               <InputText icono={<v.iconostockminimo />}>
                 <input
+                  step="0.01"
                   className="form__field"
                   defaultValue={dataSelect.stock_minimo}
                   type="number"
                   placeholder=""
-                  {...register("stock_minimo", {
+                  {...register("stockminimo", {
                     required: true,
                   })}
                 />
                 <label className="form__label">Stock minimo</label>
-                {errors.stock_minimo?.type === "required" && (
+
+                {errors.stockminimo?.type === "required" && (
                   <p>Campo requerido</p>
                 )}
               </InputText>
             </article>
             <ContainerSelector>
-              <label>Categoría:</label>
+              <label>Categoria: </label>
               <Selector
                 funcion={() => setStateCategoria(!stateCategoria)}
                 state={stateCategoria}
-                color="#fedc2a"
-                texto1="🛠"
+                color="#fc6027"
+                texto1="🍿"
                 texto2={categoriasItemSelect?.descripcion}
               />
               <Btnfiltro
-                funcion={nuevoRegistroCategoria}
                 bgcolor="#f6f3f3"
+                funcion={nuevoRegistroCategoria}
                 textcolor="#353535"
                 icono={<v.agregar />}
               />
@@ -216,7 +214,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                     required: true,
                   })}
                 />
-                <label className="form__label">Código</label>
+                <label className="form__label">codigo de barras</label>
                 {errors.codigobarras?.type === "required" && (
                   <p>Campo requerido</p>
                 )}
@@ -233,7 +231,8 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                     required: true,
                   })}
                 />
-                <label className="form__label">Código interno</label>
+                <label className="form__label">Codigo interno</label>
+
                 {errors.codigointerno?.type === "required" && (
                   <p>Campo requerido</p>
                 )}
@@ -242,7 +241,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
             <article>
               <InputText icono={<v.iconoprecioventa />}>
                 <input
-                  step="0.1"
+                  step="0.01"
                   className="form__field"
                   defaultValue={dataSelect.precioventa}
                   type="number"
@@ -251,7 +250,8 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                     required: true,
                   })}
                 />
-                <label className="form__label">Precio anterior.</label>
+                <label className="form__label">Precio de venta</label>
+
                 {errors.precioventa?.type === "required" && (
                   <p>Campo requerido</p>
                 )}
@@ -260,7 +260,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
             <article>
               <InputText icono={<v.iconopreciocompra />}>
                 <input
-                  step="0.1"
+                  step="0.01"
                   className="form__field"
                   defaultValue={dataSelect.preciocompra}
                   type="number"
@@ -269,7 +269,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                     required: true,
                   })}
                 />
-                <label className="form__label">Precio compra</label>
+                <label className="form__label">Precio de compra</label>
 
                 {errors.preciocompra?.type === "required" && (
                   <p>Campo requerido</p>
@@ -279,11 +279,9 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
           </section>
           <div className="btnguardarContent">
             <Btnsave
-              funcion={() => setStateMarca(!stateMarca)}
-              state={stateMarca}
               icono={<v.iconoguardar />}
               titulo="Guardar"
-              bgcolor="#fedc2a"
+              bgcolor="#ef552b"
             />
           </div>
         </form>
@@ -337,6 +335,7 @@ const Container = styled.div`
       background-color: #484848;
       border-radius: 10px;
     }
+
     .headers {
       display: flex;
       justify-content: space-between;

@@ -1,23 +1,28 @@
 import { v } from "../styles/variables";
-import { AiOutlineHome, AiOutlineSetting } from "react-icons/ai";
+import {
+  AiOutlineHome,
+  AiOutlineSetting,
+} from "react-icons/ai";
 
 export const DesplegableUser = [
   {
     text: "Mi perfil",
-    icono: <v.iconoUser />,
+    icono: <v.iconoUser/>,
     tipo: "miperfil",
   },
   {
-    text: "Configuración",
-    icono: <v.iconoSettings />,
+    text: "Configuracion",
+    icono: <v.iconoSettings/>,
     tipo: "configuracion",
   },
   {
     text: "Cerrar sesión",
-    icono: <v.iconoCerrarSesion />,
+    icono: <v.iconoCerrarSesion/>,
     tipo: "cerrarsesion",
   },
 ];
+
+
 
 //data SIDEBAR
 export const LinksArray = [
@@ -36,6 +41,7 @@ export const LinksArray = [
     icon: <v.iconoreportes />,
     to: "/reportes",
   },
+ 
 ];
 export const SecondarylinksArray = [
   {
@@ -43,52 +49,62 @@ export const SecondarylinksArray = [
     icon: <AiOutlineSetting />,
     to: "/configurar",
   },
+
 ];
 //temas
 export const TemasData = [
   {
-    icono: "",
+    icono: "🌞",
     descripcion: "light",
+   
   },
   {
     icono: "🌚",
     descripcion: "dark",
+    
   },
 ];
+
 //data configuracion
-export const DataModulosConfiguracion = [
+export const DataModulosConfiguracion =[
   {
-    title: "Productos",
-    subtitle: "Registra productos",
-    icono: "https://i.ibb.co/85zJ6yG/caja-del-paquete.png",
-    link: "/configurar/productos",
+    title:"Productos",
+    subtitle:"registra tus productos",
+    icono:"https://i.ibb.co/85zJ6yG/caja-del-paquete.png",
+    link:"/configurar/productos",
+   
   },
   {
-    title: "Personal",
-    subtitle: "Control de tu personal",
-    icono: "https://i.ibb.co/5vgZ0fX/hombre.png",
-    link: "/configurar/personal",
+    title:"Personal",
+    subtitle:"ten el control de tu personal",
+    icono:"https://i.ibb.co/5vgZ0fX/hombre.png",
+    link:"/configurar/personal",
+   
   },
 
   {
-    title: "Tu empresa",
-    subtitle: "Configurar opciones básicas",
-    icono: "https://i.ibb.co/x7mHPgm/administracion-de-empresas.png",
-    link: "/configurar/empresa",
+    title:"Tu empresa",
+    subtitle:"configura tus opciones básicas",
+    icono:"https://i.ibb.co/x7mHPgm/administracion-de-empresas.png",
+    link:"/configurar/empresa",
+    
   },
   {
-    title: "Area de productos",
-    subtitle: "Asigna un area a los productos",
-    icono: "https://i.ibb.co/VYbMRLZ/categoria.png",
-    link: "/configurar/categorias",
+    title:"Categoria de productos",
+    subtitle:"asigna categorias a tus productos",
+    icono:"https://i.ibb.co/VYbMRLZ/categoria.png",
+    link:"/configurar/categorias",
+    
   },
   {
-    title: "Marca de productos",
-    subtitle: "Gestiona las marcas",
-    icono: "https://i.ibb.co/1qsbCRb/piensa-fuera-de-la-caja.png",
-    link: "/configurar/marca",
+    title:"Marca de productos",
+    subtitle:"gestiona tus marcas",
+    icono:"https://i.ibb.co/1qsbCRb/piensa-fuera-de-la-caja.png",
+    link:"/configurar/marca",
+   
   },
-];
+
+]
 //tipo usuario
 export const TipouserData = [
   {

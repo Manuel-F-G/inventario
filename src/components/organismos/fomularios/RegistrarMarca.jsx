@@ -1,12 +1,7 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import { v } from "../../../styles/variables";
-import {
-  InputText,
-  Btnsave,
-  useMarcaStore,
-  ConvertirCapitalize,
-} from "../../../index";
+import { InputText, Btnsave, useMarcaStore,ConvertirCapitalize } from "../../../index";
 import { useForm } from "react-hook-form";
 import { useEmpresaStore } from "../../../store/EmpresaStore";
 export function RegistrarMarca({ onClose, dataSelect, accion }) {
@@ -21,13 +16,13 @@ export function RegistrarMarca({ onClose, dataSelect, accion }) {
     if (accion === "Editar") {
       const p = {
         id: dataSelect.id,
-        descripcion: ConvertirCapitalize(data.nombre),
+        descripcion:ConvertirCapitalize( data.nombre),
       };
       await editarMarca(p);
       onClose();
     } else {
       const p = {
-        _descripcion: ConvertirCapitalize(data.nombre),
+        _descripcion:ConvertirCapitalize( data.nombre),
         _idempresa: dataempresa.id,
       };
       await insertarMarca(p);
@@ -66,7 +61,7 @@ export function RegistrarMarca({ onClose, dataSelect, accion }) {
                     required: true,
                   })}
                 />
-                <label className="form__label">Marca</label>
+                <label className="form__label">marca</label>
                 {errors.nombre?.type === "required" && <p>Campo requerido</p>}
               </InputText>
             </article>
@@ -75,7 +70,7 @@ export function RegistrarMarca({ onClose, dataSelect, accion }) {
               <Btnsave
                 icono={<v.iconoguardar />}
                 titulo="Guardar"
-                bgcolor="#fedc2a"
+                bgcolor="#ef552b"
               />
             </div>
           </section>
