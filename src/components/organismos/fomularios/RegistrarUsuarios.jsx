@@ -318,7 +318,7 @@ const Container = styled.div`
     transition: border-color 0.2s;
     &.disabled {
       color: #696969;
-      background: #fedb2a99;
+      background: #fedb2a77;
       border-radius: 8px;
       margin-top: 8px;
       border-bottom: 1px dashed #656565;
