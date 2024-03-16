@@ -6,15 +6,13 @@ export function FooterLogin() {
       <section className="lock">
         <GiPadlock />
         <span>
-          Esta es una página segura de codigo369. Si tienes dudas sobre la
-          autenticidad de la web, comunícate con
-          <br /> nosotros al 311-9898 o a través de nuestros medios digitales.
+        Empresa 100% mexicana especializada en la distribucion de productos derivados del petroleo para diversos sectores economicos. 
         </span>
       </section>
       <section className="derechos">
-        <span>StockPRO S.A - RUC: 20100047218</span>
+        <span>Grupo base energéticos - RFC: GBE180524UY6</span>
         <div className="separador"></div>
-        <span>Todos los derechos reservados</span>
+        <span></span>
         <div className="separador"></div>
         <span>© 2023 codigo369.com</span>
       </section>
