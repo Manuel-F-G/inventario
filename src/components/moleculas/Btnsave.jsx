@@ -3,15 +3,11 @@ import {Icono} from "../../index"
 export function Btnsave({ funcion, titulo, bgcolor, icono,url }) {
   return (
     <Container type="submit" $bgcolor={bgcolor}>
-   
      <Icono>{icono}</Icono>
-     
-
       <span className="btn" onClick={funcion}>
         <a href={url} target="_blank">
            {titulo}
         </a>
-       
       </span>
     </Container>
   );
