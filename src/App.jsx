@@ -45,7 +45,6 @@ function App() {
                 </section>
               </Container>
             )}
-
             <ReactQueryDevtools initialIsOpen={false} />
           </AuthContextProvider>
         </ThemeProvider>
@@ -85,5 +84,4 @@ const Container = styled.main`
     }
   }
 `;
-
 export default App;
