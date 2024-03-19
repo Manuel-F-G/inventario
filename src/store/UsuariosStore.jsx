@@ -89,7 +89,6 @@ export const useUsuariosStore = create((set, get) => ({
       }
     });
     await supabase.auth.signOut();
-   
   },
   eliminarusuarios: async (p) => {
     await Eliminarusuarios(p);
@@ -133,14 +132,14 @@ export const useUsuariosStore = create((set, get) => ({
       const statePermiso = response.some((objeto) =>
         objeto.modulos.nombre.includes(element.title)
       );
-      if(statePermiso) {
-        allDocs.push({...element,state:true})
-      }else{
-        allDocs.push({...element,state:false})
+      if (statePermiso) {
+        allDocs.push({ ...element, state: true });
+      } else {
+        allDocs.push({ ...element, state: false });
       }
     });
-    DataModulosConfiguracion.splice(0,DataModulosConfiguracion.length)
-    DataModulosConfiguracion.push(...allDocs)
+    DataModulosConfiguracion.splice(0, DataModulosConfiguracion.length);
+    DataModulosConfiguracion.push(...allDocs);
 
     return response;
   },
