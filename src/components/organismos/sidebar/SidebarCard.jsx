@@ -21,8 +21,6 @@ const Container = styled.div`
   padding: 1rem;
   text-align: center;
   position: relative;
-
-
   .icon {
     position: absolute;
     font-size: 3rem;
@@ -38,7 +36,6 @@ const Container = styled.div`
     background: ${(props) => props.theme.bg5};
     border-radius: 10px;
     overflow: hidden;
-
     .circle1,
     .circle2 {
       position: absolute;
