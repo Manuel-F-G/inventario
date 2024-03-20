@@ -13,9 +13,7 @@ export function BannerEmpresa() {
         </span>
         <ContentCards>
           <CardDatosEmpresa titulo="Moneda" valor={dataempresa?.simbolomoneda} />
-          
           <CardDatosEmpresa titulo="Usuarios" valor={contadorusuarios} />
-          
         </ContentCards>
       </div>
       <div className="contentsvg">
@@ -92,7 +90,6 @@ export function BannerEmpresa() {
 const Container = styled.div`
   width: 100%;
   height: 100%;
- 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,7 +120,6 @@ const Container = styled.div`
       width: 100%;
       height: 100%;
     }
-
   }
   &:hover {
     .cuadros {
@@ -157,7 +153,6 @@ const Container = styled.div`
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
   }
 `;
 const ContentCards = styled.div`

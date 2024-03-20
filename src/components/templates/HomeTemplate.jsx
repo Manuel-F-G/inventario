@@ -36,20 +36,16 @@ const Container = styled.div`
     "main" auto;
   .header {
     grid-area: header;
-    /* background-color: rgba(103, 93, 241, 0.14); */
     display: flex;
     align-items: center;
   }
   .area1 {
     grid-area: area1;
-    /* background-color: rgba(229, 67, 26, 0.14); */
     display: flex;
     align-items: center;
     justify-content: end;
   }
-  
   .main {
     grid-area: main;
-    /* background-color: rgba(179, 46, 241, 0.14); */
   }
 `;
