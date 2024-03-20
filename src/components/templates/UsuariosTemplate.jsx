@@ -17,7 +17,6 @@ export function UsuariosTemplate({data}) {
       {
         openRegistro &&  <RegistrarUsuarios dataSelect={dataSelect} accion={accion} onClose={()=>SetopenRegistro(!openRegistro)}/>
       }
-     
       <header className="header">
         <Header
           stateConfig={{ state: state, setState: () => setState(!state) }}
@@ -32,7 +31,6 @@ export function UsuariosTemplate({data}) {
             textcolor="#353535"
             icono={<v.agregar/>}/>
         </ContentFiltro>
-       
       </section>
       <section className="area2">
         <Buscador setBuscador={setBuscador}/>
