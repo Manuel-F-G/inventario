@@ -78,7 +78,6 @@ export const useUsuariosStore = create((set, get) => ({
       id_empresa: p.id_empresa,
       id_usuario: dataUserNew.id,
     });
-
     datacheckpermisos.forEach(async (item) => {
       if (item.check) {
         let parametrospermisos = {
@@ -108,7 +107,6 @@ export const useUsuariosStore = create((set, get) => ({
         await InsertarPermisos(parametrospermisos);
       }
     });
-
     const { mostrarusuariosTodos } = get();
     set(mostrarusuariosTodos({ _id_empresa: idempresa }));
   },
@@ -140,7 +138,6 @@ export const useUsuariosStore = create((set, get) => ({
     });
     DataModulosConfiguracion.splice(0, DataModulosConfiguracion.length);
     DataModulosConfiguracion.push(...allDocs);
-
     return response;
   },
   mostrarpermisosEdit: async (p) => {
