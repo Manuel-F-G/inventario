@@ -26,5 +26,4 @@ const Container = styled.div`
  @media (max-width: 48em) {
     justify-content:end;
   }
-
 `;
