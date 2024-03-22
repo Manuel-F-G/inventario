@@ -46,7 +46,7 @@ export function ListaModulos({ checkboxs, setCheckboxs, accion }) {
         return (
           <div className="content" key={index} onClick={() => handlecheckbox(item.id)}>
             <input checked={item.check}
-              class="checkbox"
+              className="checkbox"
               type="checkbox"
               onChange={(e) => seleccionar(e)}
             />

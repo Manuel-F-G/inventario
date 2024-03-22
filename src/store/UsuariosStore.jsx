@@ -78,6 +78,7 @@ export const useUsuariosStore = create((set, get) => ({
       id_empresa: p.id_empresa,
       id_usuario: dataUserNew.id,
     });
+
     datacheckpermisos.forEach(async (item) => {
       if (item.check) {
         let parametrospermisos = {
@@ -88,6 +89,7 @@ export const useUsuariosStore = create((set, get) => ({
       }
     });
     await supabase.auth.signOut();
+   
   },
   eliminarusuarios: async (p) => {
     await Eliminarusuarios(p);
@@ -107,6 +109,7 @@ export const useUsuariosStore = create((set, get) => ({
         await InsertarPermisos(parametrospermisos);
       }
     });
+
     const { mostrarusuariosTodos } = get();
     set(mostrarusuariosTodos({ _id_empresa: idempresa }));
   },
@@ -130,14 +133,15 @@ export const useUsuariosStore = create((set, get) => ({
       const statePermiso = response.some((objeto) =>
         objeto.modulos.nombre.includes(element.title)
       );
-      if (statePermiso) {
-        allDocs.push({ ...element, state: true });
-      } else {
-        allDocs.push({ ...element, state: false });
+      if(statePermiso) {
+        allDocs.push({...element,state:true})
+      }else{
+        allDocs.push({...element,state:false})
       }
     });
-    DataModulosConfiguracion.splice(0, DataModulosConfiguracion.length);
-    DataModulosConfiguracion.push(...allDocs);
+    DataModulosConfiguracion.splice(0,DataModulosConfiguracion.length)
+    DataModulosConfiguracion.push(...allDocs)
+
     return response;
   },
   mostrarpermisosEdit: async (p) => {

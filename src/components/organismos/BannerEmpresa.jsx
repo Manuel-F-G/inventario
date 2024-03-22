@@ -18,7 +18,7 @@ export function BannerEmpresa() {
       </div>
       <div className="contentsvg">
         <svg
-          class="opacity-0 group-hover:opacity-100 transform-gpu transition-all will-change-auto duration-600 ease-in-out"
+          className="opacity-0 group-hover:opacity-100 transform-gpu transition-all will-change-auto duration-600 ease-in-out"
           viewBox="0 0 492 253"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
