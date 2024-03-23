@@ -89,7 +89,6 @@ export const useUsuariosStore = create((set, get) => ({
       }
     });
     await supabase.auth.signOut();
-   
   },
   eliminarusuarios: async (p) => {
     await Eliminarusuarios(p);
@@ -109,7 +108,6 @@ export const useUsuariosStore = create((set, get) => ({
         await InsertarPermisos(parametrospermisos);
       }
     });
-
     const { mostrarusuariosTodos } = get();
     set(mostrarusuariosTodos({ _id_empresa: idempresa }));
   },
