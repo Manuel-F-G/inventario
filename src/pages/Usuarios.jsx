@@ -47,6 +47,5 @@ export function Usuarios() {
   if (error) {
     return <span>Error...</span>;
   }
-
   return <UsuariosTemplate data={datausuarios} />;
 }
