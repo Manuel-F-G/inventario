@@ -13,7 +13,6 @@ import {
   MostrarUsuariosTodos,
   supabase,
 } from "../index";
-
 export const useUsuariosStore = create((set, get) => ({
   datamodulos: [],
   insertarUsuarioAdmin: async (p) => {
@@ -21,7 +20,6 @@ export const useUsuariosStore = create((set, get) => ({
       email: p.correo,
       password: p.pass,
     });
-
     console.log("data del registro del user auth", data);
     if (error) return;
     const datauser = await InsertarUsuarios({
@@ -139,7 +137,6 @@ export const useUsuariosStore = create((set, get) => ({
     });
     DataModulosConfiguracion.splice(0,DataModulosConfiguracion.length)
     DataModulosConfiguracion.push(...allDocs)
-
     return response;
   },
   mostrarpermisosEdit: async (p) => {
