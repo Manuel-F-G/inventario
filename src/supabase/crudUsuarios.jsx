@@ -34,7 +34,6 @@ export const MostrarUsuariosTodos = async (p) => {
   }
 };
 export async function EliminarUsuarios(p) {
- 
   const { error } = await supabase
     .from("usuarios")
     .delete()
@@ -42,7 +41,6 @@ export async function EliminarUsuarios(p) {
   if (error) {
     alert("Error al eliminar", error.message);
   }
-
 }
 export async function EditarUsuarios(p) {
   const { error } = await supabase
@@ -52,7 +50,6 @@ export async function EditarUsuarios(p) {
   if (error) {
     alert("Error al editar Usuarios", error.message);
   }
-
 }
 export async function BuscarUsuarios(p) {
   const { data} = await supabase.rpc("buscarpersonal",p)
