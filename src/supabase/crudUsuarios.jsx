@@ -67,7 +67,6 @@ export const InsertarAsignaciones = async (p) => {
       text: "Error al insertar usuario " + error.message,
     });
   }
- 
 };
 //tabla permisos
 export async function InsertarPermisos(p) {
@@ -75,7 +74,6 @@ export async function InsertarPermisos(p) {
   const {  error } = await supabase
     .from("permisos")
     .insert(p)
-    
   if (error) {
     Swal.fire({
       icon: "error",
