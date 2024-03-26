@@ -214,7 +214,6 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
                   })}
                 />
                 <label className="form__label">Nro. doc</label>
-
                 {errors.nrodoc?.type === "required" && <p>Campo requerido</p>}
               </InputText>
             </article>
