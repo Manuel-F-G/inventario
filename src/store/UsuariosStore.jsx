@@ -76,7 +76,6 @@ export const useUsuariosStore = create((set, get) => ({
       id_empresa: p.id_empresa,
       id_usuario: dataUserNew.id,
     });
-
     datacheckpermisos.forEach(async (item) => {
       if (item.check) {
         let parametrospermisos = {
