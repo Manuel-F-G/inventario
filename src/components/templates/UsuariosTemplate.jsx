@@ -56,7 +56,6 @@ const Container = styled.div`
     "main" auto;
   .header {
     grid-area: header;
-    /* background-color: rgba(103, 93, 241, 0.14); */
     display: flex;
     align-items: center;
   }
