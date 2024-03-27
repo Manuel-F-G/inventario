@@ -4,6 +4,7 @@ import {
   DataModulosConfiguracion,
   EditarUsuarios,
   EliminarPermisos,
+  EliminarUsuarios,
   InsertarAsignaciones,
   InsertarPermisos,
   InsertarUsuarios,
@@ -88,10 +89,10 @@ export const useUsuariosStore = create((set, get) => ({
     await supabase.auth.signOut();
   },
   eliminarusuarios: async (p) => {
-    await Eliminarusuarios(p);
-    const { mostrarusuarios } = get();
+    await EliminarUsuarios(p);
+    const { mostrarusuariosTodos } = get();
     const { parametros } = get();
-    set(mostrarusuarios(parametros));
+    set(mostrarusuariosTodos(parametros));
   },
   editarusuarios: async (p, datacheckpermisos, idempresa) => {
     await EditarUsuarios(p);
