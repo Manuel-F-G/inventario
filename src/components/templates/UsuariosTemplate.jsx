@@ -61,7 +61,6 @@ const Container = styled.div`
   }
   .area1 {
     grid-area: area1;
-    /* background-color: rgba(229, 67, 26, 0.14); */
     display: flex;
     align-items: center;
   }
