@@ -8,7 +8,7 @@ export function Tabs() {
     setActiveTab(index);
   };
   return (
-    <Container className="container">
+    <Container className="container" activeTab={`${activeTab}00%`}>
       <ul className="tabs">
         <li
           className={activeTab == 0 ? "active" : ""}
@@ -73,9 +73,26 @@ const Container = styled.div`
         position: absolute;
         color: "#fff";
         display: flex;
-        height: 4px;
-        width: 180px;
+        height: 54px;
+        width: 4px;
         background-color: #fedc2a;
+        z-index: 1;
+        border-radius: 15px;
+        transition: 0.25s ease-out;
+        transform: translateY(${(props) => props.activeTab});
+        box-shadow: 0px 10px 20px -3px #fedc2a;
+        top: 0;
+        @media ${Device.tablet} {
+          transform: translateX(${(props) => props.activeTab});
+          height: 4px;
+          width: 180px;
+          bottom: 0,
+        }
     }
+  }
+  .tab-content{
+    margin-top: 20px;
+    height: 100%;
+    width: 100%;
   }
 `;
