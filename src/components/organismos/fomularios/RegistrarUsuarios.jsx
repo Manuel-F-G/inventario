@@ -183,78 +183,6 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
               </InputText>
             </article>
 
-            {/*  QUIZAS QUITO ESTO*/}
-            <ContainerSelector>
-              <label>Tipo doc: </label>
-              <Selector
-                color="#fedc2a"
-                texto1="🎴"
-                texto2={tipodoc.descripcion}
-                funcion={() => setStateTipodoc(!stateTipodoc)}
-              />
-              {stateTipodoc && (
-                <ListaGenerica
-                  data={TipoDocData}
-                  bottom="-260px"
-                  scroll="scroll"
-                  setState={() => setStateTipodoc(!stateTipodoc)}
-                  funcion={(p) => setTipodoc(p)}
-                />
-              )}
-            </ContainerSelector>
-            <article>
-              <InputText icono={<v.iconostock />}>
-                <input
-                  className="form__field"
-                  defaultValue={dataSelect.nro_doc}
-                  type="number"
-                  placeholder=""
-                  {...register("nrodoc", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Nro. doc</label>
-                {errors.nrodoc?.type === "required" && <p>Campo requerido</p>}
-              </InputText>
-            </article>
-            <article>
-              <InputText icono={<v.iconostockminimo />}>
-                <input
-                  step="0.01"
-                  className="form__field"
-                  defaultValue={dataSelect.telefono}
-                  type="text"
-                  placeholder=""
-                  {...register("telefono", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Telefono</label>
-
-                {errors.telefono?.type === "required" && <p>Campo requerido</p>}
-              </InputText>
-            </article>
-            <article>
-              <InputText icono={<v.iconocodigobarras />}>
-                <input
-                  className="form__field"
-                  defaultValue={dataSelect.direccion}
-                  type="text"
-                  placeholder=""
-                  {...register("direccion", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Direccion</label>
-
-                {errors.direccion?.type === "required" && (
-                  <p>Campo requerido</p>
-                )}
-              </InputText>
-            </article>
-            {/*  HASTA AQUI*/}
-          </section>
-          <section className="seccion2">
             <ContainerSelector>
               <label>Tipo: </label>
               <Selector
@@ -273,6 +201,9 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
                 />
               )}
             </ContainerSelector>
+          </section>
+          <section className="seccion2">
+
             PERMISOS:
             <ListaModulos
               accion={accion}

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Btnfiltro, Buscador, ContentFiltro, Header, RegistrarMarca, TablaMarca, Title,useMarcaStore,v } from "../../index";
+import { Btnfiltro, Btnsave, Buscador, ContentFiltro, Header, RegistrarMarca, TablaMarca, Tabs, Title,useMarcaStore,v } from "../../index";
 import { useState } from "react";
 export function KardexTemplate({data}) {
   const [state, setState] = useState(false);
@@ -26,11 +26,10 @@ export function KardexTemplate({data}) {
       <section className="area1">
         <ContentFiltro>
           <Title>
-            Marcas
+            Kardex
           </Title>
-           <Btnfiltro funcion={nuevoRegistro} bgcolor="#f6f3f3"
-            textcolor="#353535"
-            icono={<v.agregar/>}/>
+          <Btnsave bgcolor="#52de65" titulo="Entrada"/>
+          <Btnsave bgcolor="#fb6661" titulo="Salida"/>
         </ContentFiltro>
        
       </section>
@@ -38,8 +37,7 @@ export function KardexTemplate({data}) {
         <Buscador setBuscador={setBuscador}/>
       </section>
       <section className="main">
-        <TablaMarca data={data} SetopenRegistro={SetopenRegistro}
-        setdataSelect={setdataSelect} setAccion={setAccion}/>
+      <Tabs/> 
       </section>
     </Container>
   );
