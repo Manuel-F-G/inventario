@@ -58,7 +58,7 @@ const Container = styled.div`
     }
     li {
       gap: 8px;
-      display: felx;
+      display: flex;
       align-items: center;
       justify-content: center;
       height: 54px;
@@ -66,6 +66,16 @@ const Container = styled.div`
       font-size: 1.25rem;
       font-weight: 500;
       border-radius: 99px;
+      cursor: pointer;
+      transition: color 0.15s ease-in;
+    }
+    .glider{
+        position: absolute;
+        color: "#fff";
+        display: flex;
+        height: 4px;
+        width: 180px;
+        background-color: #fedc2a;
     }
   }
 `;
