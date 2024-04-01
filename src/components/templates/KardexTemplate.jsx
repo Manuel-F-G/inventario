@@ -19,7 +19,7 @@ export function KardexTemplate({data}) {
   return (
     <Container>
       {
-        openRegistro &&  <RegistrarKardex dataSelect={dataSelect} accion={accion} onClose={()=>SetopenRegistro(!openRegistro)}/>
+        openRegistro &&  <RegistrarKardex tipo={tipo} dataSelect={dataSelect} accion={accion} onClose={()=>SetopenRegistro(!openRegistro)}/>
       }
      
       <header className="header">

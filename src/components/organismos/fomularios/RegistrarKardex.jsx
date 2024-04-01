@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { v } from "../../../styles/variables";
-import { InputText, Btnsave, useMarcaStore,ConvertirCapitalize } from "../../../index";
+import { InputText, Btnsave, useMarcaStore,ConvertirCapitalize, Buscador, ListaGenerica, useProductosStore } from "../../../index";
 import { useForm } from "react-hook-form";
 import { useEmpresaStore } from "../../../store/EmpresaStore";
-export function RegistrarKardex({ onClose, dataSelect, accion }) {
+export function RegistrarKardex({ onClose, dataSelect, accion, tipo }) {
+  const { dataproductos, setBuscador} = useProductosStore();
+  const [stateListaProd, SetstateListaProd] = useState(false);
   const { insertarMarca, editarMarca } = useMarcaStore();
   const { dataempresa } = useEmpresaStore();
   const {
@@ -39,7 +41,7 @@ export function RegistrarKardex({ onClose, dataSelect, accion }) {
         <div className="headers">
           <section>
             <h1>
-              {accion == "Editar" ? "Editar marca" : "Registrar nueva marca"}
+              Nuevo {tipo == "entrada" ? "entrada" : "salida"}
             </h1>
           </section>
 
@@ -47,7 +49,17 @@ export function RegistrarKardex({ onClose, dataSelect, accion }) {
             <span onClick={onClose}>x</span>
           </section>
         </div>
-
+        <div className="contentBuscador">
+          <div>
+            <Buscador setBuscador={ setBuscador }/>
+            {
+              stateListaProd && (
+                <ListaGenerica data={ dataproductos }
+                setState={()=>SetstateListaProd(!stateListaProd)}/>
+              )
+            }
+          </div>
+        </div>
         <form className="formulario" onSubmit={handleSubmit(insertar)}>
           <section>
             <article>
