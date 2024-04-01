@@ -10,11 +10,9 @@ import {
   useMarcaStore,
   useUsuariosStore,
 } from "../index";
-
 export function Kardex() {
   const {datapermisos} = useUsuariosStore();
   const statePermiso = datapermisos.some((objeto)=>objeto.modulos.nombre.includes("Marca de productos"))
-
   const { mostrarkardex, datakardex, buscarkardex, buscador } = useKardexStore();
   const { dataempresa } = useEmpresaStore();
   const { isLoading, error } = useQuery({
