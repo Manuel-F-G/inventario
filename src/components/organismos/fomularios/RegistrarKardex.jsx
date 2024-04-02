@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { v } from "../../../styles/variables";
-import { InputText, Btnsave, useMarcaStore,ConvertirCapitalize, Buscador, ListaGenerica, useProductosStore, useEmpresaStore } from "../../../index";
+import { InputText, Btnsave, useMarcaStore,ConvertirCapitalize, Buscador, ListaGenerica, useProductosStore, useEmpresaStore, CardProductoSelect } from "../../../index";
 import { useForm } from "react-hook-form";
 export function RegistrarKardex({ onClose, dataSelect, accion, tipo }) {
   const { dataproductos, setBuscador, selectproductos} = useProductosStore();
@@ -59,6 +59,7 @@ export function RegistrarKardex({ onClose, dataSelect, accion, tipo }) {
               )
             }
         </div>
+        <CardProductoSelect/>
         <form className="formulario" onSubmit={handleSubmit(insertar)}>
           <section>
             <article>
