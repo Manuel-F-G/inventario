@@ -250,7 +250,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                     required: true,
                   })}
                 />
-                <label className="form__label">Precio de venta</label>
+                <label className="form__label">Precio compra anterior</label>
 
                 {errors.precioventa?.type === "required" && (
                   <p>Campo requerido</p>
