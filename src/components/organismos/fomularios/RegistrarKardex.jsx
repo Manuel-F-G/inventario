@@ -53,7 +53,7 @@ export function RegistrarKardex({ onClose, dataSelect, accion, tipo }) {
             <Buscador setBuscador={ setBuscador }/>
             {
               stateListaProd && (
-                <ListaGenerica data={ dataproductos }
+                <ListaGenerica scroll="scroll" bottom="-250px" data={ dataproductos }
                 setState={()=>SetstateListaProd(!stateListaProd)}/>
               )
             }
@@ -111,7 +111,9 @@ const Container = styled.div`
     box-shadow: -10px 15px 30px rgba(10, 9, 9, 0.4);
     padding: 13px 36px 20px 36px;
     z-index: 100;
-
+    .contentBuscador{
+      position: relative;
+    }
     .headers {
       display: flex;
       justify-content: space-between;

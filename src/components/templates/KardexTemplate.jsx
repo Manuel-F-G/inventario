@@ -38,7 +38,6 @@ export function KardexTemplate({data}) {
        
       </section>
       <section className="area2">
-        <Buscador setBuscador={setBuscador}/>
       </section>
       <section className="main">
       <Tabs data={data}/> 
