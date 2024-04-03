@@ -4,7 +4,7 @@ import { v } from "../../../styles/variables";
 import { InputText, Btnsave, useMarcaStore,ConvertirCapitalize, Buscador, ListaGenerica, useProductosStore, useEmpresaStore, CardProductoSelect } from "../../../index";
 import { useForm } from "react-hook-form";
 export function RegistrarKardex({ onClose, dataSelect, accion, tipo }) {
-  const { dataproductos, setBuscador, selectproductos} = useProductosStore();
+  const { dataproductos, setBuscador, selectproductos, productosItemSelect} = useProductosStore();
   const [stateListaProd, SetstateListaProd] = useState(false);
   const { insertarMarca, editarMarca } = useMarcaStore();
   const { dataempresa } = useEmpresaStore();
@@ -59,7 +59,7 @@ export function RegistrarKardex({ onClose, dataSelect, accion, tipo }) {
               )
             }
         </div>
-        <CardProductoSelect/>
+        <CardProductoSelect text1={productosItemSelect.descripcion} text2={productosItemSelect.stock}/>
         <form className="formulario" onSubmit={handleSubmit(insertar)}>
           <section>
             <article>

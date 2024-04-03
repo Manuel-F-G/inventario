@@ -3,7 +3,7 @@ export function CardProductoSelect({text1,text2}) {
     return (
     <Container>
         <span className="descripcion">{text1}</span>
-        <span className="stock">{text2}</span>
+        <span className="stock">Stock: {text2}</span>
     </Container>);
 }
 const Container = styled.div`
@@ -16,8 +16,9 @@ background-color: rgba(84,240, 79, 0.1);
 padding: 10px;
 .descripcion{
     color: #1fee61;
+    font-weight: 700;
 }
 .stock{
-    color: #f6faf7
+    color: ${({theme}) => theme.text};
 }
 `
