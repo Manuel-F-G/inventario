@@ -73,7 +73,7 @@ export function TablaKardex({
     },
     {
       accessorKey: "acciones",
-      header: "",
+      header: "Acciones",
       enableSorting:false,
       cell: (info) => (
         <td className="ContentCell">
