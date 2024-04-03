@@ -55,7 +55,7 @@ setColor(color.hex)
             <h1>
               {accion == "Editar"
                 ? "Editar categorias"
-                : "Registrar nueva categoria"}
+                : "Registrar nueva categoría"}
             </h1>
           </section>
 
@@ -77,12 +77,14 @@ setColor(color.hex)
                     required: true,
                   })}
                 />
-                <label className="form__label">categoria</label>
+                <label className="form__label">Categoría</label>
                 {errors.nombre?.type === "required" && <p>Campo requerido</p>}
               </InputText>
             </article>
             <article className="colorContainer">
+              <center>
               <CirclePicker onChange={elegirColor} color={currentColor}/>
+              </center>
             </article>
             
 
