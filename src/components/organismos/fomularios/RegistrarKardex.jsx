@@ -63,21 +63,35 @@ export function RegistrarKardex({ onClose, dataSelect, accion, tipo }) {
         <form className="formulario" onSubmit={handleSubmit(insertar)}>
           <section>
             <article>
-              <InputText icono={<v.iconomarca />}>
+              <InputText icono={<v.iconocalculadora />}>
+                <input
+                  className="form__field"
+                  defaultValue={dataSelect.descripcion}
+                  type="number"
+                  placeholder=""
+                  {...register("cantidad", {
+                    required: true,
+                  })}
+                />
+                <label className="form__label">Cantidad</label>
+                {errors.cantidad?.type === "required" && <p>Campo requerido</p>}
+              </InputText>
+            </article>
+            <article>
+              <InputText icono={<v.iconotodos />}>
                 <input
                   className="form__field"
                   defaultValue={dataSelect.descripcion}
                   type="text"
                   placeholder=""
-                  {...register("nombre", {
+                  {...register("detalle", {
                     required: true,
                   })}
                 />
-                <label className="form__label">marca</label>
-                {errors.nombre?.type === "required" && <p>Campo requerido</p>}
+                <label className="form__label">Motivo</label>
+                {errors.detalle?.type === "required" && <p>Campo requerido</p>}
               </InputText>
             </article>
-
             <div className="btnguardarContent">
               <Btnsave
                 icono={<v.iconoguardar />}
