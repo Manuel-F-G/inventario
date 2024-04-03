@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { v } from "../../../styles/variables";
-import { InputText, Btnsave, useMarcaStore,ConvertirCapitalize, Buscador, ListaGenerica, useProductosStore, useEmpresaStore, CardProductoSelect } from "../../../index";
+import { InputText, Btnsave,ConvertirCapitalize, Buscador, ListaGenerica, useProductosStore, useEmpresaStore, CardProductoSelect, useKardexStore, useUsuariosStore } from "../../../index";
 import { useForm } from "react-hook-form";
 export function RegistrarKardex({ onClose, dataSelect, accion, tipo }) {
   const { dataproductos, setBuscador, selectproductos, productosItemSelect} = useProductosStore();
+  const { idusuario } = useUsuariosStore();
   const [stateListaProd, SetstateListaProd] = useState(false);
-  const { insertarMarca, editarMarca } = useMarcaStore();
+  const { insertarkardex } = useKardexStore();
   const { dataempresa } = useEmpresaStore();
   const {
     register,
@@ -14,21 +15,17 @@ export function RegistrarKardex({ onClose, dataSelect, accion, tipo }) {
     handleSubmit,
   } = useForm();
   async function insertar(data) {
-    if (accion === "Editar") {
       const p = {
-        id: dataSelect.id,
-        descripcion:ConvertirCapitalize( data.nombre),
+        fecha: new Date(),
+        tipo: tipo,
+        id_usuario: idusuario,
+        cantidad: parseFloat(data.cantidad),
+        detalle: data.detalle,
+        id_empresa: dataempresa.id,
+        id_producto: productosItemSelect.id,
       };
-      await editarMarca(p);
+      await insertarkardex(p);
       onClose();
-    } else {
-      const p = {
-        _descripcion:ConvertirCapitalize( data.nombre),
-        _idempresa: dataempresa.id,
-      };
-      await insertarMarca(p);
-      onClose();
-    }
   }
   useEffect(() => {
     if (accion === "Editar") {
@@ -117,7 +114,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 1000;
-
   .sub-contenedor {
     width: 500px;
     max-width: 85%;
