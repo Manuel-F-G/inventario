@@ -29,7 +29,7 @@ const Container = styled.div`
   justify-content: center;
   gap: 15px;
   button {
-    background-color: #ff7800;
+    background-color: #FEDC2A;
     border: none;
     padding: 5px 10px;
     border-radius: 3px;
@@ -42,7 +42,7 @@ const Container = styled.div`
     text-align: center;
     transition: 0.3s;
     &:hover {
-      box-shadow: 0px 10px 15px -3px #ff7800;
+      box-shadow: 0px 10px 15px -3px #FEDC2A;
     }
     .iconos {
       color: #fff;
