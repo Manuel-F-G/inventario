@@ -59,9 +59,23 @@ export function TablaKardex({
   };
   const columns = [
     {
+      accessorKey: "nombres",
+      header: "Usuario",
+      cell: (info) =><td data-title="Usuario  " className="ContentCell">
+        <span >{info.getValue()}</span>
+      </td> 
+    },
+    {
       accessorKey: "descripcion",
       header: "Producto",
       cell: (info) =><td data-title="Producto" className="ContentCell">
+        <span >{info.getValue()}</span>
+      </td> 
+    },
+    {
+      accessorKey: "cantidad",
+      header: "Cantidad",
+      cell: (info) =><td data-title="Cantidad" className="ContentCell">
         <span >{info.getValue()}</span>
       </td> 
     },
@@ -79,9 +93,23 @@ export function TablaKardex({
       </td> 
     },
     {
+      accessorKey: "detalle",
+      header: "Detalle",
+      cell: (info) =><td data-title="Detalle" className="ContentCell">
+        <span >{info.getValue()}</span>
+      </td> 
+    },
+    {
       accessorKey: "fecha",
       header: "Fecha",
       cell: (info) =><td data-title="Fecha" className="ContentCell">
+        <span >{info.getValue()}</span>
+      </td> 
+    },
+    {
+      accessorKey: "stock",
+      header: "S.Actual",
+      cell: (info) =><td data-title="S.Actual" className="ContentCell">
         <span >{info.getValue()}</span>
       </td> 
     },
