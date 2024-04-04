@@ -7,7 +7,7 @@ import {
   flexRender,
 } from "@tanstack/react-table";
 import styled from "styled-components";
-import { ContentAccionesTabla, Paginacion, useMarcaStore, v } from "../../../index";
+import { Colorcontent, ContentAccionesTabla, Paginacion, useMarcaStore, v } from "../../../index";
 import Swal from "sweetalert2";
 import { FaArrowsAltV } from "react-icons/fa";
 import { useState } from "react";
@@ -62,6 +62,19 @@ export function TablaKardex({
       header: "Producto",
       cell: (info) =><td data-title="Producto" className="ContentCell">
         <span >{info.getValue()}</span>
+      </td> 
+    },
+    {
+      accessorKey: "tipo",
+      header: "Tipo",
+      cell: (info) =><td data-title="Tipo" className="ContentCell">
+        {
+          info.getValue()=="salida"?(<Colorcontent $color="#ed4d4d">
+          {info.getValue()}
+          </Colorcontent>):(<Colorcontent $color="#30c85b">
+          {info.getValue()}
+          </Colorcontent>)
+        }
       </td> 
     },
     {
