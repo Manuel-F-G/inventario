@@ -91,7 +91,7 @@ export function RegistrarKardex({ onClose, dataSelect, accion, tipo }) {
             </article>
             <div className="btnguardarContent">
               <Btnsave
-                icono={<v.iconoguardar />}
+                icono={<v.iconoguardar/>}
                 titulo="Guardar"
                 bgcolor="#fedc2a"
               />
