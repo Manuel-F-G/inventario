@@ -7,10 +7,11 @@ import {
   flexRender,
 } from "@tanstack/react-table";
 import styled from "styled-components";
-import { Colorcontent, ContentAccionesTabla, Paginacion, useMarcaStore, v } from "../../../index";
+import { ContentAccionesTabla, Paginacion, useMarcaStore, v } from "../../../index";
 import Swal from "sweetalert2";
 import { FaArrowsAltV } from "react-icons/fa";
 import { useState } from "react";
+import {Device} from "../../../styles/breackpoints"
 export function TablaKardex({
   data,
   SetopenRegistro,
@@ -69,7 +70,7 @@ export function TablaKardex({
       header: "Tipo",
       cell: (info) =><td data-title="Tipo" className="ContentCell">
         {
-          info.getValue()=="salida"?(<Colorcontent $color="#ed4d4d">
+          info.getValue()=="salida"?(<Colorcontent $ancho="70%" $color="#ed4d4d">
           {info.getValue()}
           </Colorcontent>):(<Colorcontent $color="#30c85b">
           {info.getValue()}
@@ -289,5 +290,18 @@ const Container = styled.div`
         }
       }
     }
+  }
+`;
+
+const Colorcontent = styled.div`
+  color: ${(props) => props.$color};
+  border-radius: 8px;
+  border:1px dashed ${(props) => props.$color};
+  text-align: center;
+  padding: 3px;
+  width: 70%;
+  font-weight: 700;
+  @media ${Device.tablet} {
+    width: 100%;
   }
 `;
