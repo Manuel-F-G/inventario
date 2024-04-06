@@ -58,13 +58,13 @@ export function RegistrarAdmin({ setState }) {
               <input  className="form__field"
                 style={{ textTransform: "lowercase" }}
                 type="text"
-                placeholder="Correo"
+                placeholder="correo"
                 {...register("correo", {
                   required: true,
                   pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
                 })}
               />
-               <label className="form__label">Correo</label>
+               <label className="form__label">email</label>
               {errors.correo?.type === "pattern" && (
                 <p>El formato del email es incorrecto</p>
               )}
@@ -80,7 +80,7 @@ export function RegistrarAdmin({ setState }) {
                   required: true,
                 })}
               />
- <label className="form__label">Contraseña</label>
+ <label className="form__label">pass</label>
               {errors.pass?.type === "required" && <p>Campo requerido</p>}
             </InputText>
           </article>
@@ -88,7 +88,7 @@ export function RegistrarAdmin({ setState }) {
             <Btnsave
               icono={<v.iconoguardar />}
               titulo="Guardar"
-              bgcolor="#fedc2a"  
+              bgcolor="#ff7556"  
             />
           </div>
         </section>
