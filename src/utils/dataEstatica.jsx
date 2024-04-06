@@ -76,12 +76,6 @@ export const DataModulosConfiguracion =[
     link:"/configurar/personal",
   },
   {
-    title:"Tu empresa",
-    subtitle:"Configura opciones básicas",
-    icono:"https://i.ibb.co/x7mHPgm/administracion-de-empresas.png",
-    link:"/configurar/empresa",
-  },
-  {
     title:"Categoria de productos",
     subtitle:"Asigna area a los productos",
     icono:"https://i.ibb.co/VYbMRLZ/categoria.png",
