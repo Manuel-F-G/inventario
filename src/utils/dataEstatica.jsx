@@ -64,26 +64,26 @@ export const TemasData = [
 //data configuracion
 export const DataModulosConfiguracion =[
   {
-    title:"Productos.",
-    subtitle:"Registra productos.",
+    title:"Productos",
+    subtitle:"Registra productos",
     icono:"https://i.ibb.co/85zJ6yG/caja-del-paquete.png",
     link:"/configurar/productos",
   },
   {
-    title:"Personal.",
-    subtitle:"Control de personal.",
+    title:"Personal",
+    subtitle:"Control de personal",
     icono:"https://i.ibb.co/5vgZ0fX/hombre.png",
     link:"/configurar/personal",
   },
   {
-    title:"Área de productos.",
-    subtitle:"Asigna área a los productos.",
+    title:"Categoria de productos",
+    subtitle:"Asigna area a los productos",
     icono:"https://i.ibb.co/VYbMRLZ/categoria.png",
     link:"/configurar/categorias",
   },
   {
-    title:"Marca de productos.",
-    subtitle:"Añade marcas.",
+    title:"Marca de productos",
+    subtitle:"Añade marcas",
     icono:"https://i.ibb.co/1qsbCRb/piensa-fuera-de-la-caja.png",
     link:"/configurar/marca",
   },
