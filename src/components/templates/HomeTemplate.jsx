@@ -11,9 +11,6 @@ export function HomeTemplate() {
           stateConfig={{ state: state, setState: () => setState(!state) }}
         />
       </header>
-      <section className="area1">
-        <Title>Inicio</Title>
-      </section>
      
       <section className="main">
         <BannerEmpresa/>
