@@ -59,17 +59,17 @@ export function TablaKardex({
   };
   const columns = [
     {
-      accessorKey: "nombres",
-      header: "Usuario",
-      cell: (info) =><td data-title="Usuario  " className="ContentCell">
-        <span >{info.getValue()}</span>
-      </td> 
-    },
-    {
       accessorKey: "descripcion",
       header: "Producto",
       cell: (info) =><td data-title="Producto" className="ContentCell">
         <span style={{textDecoration:info.row.original.estado==0?"line-through":""}}>{info.getValue()}</span>
+      </td> 
+    },
+    {
+      accessorKey: "nombres",
+      header: "Usuario",
+      cell: (info) =><td data-title="Usuario  " className="ContentCell">
+        <span >{info.getValue()}</span>
       </td> 
     },
     {
