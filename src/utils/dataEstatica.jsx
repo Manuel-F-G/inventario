@@ -6,16 +6,6 @@ import {
 
 export const DesplegableUser = [
   {
-    text: "Mi perfil",
-    icono: <v.iconoUser/>,
-    tipo: "miperfil",
-  },
-  {
-    text: "Configuracion",
-    icono: <v.iconoSettings/>,
-    tipo: "configuracion",
-  },
-  {
     text: "Cerrar sesión",
     icono: <v.iconoCerrarSesion/>,
     tipo: "cerrarsesion",
@@ -35,11 +25,6 @@ export const LinksArray = [
     label: "Kardex",
     icon: <v.iconocategorias />,
     to: "/kardex",
-  },
-  {
-    label: "Reportes",
-    icon: <v.iconoreportes />,
-    to: "/reportes",
   },
 ];
 export const SecondarylinksArray = [
@@ -74,12 +59,6 @@ export const DataModulosConfiguracion =[
     subtitle:"Control de personal",
     icono:"https://i.ibb.co/5vgZ0fX/hombre.png",
     link:"/configurar/personal",
-  },
-  {
-    title:"Tu empresa",
-    subtitle:"Configura opciones básicas",
-    icono:"https://i.ibb.co/x7mHPgm/administracion-de-empresas.png",
-    link:"/configurar/empresa",
   },
   {
     title:"Categoria de productos",

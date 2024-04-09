@@ -86,7 +86,6 @@ export function LoginTemplate() {
             </ContainerBtn>
           </form>
         </div>
-        <FooterLogin />
       </div>
     </Container>
   );
