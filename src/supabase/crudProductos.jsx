@@ -7,7 +7,6 @@ export async function InsertarProductos(p) {
             icon: "error",
             title: "Oops...",
             text: error.message,
-            footer: '<a href="">Agregue una nueva descripcion</a>',
           });
     }
 }
