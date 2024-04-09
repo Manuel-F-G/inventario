@@ -33,7 +33,7 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
   const [tipodoc, setTipodoc] = useState({ icono: "", descripcion: "otros" });
   const [tipouser, setTipouser] = useState({
     icono: "",
-    descripcion: "empleado",
+    descripcion: "Empleado",
   });
   const { insertarusuarios, mostrarpermisosEdit, editarusuarios } =
     useUsuariosStore();
