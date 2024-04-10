@@ -112,7 +112,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                     required: true,
                   })}
                 />
-                <label className="form__label">descripcion</label>
+                <label className="form__label">Descripción</label>
                 {errors.nombre?.type === "required" && <p>Campo requerido</p>}
               </InputText>
             </article>
@@ -169,7 +169,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                     required: true,
                   })}
                 />
-                <label className="form__label">Stock minimo</label>
+                <label className="form__label">Stock mínimo</label>
 
                 {errors.stockminimo?.type === "required" && (
                   <p>Campo requerido</p>
@@ -177,7 +177,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
               </InputText>
             </article>
             <ContainerSelector>
-              <label>Categoria: </label>
+              <label>Categoría: </label>
               <Selector
                 funcion={() => setStateCategoria(!stateCategoria)}
                 state={stateCategoria}
