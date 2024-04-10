@@ -84,7 +84,7 @@ export function TablaProductos({
     },
     {
       accessorKey: "precioventa",
-      header: "P.venta",
+      header: "P.Compra Ant",
       enableSorting: false,
       cell: (info) => (
         <td data-title="P.venta" className="ContentCell">
