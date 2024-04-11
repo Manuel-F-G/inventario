@@ -66,9 +66,9 @@ export function TablaProductos({
   const columns = [
     {
       accessorKey: "descripcion",
-      header: "Descripcion",
+      header: "Descripción",
       cell: (info) => (
-        <td data-title="Descripcion" className="ContentCell">
+        <td data-title="Descripción" className="ContentCell">
           <span>{info.getValue()}</span>
         </td>
       ),
@@ -104,10 +104,10 @@ export function TablaProductos({
     },
     {
       accessorKey: "categoria",
-      header: "Categoria",
+      header: "Categoría",
       enableSorting: false,
       cell: (info) => (
-        <td data-title="Categoria" className="ContentCell">
+        <td data-title="Categoría" className="ContentCell">
           <ColorcontentTable
             $color={info.row.original.color}
             className="contentCategoria"

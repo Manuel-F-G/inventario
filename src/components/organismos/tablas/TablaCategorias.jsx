@@ -66,7 +66,8 @@ export function TablaCategorias({
     },
     {
       accessorKey: "color",
-      header: "Color",
+      header: "Color", 
+      enableSorting: false,
       cell: (info) =><td data-title="Color" className="ContentCell">
         <Colorcontent $color={info.getValue()} $alto="25px" $ancho="25px"/>
         
