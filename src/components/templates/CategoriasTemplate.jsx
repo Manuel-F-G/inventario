@@ -26,7 +26,7 @@ export function CategoriasTemplate({data}) {
       <section className="area1">
         <ContentFiltro>
           <Title>
-            Categorias
+            Categorías
           </Title>
            <Btnfiltro funcion={nuevoRegistro} bgcolor="#f6f3f3"
             textcolor="#353535"
