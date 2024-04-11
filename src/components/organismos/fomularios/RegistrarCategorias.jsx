@@ -10,7 +10,7 @@ import {
 } from "../../../index";
 import { useForm } from "react-hook-form";
 import { useEmpresaStore } from "../../../store/EmpresaStore";
-import { CirclePicker } from "react-color";
+import { SketchPicker } from "react-color";
 export function RegistrarCategorias({ onClose, dataSelect, accion }) {
   const [currentColor, setColor] = useState("#F44336");
   const { insertarcategorias, editarcategorias } = useCategoriasStore();
@@ -83,7 +83,7 @@ setColor(color.hex)
             </article>
             <article className="colorContainer">
               <center>
-              <CirclePicker onChange={elegirColor} color={currentColor}/>
+              <SketchPicker onChange={elegirColor} color={currentColor}/>
               </center>
             </article>
             
