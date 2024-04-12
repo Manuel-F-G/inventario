@@ -1,5 +1,5 @@
 {
     "rewrites": [
-      { "source": "/(.*)", "destination": "/LoginTemplate.jsx" }
+      { "source": "/(.*)", "destination": "/Login.jsx" }
     ]
   }
