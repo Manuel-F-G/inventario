@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import fondocuadros from "../../assets/fondocuadros.svg";
 import {  Link } from "react-router-dom";
 import { DataModulosConfiguracion } from "../../utils/dataEstatica";
 import { Mensaje } from "../moleculas/Mensaje";
@@ -35,7 +34,6 @@ export function ConfiguracionTemplate() {
 const Container = styled.div`
   --bg-color: rgb(20, 20, 20);
   --card-color: rgb(23, 23, 23);
-  background-image: url(${fondocuadros});
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat, repeat;
