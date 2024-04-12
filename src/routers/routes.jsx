@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import {
   Configuracion,
   ErrorMolecula,
@@ -9,39 +9,64 @@ import {
   SpinnerLoader,
   UserAuth,
   useEmpresaStore,
-  useUsuariosStore,Categorias, Productos, Usuarios,Kardex
+  useUsuariosStore,
+  Categorias,
+  Productos,
+  Usuarios,
+  Kardex
 } from "../index";
 import { useQuery } from "@tanstack/react-query";
 
 export function MyRoutes() {
   const { user } = UserAuth();
-  const { mostrarUsuarios,idusuario,mostrarpermisos } = useUsuariosStore();
-  const {mostrarEmpresa} = useEmpresaStore()
-  const { data:datausuarios, isLoading, error } = useQuery({
+  const { mostrarUsuarios, idusuario, mostrarpermisos } = useUsuariosStore();
+  const { mostrarEmpresa } = useEmpresaStore();
+  const { data: datausuarios, isLoading, error } = useQuery({
     queryKey: ["mostrar usuarios"],
     queryFn: mostrarUsuarios,
   });
-  const {data:dataempresa}=useQuery({queryKey:["mostrar empresa"],queryFn:()=>mostrarEmpresa({idusaurio:idusuario}),enabled:!!datausuarios})
-  const {data:datapermisos}=useQuery({queryKey:["mostrar permisos",{id_usuario:idusuario}],queryFn:()=>mostrarpermisos({id_usuario:idusuario}),enabled:!!datausuarios})
+  const { data: dataempresa } = useQuery({
+    queryKey: ["mostrar empresa"],
+    queryFn: () => mostrarEmpresa({ idusaurio: idusuario }),
+    enabled: !!datausuarios,
+  });
+  const { data: datapermisos } = useQuery({
+    queryKey: ["mostrar permisos", { id_usuario: idusuario }],
+    queryFn: () => mostrarpermisos({ id_usuario: idusuario }),
+    enabled: !!datausuarios,
+  });
 
-  if (isLoading){
-    return <SpinnerLoader/>
+  if (isLoading) {
+    return <SpinnerLoader />;
   }
-  if(error){
-    return <ErrorMolecula mensaje={error.message}/>
+  if (error) {
+    return <ErrorMolecula mensaje={error.message} />;
   }
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
-      <Route element={<ProtectedRoute user={user} redirectTo="/login" />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/configurar" element={<Configuracion />} />
-        <Route path="/configurar/marca" element={<Marca />} />
-        <Route path="/configurar/categorias" element={<Categorias />} />
-        <Route path="/configurar/productos" element={<Productos />} />
-        <Route path="/configurar/personal" element={<Usuarios />} />
-        <Route path="/kardex" element={<Kardex />} />
-      </Route>
+      <Route
+        element={
+          <ProtectedRoute user={user} redirectTo="/login">
+            <Route path="/" element={<Home />} />
+            <Route path="/configurar" element={<Configuracion />} />
+            <Route path="/configurar/marca" element={<Marca />} />
+            <Route path="/configurar/categorias" element={<Categorias />} />
+            <Route path="/configurar/productos" element={<Productos />} />
+            <Route path="/configurar/personal" element={<Usuarios />} />
+            <Route path="/kardex" element={<Kardex />} />
+          </ProtectedRoute>
+        }
+      />
+      {/* Agregar otras rutas aquí si es necesario */}
     </Routes>
   );
+}
+
+function ProtectedRoute({ user, redirectTo, children }) {
+  if (!user) {
+    return <Navigate to={redirectTo} />;
+  }
+
+  return children;
 }
