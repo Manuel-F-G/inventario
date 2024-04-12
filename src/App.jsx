@@ -1,4 +1,4 @@
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";s
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import styled, { ThemeProvider } from "styled-components";
 import {
   AuthContextProvider,
