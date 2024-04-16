@@ -9,7 +9,8 @@ import {
   SpinnerLoader,
   UserAuth,
   useEmpresaStore,
-  useUsuariosStore,Categorias, Productos, Usuarios,Kardex
+  useUsuariosStore,Categorias, Productos, Usuarios,Kardex,
+  Reportes
 } from "../index";
 import { useQuery } from "@tanstack/react-query";
 
@@ -41,6 +42,7 @@ export function MyRoutes() {
         <Route path="/configurar/productos" element={<Productos />} />
         <Route path="/configurar/personal" element={<Usuarios />} />
         <Route path="/kardex" element={<Kardex />} />
+        <Route path="/reportes" element={<Reportes />} />
       </Route>
     </Routes>
   );
