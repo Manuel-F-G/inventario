@@ -62,6 +62,9 @@ export const ReporteKardex = ({ data }) => {
                     {rowData.fecha}
                 </Text>
                 <Text style={[styles.cell, isHeader && styles.headerCell]}>
+                    {rowData.nombres}
+                </Text>
+                <Text style={[styles.cell, isHeader && styles.headerCell]}>
                     {rowData.descripcion}
                 </Text>
                 <Text style={[styles.cell, isHeader && styles.headerCell]}>
@@ -89,6 +92,7 @@ export const ReporteKardex = ({ data }) => {
                                 {
                                     id: 0,
                                     fecha: "Fecha",
+                                    nombres: "Usuario",
                                     descripcion: "Producto ",
                                     detalle: "Movimiento ",
                                     cantidad: "Cantidad",
