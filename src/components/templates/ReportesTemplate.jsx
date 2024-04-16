@@ -40,8 +40,6 @@ export function ReportesTemplate() {
           </Title>
         </ContentFiltro>
       </section>
-      <section className="area2" >
-      </section>
       <section className="main h-screen bg-red-400">
         <PDFViewer style={{width:"100%", height:"100%"}}>
         <ReporteKardex data={datakardex}/>
@@ -60,7 +58,6 @@ const Container = styled.div`
   grid-template:
     "header" 100px
     "area1" 100px
-    "area2" 100px
     "main" auto;
   .header {
     grid-area: header;
@@ -73,13 +70,6 @@ const Container = styled.div`
     /* background-color: rgba(229, 67, 26, 0.14); */
     display: flex;
     align-items: center;
-  }
-  .area2 {
-    grid-area: area2;
-    /* background-color: rgba(77, 237, 106, 0.14); */
-    display: flex;
-    align-items: center;
-    justify-content:end;
   }
   .main {
     grid-area: main;
