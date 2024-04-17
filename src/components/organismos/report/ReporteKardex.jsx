@@ -68,7 +68,7 @@ export const ReporteKardex = ({ data }) => {
                     {rowData.descripcion}
                 </Text>
                 <Text style={[styles.cell, isHeader && styles.headerCell]}>
-                    {rowData.detalle}
+                    {rowData.tipo}
                 </Text>
                 <Text style={[styles.cell, isHeader && styles.headerCell]}>
                     {rowData.cantidad}
@@ -84,7 +84,7 @@ export const ReporteKardex = ({ data }) => {
                 <View style={styles.page}>
                     <View style={styles.section}>
                         <Text
-                            style={{ fontSize: 18, marginBottom: 10}}
+                            style={{ fontSize: 12, marginBottom: 10}}
                         >Movimientos de Kardex</Text>
                         <Text>Fecha y hora de impresión: {formatedDate}</Text>
                         <View style={styles.table}>
@@ -94,7 +94,7 @@ export const ReporteKardex = ({ data }) => {
                                     fecha: "Fecha",
                                     nombres: "Usuario",
                                     descripcion: "Producto ",
-                                    detalle: "Movimiento ",
+                                    tipo: "Movimiento ",
                                     cantidad: "Cantidad",
                                 },
                                 true

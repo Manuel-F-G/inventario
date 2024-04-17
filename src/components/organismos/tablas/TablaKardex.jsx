@@ -108,8 +108,8 @@ export function TablaKardex({
     },
     {
       accessorKey: "stock",
-      header: "S.Actual",
-      cell: (info) =><td data-title="S.Actual" className="ContentCell">
+      header: "Stock Actual",
+      cell: (info) =><td data-title="Stock Actual" className="ContentCell">
         <span >{info.getValue()}</span>
       </td> 
     },

@@ -176,7 +176,9 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                 )}
               </InputText>
             </article>
-            <ContainerSelector>
+          </section>
+          <section className="seccion2">
+          <ContainerSelector>
               <label>Categoría: </label>
               <Selector
                 funcion={() => setStateCategoria(!stateCategoria)}
@@ -201,25 +203,6 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                 />
               )}
             </ContainerSelector>
-          </section>
-          <section className="seccion2">
-            <article>
-              <InputText icono={<v.iconocodigobarras />}>
-                <input
-                  className="form__field"
-                  defaultValue={dataSelect.codigobarras}
-                  type="number"
-                  placeholder=""
-                  {...register("codigobarras", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Código producto</label>
-                {errors.codigobarras?.type === "required" && (
-                  <p>Campo requerido</p>
-                )}
-              </InputText>
-            </article>
             <article>
               <InputText icono={<v.iconocodigointerno />}>
                 <input
@@ -234,25 +217,6 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                 <label className="form__label">Código interno</label>
 
                 {errors.codigointerno?.type === "required" && (
-                  <p>Campo requerido</p>
-                )}
-              </InputText>
-            </article>
-            <article>
-              <InputText icono={<v.iconoprecioventa />}>
-                <input
-                  step="0.01"
-                  className="form__field"
-                  defaultValue={dataSelect.precioventa}
-                  type="number"
-                  placeholder=""
-                  {...register("precioventa", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Precio compra anterior</label>
-
-                {errors.precioventa?.type === "required" && (
                   <p>Campo requerido</p>
                 )}
               </InputText>
