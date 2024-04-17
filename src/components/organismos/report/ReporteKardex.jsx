@@ -22,30 +22,22 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         borderBottom: 1,
         borderBottomColor: "#121212",
-        //alignItems: "stretch",
         height: 24,
         borderLeftColor: "#000",
         borderLeft: 1,
-        textAlign: "left",
-        justifyContent: "flex-start",
-        alignItems: 'center',
     },
     cell: {
         flex: 1,
-        textAlign: "left",
-        //fontFamily: "Inconsolata",
+        textAlign: "center",
         borderLeftColor: "#000",
-        justifyContent: "flex-start",
-        alignItems: 'center',
+        fontSize: 14,
     },
     headerCell: {
         flex: 1,
         backgroundColor: "#dcdcdc",
         fontWeight: "bold",
-        /*fontFamily: "Inconsolata",*/
-        textAlign: "left",
-        justifyContent: "flex-start",
-        alignItems: 'center',
+        textAlign: "center",
+        fontSize: 14,
     },
 });
 
@@ -84,7 +76,7 @@ export const ReporteKardex = ({ data }) => {
                 <View style={styles.page}>
                     <View style={styles.section}>
                         <Text
-                            style={{ fontSize: 12, marginBottom: 10}}
+                            style={{ fontSize: 14, marginBottom: 10}}
                         >Movimientos de Kardex</Text>
                         <Text>Fecha y hora de impresión: {formatedDate}</Text>
                         <View style={styles.table}>
